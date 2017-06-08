@@ -4,7 +4,7 @@ tmux is a terminal multiplexer.  It lets you switch easily between several progr
 
 Download [tmux 2.5 here](https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz) and see the [changes in this version](https://raw.githubusercontent.com/tmux/tmux/2.5/CHANGES).
 
-For support see [the FAQ](FAQ.md) or contact the [tmux-users@googlegroups.com mailing list](mailto:tmux-users@googlegroups.com) or [#tmux IRC channel on freenode](irc://irc.freenode.net/tmux).
+For support see [the FAQ](FAQ) or contact the [tmux-users@googlegroups.com mailing list](mailto:tmux-users@googlegroups.com) or [#tmux IRC channel on freenode](irc://irc.freenode.net/tmux).
 
 tmux depends on [libevent](http://libevent.org) and [ncurses](http://invisible-island.net/ncurses/).
 
