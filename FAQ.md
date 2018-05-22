@@ -9,13 +9,6 @@ Don't bother reporting problems where it isn't!
 Outside, it must match your terminal: particularly, use "rxvt" for rxvt
 and derivatives.
 ~~~~
-
-### How is tmux different from GNU screen?
-
-tmux and GNU screen have many similarities and similar goals but now many
-differences. Most things that can be achieved in one can be achieved in the
-other, however.
-
 ### What is TERM and what does it do?
 
 The environment variable TERM tells applications the name of a terminal
