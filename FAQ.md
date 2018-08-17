@@ -117,7 +117,7 @@ tmux must be told that the terminal outside supports RGB colour. This is done by
 set -as terminal-overrides ",gnome*:RGB"
 ~~~~
 
-For tmux itself, colours may be specified in hexadecimal, for example bg=#ff00000.
+For tmux itself, colours may be specified in hexadecimal, for example bg=#ff0000.
 
 ### Why are tmux pane separators dashed rather than continuous lines?
 
