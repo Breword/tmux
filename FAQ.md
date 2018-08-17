@@ -3,10 +3,10 @@ PLEASE NOTE: most display problems are due to incorrect TERM! Before
 reporting problems make SURE that TERM settings are correct inside and
 outside tmux.
 
-Inside tmux TERM must be "screen" or similar (such as "screen-256color").
+Inside tmux TERM must be "screen", "tmux" or similar (such as "tmux-256color").
 Don't bother reporting problems where it isn't!
 
-Outside, it must match your terminal: particularly, use "rxvt" for rxvt
+Outside, it should match your terminal: particularly, use "rxvt" for rxvt
 and derivatives.
 ~~~~
 ### What is TERM and what does it do?
@@ -108,6 +108,16 @@ set -g default-terminal "tmux-256color"
 
 And make sure that TERM outside tmux also shows 256 colours, or use the tmux -2
 flag.
+
+### How do I use RGB colour?
+
+tmux must be told that the terminal outside supports RGB colour. This is done by specifying the RGB or Tc terminfo(5) flags. RGB is the official flag, Tc is a tmux extension. The easiest method is with the terminal-overrides option, for example:
+
+~~~~
+set -as terminal-overrides ",gnome*:RGB"
+~~~~
+
+For tmux itself, colours may be specified in hexadecimal, for example bg=#ff00000.
 
 ### Why are tmux pane separators dashed rather than continuous lines?
 
@@ -241,3 +251,7 @@ using:
 ~~~~
 C-b : attach -d
 ~~~~
+
+### Why don't XMODEM, YMODEM and ZMODEM work inside tmux?
+
+tmux is not a file transfer program and these protocols are more effort to support than their remaining popularity deserves. Detach tmux before attempting to use them.
