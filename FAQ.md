@@ -148,7 +148,7 @@ to this is that there is a delay before an Escape key press is recognised.
 
 If tmux is running on the same computer as the terminal, or over a fast
 network, then typically the bytes representing a key will all arrive together,
-so an escape-time of zero is be fine. Over a slower network, a larger value is
+so an escape-time of zero is likely to be fine. Over a slower network, a larger value would be better.
 
 ### How do I make Ctrl-PgUp and Ctrl-PgDn work inside tmux?
 
