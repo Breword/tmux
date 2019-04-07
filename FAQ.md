@@ -130,6 +130,26 @@ The U8 capability forces tmux to use ACS instead of UTF-8 line drawing:
 set -as terminal-overrides ",*:U8=0"
 ~~~~
 
+### What is the escape-time option? Is zero a good value?
+
+Terminal applications like tmux receive key presses as a stream of bytes with
+special keys marked by the ASCII ESC character (\033). The problem - and the
+reason for escape-time - is that as well as marking special keys, the same
+ASCII ESC is also used for the Escape key itself.
+
+If tmux gets a \033 byte followed a short time later by an x, has the user
+pressed Escape followed by x, or have they pressed M-x? There is no guaranteed
+way to know.
+
+The solution to this problem used by tmux and most other terminal applications
+is to introduce a delay. When tmux receives \033, it starts a timer - if the
+timer expires without any following bytes, then the key is Escape. The downside
+to this is that there is a delay before an Escape key press is recognised.
+
+If tmux is running on the same computer as the terminal, or over a fast
+network, then typically the bytes representing a key will all arrive together,
+so an escape-time of zero is be fine. Over a slower network, a larger value is
+
 ### How do I make Ctrl-PgUp and Ctrl-PgDn work inside tmux?
 
 tmux sends modified function keys using xterm(1)-style escape
