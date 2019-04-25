@@ -111,7 +111,10 @@ flag.
 
 ### How do I use RGB colour?
 
-tmux must be told that the terminal outside supports RGB colour. This is done by specifying the RGB or Tc terminfo(5) flags. RGB is the official flag, Tc is a tmux extension. The easiest method is with the terminal-overrides option, for example:
+tmux must be told that the terminal outside supports RGB colour. This is done
+by specifying the RGB or Tc terminfo(5) flags. RGB is the official flag, Tc is
+a tmux extension. The easiest method is with the terminal-overrides option, for
+example:
 
 ~~~~
 set -as terminal-overrides ",gnome*:RGB"
@@ -132,9 +135,14 @@ set -as terminal-overrides ",*:U8=0"
 
 ### How do I translate -fg, -bg and -attr options into -style options?
 
-Before tmux 1.9, styles (the colours and attributes of various things) were each configured with three options - one for the foreground colour (such as mode-fg), one for the background (such as mode-bg) and one for the attributes (such as mode-attr).
+Before tmux 1.9, styles (the colours and attributes of various things) were
+each configured with three options - one for the foreground colour (such as
+mode-fg), one for the background (such as mode-bg) and one for the attributes
+(such as mode-attr).
 
-In tmux 1.9 each set of three options were combined into a single option (so mode-fg, mode-bg and mode-attr became mode-style) and in tmux 2.9 the old options were removed. So for example:
+In tmux 1.9 each set of three options were combined into a single option (so
+mode-fg, mode-bg and mode-attr became mode-style) and in tmux 2.9 the old
+options were removed. So for example:
 
 ~~~~
 set -g mode-bg yellow
@@ -294,4 +302,6 @@ C-b : attach -d
 
 ### Why don't XMODEM, YMODEM and ZMODEM work inside tmux?
 
-tmux is not a file transfer program and these protocols are more effort to support than their remaining popularity deserves. Detach tmux before attempting to use them.
+tmux is not a file transfer program and these protocols are more effort to
+support than their remaining popularity deserves. Detach tmux before attempting
+to use them.
