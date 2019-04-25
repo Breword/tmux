@@ -130,6 +130,26 @@ The U8 capability forces tmux to use ACS instead of UTF-8 line drawing:
 set -as terminal-overrides ",*:U8=0"
 ~~~~
 
+### How do I translate -fg, -bg and -attr options into -style options?
+
+Before tmux 1.9, styles (the colours and attributes of various things) were each configured with three options - one for the foreground colour (such as mode-fg), one for the background (such as mode-bg) and one for the attributes (such as mode-attr).
+
+In tmux 1.9 each set of three options were combined into a single option (so mode-fg, mode-bg and mode-attr becomes mode-style) and in tmux 2.9 the old options were removed. So for example:
+
+~~~~
+set -g mode-bg yellow
+set -g mode-fg red
+set -g mode-attr blink,underline
+~~~~
+
+Becomes:
+
+~~~~
+set -g mode-style fg=yellow,bg=red,blink,underline
+~~~~
+
+The format of style options is described [in the manual](https://man.openbsd.org/tmux.1#STYLES).
+
 ### What is the escape-time option? Is zero a good value?
 
 Terminal applications like tmux receive key presses as a stream of bytes with
