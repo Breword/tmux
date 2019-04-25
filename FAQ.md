@@ -134,7 +134,7 @@ set -as terminal-overrides ",*:U8=0"
 
 Before tmux 1.9, styles (the colours and attributes of various things) were each configured with three options - one for the foreground colour (such as mode-fg), one for the background (such as mode-bg) and one for the attributes (such as mode-attr).
 
-In tmux 1.9 each set of three options were combined into a single option (so mode-fg, mode-bg and mode-attr becomes mode-style) and in tmux 2.9 the old options were removed. So for example:
+In tmux 1.9 each set of three options were combined into a single option (so mode-fg, mode-bg and mode-attr became mode-style) and in tmux 2.9 the old options were removed. So for example:
 
 ~~~~
 set -g mode-bg yellow
@@ -142,7 +142,7 @@ set -g mode-fg red
 set -g mode-attr blink,underline
 ~~~~
 
-Becomes:
+Should be changed to:
 
 ~~~~
 set -g mode-style fg=yellow,bg=red,blink,underline
