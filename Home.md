@@ -9,3 +9,5 @@ For support see [the FAQ](FAQ) or contact the [tmux-users@googlegroups.com maili
 tmux depends on [libevent](http://libevent.org) and [ncurses](http://invisible-island.net/ncurses/).
 
 There are many online introductions to tmux (some are [here](https://robots.thoughtbot.com/a-tmux-crash-course) and [here](http://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)) and a few books (including [a nice online book](https://leanpub.com/the-tao-of-tmux/read)).
+
+Some notes on tmux development and ideas for contributions are [here](Contributing).
