@@ -1,5 +1,3 @@
-# Contributing to tmux
-
 ## Source code and development process
 
 tmux is part of the OpenBSD base system and OpenBSD CVS is the primary source
