@@ -1,4 +1,4 @@
-### Contributing to tmux
+# Contributing to tmux
 
 ## Source code and development process
 
