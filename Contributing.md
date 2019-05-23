@@ -76,6 +76,14 @@ items, to avoid any duplication of effort.
 
 ### Medium things
 
+- (1755) Instead of load-buffer, save-buffer and source-file opening the file
+  in the server, they could ask the client to do so and send back a file
+  descriptor. This would fix the <(echo foo) mechanism in some shells which
+  passes /dev/fd/X as the path (where X is a descriptor open in the client but
+  could be already in use for something different in the server). Probably the
+  existing stdin code could be merged into this as well. Would perhaps need to
+  consider Cygwin which doesn't have file descriptor passing.
+
 - Marked positions in history. Could use the same prompt-detection escape
   sequences as iTerm2. Could be listed by capture-pane and also a menu to jump
   to marks in copy mode. (1042) is related and also has some code to display a
