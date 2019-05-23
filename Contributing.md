@@ -72,6 +72,8 @@ items, to avoid any duplication of effort.
 
 - (1240) Key in copy mode to search for word under cursor.
 
+- source-file should allow - for stdin like load-buffer.
+
 ### Medium things
 
 - Marked positions in history. Could use the same prompt-detection escape
