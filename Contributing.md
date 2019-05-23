@@ -106,6 +106,14 @@ items, to avoid any duplication of effort.
   moment it stops reading which is not ideal, and there are also questions
   about how it should work with copy-mode -e.
 
+- Formats to access the mouse position and the line/word under the mouse, and
+  additional arguments to whatever commands are necessary
+  (copy-mode/send-keys?) so that things like "search for word X" and "copy word
+  X" can go on the menu.
+
+- The lexer in cmd-parse.y should be a single state machine rather than separate
+  functions for environment variables, strings and formats.
+
 ### Large things
 
 - (1269) Store grids in blocks. Can be used to reflow on demand. Would be nice
