@@ -74,7 +74,15 @@ items, to avoid any duplication of effort.
 
 - source-file should allow - for stdin like load-buffer.
 
+- It would be better if disabling a menu item was a property of the item (for
+  example a leading - disables the item), rather than just sticking #[dim] in
+  there. Then disabled items could be not highlighted at all.
+
 ### Medium things
+
+- It would be nice to have a flag for new/neww to open a number of panes at
+  once, for example 'neww -X "top" "top" "top"' would open a window with three
+  panes - perhaps in a tiled layout by default.
 
 - (1755) Instead of load-buffer, save-buffer and source-file opening the file
   in the server, they could ask the client to do so and send back a file
@@ -91,10 +99,6 @@ items, to avoid any duplication of effort.
 
 - (1545) Copy mode searching is very slow when there is a big history, need a
   good solution.
-
-- (1743) Some key bindings (such as M-;) and the ';' in command sequences are
-  not escaped by list-keys, so the output can't be used unmodified in
-  .tmux.conf.
 
 - Drag panes and windows around in tree mode in order to move or swap them.
 
@@ -115,11 +119,6 @@ items, to avoid any duplication of effort.
 - (1718) Copy mode should behave better if the pane outside is modified. At the
   moment it stops reading which is not ideal, and there are also questions
   about how it should work with copy-mode -e.
-
-- Formats to access the mouse position and the line/word under the mouse, and
-  additional arguments to whatever commands are necessary
-  (copy-mode/send-keys?) so that things like "search for word X" and "copy word
-  X" can go on the menu.
 
 - The lexer in cmd-parse.y should be a single state machine rather than separate
   functions for environment variables, strings and formats.
