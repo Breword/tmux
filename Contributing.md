@@ -66,8 +66,6 @@ items, to avoid any duplication of effort.
 
 - A flag to wait-for for a timeout or to stop waiting on a signal.
 
-- Format comparison operators like < and >.
-
 - A command in copy mode to toggle the selection.
 
 - (1240) Key in copy mode to search for word under cursor.
@@ -128,9 +126,6 @@ items, to avoid any duplication of effort.
 - (1269) Store grids in blocks. Can be used to reflow on demand. Would be nice
   to revisit how history-limit works - would it be better as a global limit
   rather than per pane?
-
-- (1743) The config file parser could be improved both to more closely match
-  how the shell tokenizes but also to allow more readable command sequences.
 
 - (1605) Support for ZERO WIDTH JOINER U+200D.
 
