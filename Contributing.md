@@ -70,7 +70,8 @@ items, to avoid any duplication of effort.
 
 - (1240) Key in copy mode to search for word under cursor.
 
-- source-file should allow - for stdin like load-buffer.
+- source-file should allow - for stdin like load-buffer (this would be easier
+  and work better if 1755 below was done first).
 
 ### Medium things
 
