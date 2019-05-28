@@ -72,10 +72,6 @@ items, to avoid any duplication of effort.
 
 - source-file should allow - for stdin like load-buffer.
 
-- It would be better if disabling a menu item was a property of the item (for
-  example a leading - disables the item), rather than just sticking #[dim] in
-  there. Then disabled items could be not highlighted at all.
-
 ### Medium things
 
 - It would be nice to have a flag for new/neww to open a number of panes at
