@@ -58,6 +58,9 @@ items, to avoid any duplication of effort.
 
 ### Small things
 
+- It would be good if select-pane had a -Z flag to preserve zoom state (if
+  already zoomed, stay zoomed).
+
 - "After" hooks are missing for many commands that do not use CMD_AFTERHOOK.
 
 - Some sort of menu or menus in copy mode.
