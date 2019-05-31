@@ -6,8 +6,8 @@ repository:
 https://cvsweb.openbsd.org/cgi-bin/cvsweb/src/usr.bin/tmux/
 
 GitHub holds the portable tmux version. There are a few minor differences (for
-example, the OpenBSD code doesn't include the -V flag) but otherwise the
-additions are mainly for portability.
+example, the OpenBSD code doesn't include  
+the -V flag) but otherwise the additions are mainly for portability.
 
 Code changes to the main tmux code are committed to OpenBSD and then a script
 automatically applies any new commits to the GitHub repository every few hours.
@@ -18,8 +18,8 @@ form will be a patch file which is applied to OpenBSD CVS.
 ## Releases
 
 tmux currently sees a new release approximately every six months - the same
-schedule as OpenBSD, around May and October. This means that the GitHub
-releases contain roughly the same code as OpenBSD releases (but not necessarily
+schedule as OpenBSD, around May and October.  
+This means that the GitHub releases contain roughly the same code as OpenBSD releases (but not necessarily
 exactly the same).
 
 The release process consists of a branch from which one or more release
@@ -71,10 +71,10 @@ items, to avoid any duplication of effort.
 
 - A command in copy mode to toggle the selection.
 
-- (1240) Key in copy mode to search for word under cursor.
+- ([#1240](https://github.com/tmux/tmux/issues/1240)) Key in copy mode to search for word under cursor.
 
 - source-file should allow - for stdin like load-buffer (this would be easier
-  and work better if 1755 below was done first).
+  and work better if ([#1755](https://github.com/tmux/tmux/issues/1755)) below was done first).
 
 ### Medium things
 
@@ -82,7 +82,7 @@ items, to avoid any duplication of effort.
   once, for example 'neww -X "top" "top" "top"' would open a window with three
   panes - perhaps in a tiled layout by default.
 
-- (1755) Instead of load-buffer, save-buffer and source-file opening the file
+- ([#1755](https://github.com/tmux/tmux/issues/1755)) Instead of load-buffer, save-buffer and source-file opening   the file
   in the server, they could ask the client to do so and send back a file
   descriptor. This would fix the <(echo foo) mechanism in some shells which
   passes /dev/fd/X as the path (where X is a descriptor open in the client but
@@ -92,17 +92,16 @@ items, to avoid any duplication of effort.
 
 - Marked positions in history. Could use the same prompt-detection escape
   sequences as iTerm2. Could be listed by capture-pane and also a menu to jump
-  to marks in copy mode. (1042) is related and also has some code to display a
-  marker line.
+  to marks in copy mode. ([#1042](https://github.com/tmux/tmux/issues/1042)) is related and also has some code to display a marker line.
 
-- (1545) Copy mode searching is very slow when there is a big history, need a
+- ([#1545](https://github.com/tmux/tmux/issues/1545)) Copy mode searching is very slow when there is a big history, need a
   good solution.
 
 - Drag panes and windows around in tree mode in order to move or swap them.
 
 - Make the commmand prompt able to take up multiple lines.
 
-- (918) A way to specify how panes are merged when one is killed. Could be an
+- ([#918](https://github.com/tmux/tmux/issues/918)) A way to specify how panes are merged when one is killed. Could be an
   option to kill-pane.
 
 - Allow multiple targets either with multiple -t or by giving a pattern or both.
@@ -111,10 +110,10 @@ items, to avoid any duplication of effort.
   it should be found even if wrapped into "foo\nbar" (that is, the
   GRID_LINE_WRAPPED flag is set on the line).
 
-- (682) Improve word and line selection in copy mode (for example when dragging
+- ([#682](https://github.com/tmux/tmux/issues/682)) Improve word and line selection in copy mode (for example when dragging
   it should select by word. Compare how xterm(1) works.
 
-- (1718) Copy mode should behave better if the pane outside is modified. At the
+- ([#1718](https://github.com/tmux/tmux/issues/1718)) Copy mode should behave better if the pane outside is modified. At the
   moment it stops reading which is not ideal, and there are also questions
   about how it should work with copy-mode -e.
 
@@ -123,17 +122,17 @@ items, to avoid any duplication of effort.
 
 ### Large things
 
-- (1269) Store grids in blocks. Can be used to reflow on demand. Would be nice
+- ([#1269](https://github.com/tmux/tmux/issues/1269)) Store grids in blocks. Can be used to reflow on demand. Would be nice
   to revisit how history-limit works - would it be better as a global limit
   rather than per pane?
 
-- (1605) Support for ZERO WIDTH JOINER U+200D.
+- ([#1605](https://github.com/tmux/tmux/issues/1605)) Support for ZERO WIDTH JOINER U+200D.
 
-- (1503) Panes that cross multiple columns for extra height. This seems fraught
+- ([#1503](https://github.com/tmux/tmux/issues/1503)) Panes that cross multiple columns for extra height. This seems fraught
   with complexity for anything but the simplest cases.
 
 - Link panes into multiple windows.
 
 - Separate active panes for different clients.
 
-- (44 & 1613) Support for SIXEL.
+- ([#44](https://github.com/tmux/tmux/issues/44)) & ([#1613](https://github.com/tmux/tmux/issues/1613)) Support for SIXEL.
