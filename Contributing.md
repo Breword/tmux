@@ -6,8 +6,7 @@ repository:
 https://cvsweb.openbsd.org/cgi-bin/cvsweb/src/usr.bin/tmux/
 
 GitHub holds the portable tmux version. There are a few minor differences (for
-example, the OpenBSD code doesn't include  
-the -V flag) but otherwise the additions are mainly for portability.
+example, the OpenBSD code doesn't include the -V flag) but otherwise the additions are mainly for portability.
 
 Code changes to the main tmux code are committed to OpenBSD and then a script
 automatically applies any new commits to the GitHub repository every few hours.
@@ -18,8 +17,7 @@ form will be a patch file which is applied to OpenBSD CVS.
 ## Releases
 
 tmux currently sees a new release approximately every six months - the same
-schedule as OpenBSD, around May and October.  
-This means that the GitHub releases contain roughly the same code as OpenBSD releases (but not necessarily
+schedule as OpenBSD, around May and October. This means that the GitHub releases contain roughly the same code as OpenBSD releases (but not necessarily
 exactly the same).
 
 The release process consists of a branch from which one or more release
