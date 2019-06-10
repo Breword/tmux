@@ -108,8 +108,8 @@ items, to avoid any duplication of effort.
 
 - Make the commmand prompt able to take up multiple lines.
 
-- ([#918](https://github.com/tmux/tmux/issues/918)) A way to specify how panes are merged when one is killed. Could be an
-  option to kill-pane.
+- ([#918](https://github.com/tmux/tmux/issues/918)) A way to specify how panes
+  are merged when one is killed. Could be an option to kill-pane.
 
 - Allow multiple targets either with multiple -t or by giving a pattern or both.
 
@@ -117,29 +117,43 @@ items, to avoid any duplication of effort.
   it should be found even if wrapped into "foo\nbar" (that is, the
   GRID_LINE_WRAPPED flag is set on the line).
 
-- ([#682](https://github.com/tmux/tmux/issues/682)) Improve word and line selection in copy mode (for example when dragging
-  it should select by word. Compare how xterm(1) works.
+- ([#682](https://github.com/tmux/tmux/issues/682)) Improve word and line
+  selection in copy mode (for example when dragging it should select by
+  word. Compare how xterm(1) works.
 
-- ([#1718](https://github.com/tmux/tmux/issues/1718)) Copy mode should behave better if the pane outside is modified. At the
-  moment it stops reading which is not ideal, and there are also questions
-  about how it should work with copy-mode -e.
+- ([#1718](https://github.com/tmux/tmux/issues/1718)) Copy mode should behave
+  better if the pane outside is modified. At the moment it stops reading which
+  is not ideal, and there are also questions about how it should work with
+  copy-mode -e.
 
 - The lexer in cmd-parse.y should be a single state machine rather than separate
   functions for environment variables, strings and formats.
 
+- Pane options - would be more useful if inherited from the window options
+  rather than a global set. select-pane -P and maybe -e/-d would be better as
+  pane options and pane-border-format (and maybe pane-border-style).
+
 ### Large things
 
-- ([#1269](https://github.com/tmux/tmux/issues/1269)) Store grids in blocks. Can be used to reflow on demand. Would be nice
-  to revisit how history-limit works - would it be better as a global limit
-  rather than per pane?
+- Better layouts. For example it would be good if they were driven by hints
+  rather than fixed positions and could be automatically reapplied after
+  resize/split/kill. Pane options would be useful here.
 
-- ([#1605](https://github.com/tmux/tmux/issues/1605)) Support for ZERO WIDTH JOINER U+200D.
+- ([#1269](https://github.com/tmux/tmux/issues/1269)) Store grids in
+  blocks. Can be used to reflow on demand. Would be nice to revisit how
+  history-limit works - would it be better as a global limit rather than per
+  pane?
 
-- ([#1503](https://github.com/tmux/tmux/issues/1503)) Panes that cross multiple columns for extra height. This seems fraught
-  with complexity for anything but the simplest cases.
+- ([#1605](https://github.com/tmux/tmux/issues/1605)) Support for ZERO WIDTH
+  JOINER U+200D.
+
+- ([#1503](https://github.com/tmux/tmux/issues/1503)) Panes that cross multiple
+  columns for extra height. This seems fraught with complexity for anything but
+  the simplest cases.
 
 - Link panes into multiple windows.
 
 - Separate active panes for different clients.
 
-- ([#44](https://github.com/tmux/tmux/issues/44)) & ([#1613](https://github.com/tmux/tmux/issues/1613)) Support for SIXEL.
+- ([#44](https://github.com/tmux/tmux/issues/44)) &
+  ([#1613](https://github.com/tmux/tmux/issues/1613)) Support for SIXEL.
