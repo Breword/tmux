@@ -69,10 +69,19 @@ items, to avoid any duplication of effort.
 
 - A command in copy mode to toggle the selection.
 
-- ([#1240](https://github.com/tmux/tmux/issues/1240)) Key in copy mode to search for word under cursor.
+- ([#1240](https://github.com/tmux/tmux/issues/1240)) Key in copy mode to
+  search for word under cursor.
 
 - source-file should allow - for stdin like load-buffer (this would be easier
-  and work better if ([#1755](https://github.com/tmux/tmux/issues/1755)) below was done first).
+  and work better if ([#1755](https://github.com/tmux/tmux/issues/1755)) below
+  was done first).
+
+- wait-for could do more, for example being able to wait for a pane to exit or
+  close (could use the existing notify code in some way).
+
+- ([#1784](https://github.com/tmux/tmux/issues/1784)) A way to disable line
+  wrap but preserve any trimmed content (so it can be viewed if the pane is
+  made bigger).
 
 ### Medium things
 
