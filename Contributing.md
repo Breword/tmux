@@ -6,7 +6,8 @@ repository:
 https://cvsweb.openbsd.org/cgi-bin/cvsweb/src/usr.bin/tmux/
 
 GitHub holds the portable tmux version. There are a few minor differences (for
-example, the OpenBSD code doesn't include the -V flag) but otherwise the additions are mainly for portability.
+example, the OpenBSD code doesn't include the -V flag) but otherwise the
+additions are mainly for portability.
 
 Code changes to the main tmux code are committed to OpenBSD and then a script
 automatically applies any new commits to the GitHub repository every few hours.
@@ -17,7 +18,8 @@ form will be a patch file which is applied to OpenBSD CVS.
 ## Releases
 
 tmux currently sees a new release approximately every six months - the same
-schedule as OpenBSD, around May and October. This means that the GitHub releases contain roughly the same code as OpenBSD releases (but not necessarily
+schedule as OpenBSD, around May and October. This means that the GitHub
+releases contain roughly the same code as OpenBSD releases (but not necessarily
 exactly the same).
 
 The release process consists of a branch from which one or more release
@@ -89,20 +91,22 @@ items, to avoid any duplication of effort.
   once, for example 'neww -X "top" "top" "top"' would open a window with three
   panes - perhaps in a tiled layout by default.
 
-- ([#1755](https://github.com/tmux/tmux/issues/1755)) Instead of load-buffer, save-buffer and source-file opening   the file
-  in the server, they could ask the client to do so and send back a file
-  descriptor. This would fix the <(echo foo) mechanism in some shells which
-  passes /dev/fd/X as the path (where X is a descriptor open in the client but
-  could be already in use for something different in the server). Probably the
-  existing stdin code could be merged into this as well. Would perhaps need to
-  consider Cygwin which doesn't have file descriptor passing.
+- ([#1755](https://github.com/tmux/tmux/issues/1755)) Instead of load-buffer,
+  save-buffer and source-file opening the file in the server, they could ask
+  the client to do so and send back a file descriptor. This would fix the
+  <(echo foo) mechanism in some shells which passes /dev/fd/X as the path
+  (where X is a descriptor open in the client but could be already in use for
+  something different in the server). Probably the existing stdin code could be
+  merged into this as well. Would perhaps need to consider Cygwin which doesn't
+  have file descriptor passing.
 
 - Marked positions in history. Could use the same prompt-detection escape
   sequences as iTerm2. Could be listed by capture-pane and also a menu to jump
-  to marks in copy mode. ([#1042](https://github.com/tmux/tmux/issues/1042)) is related and also has some code to display a marker line.
+  to marks in copy mode. ([#1042](https://github.com/tmux/tmux/issues/1042)) is
+  related and also has some code to display a marker line.
 
-- ([#1545](https://github.com/tmux/tmux/issues/1545)) Copy mode searching is very slow when there is a big history, need a
-  good solution.
+- ([#1545](https://github.com/tmux/tmux/issues/1545)) Copy mode searching is
+  very slow when there is a big history, need a good solution.
 
 - Drag panes and windows around in tree mode in order to move or swap them.
 
