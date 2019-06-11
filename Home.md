@@ -2,7 +2,7 @@
 
 ### Welcome to tmux!
 
-tmux is a terminal multiplexer.  It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. And do a lot more. See [the tmux(1) manual page](http://man.openbsd.org/OpenBSD-current/man1/tmux.1) and [the README](https://raw.githubusercontent.com/tmux/tmux/master/README).
+tmux is a terminal multiplexer.  It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. And do a lot more. See [the tmux(1) manual page](http://man.openbsd.org/OpenBSD-current/man1/tmux.1) and [the README](https://github.com/tmux/tmux/blob/master/.github/README.md).
 
 **Download [tmux 2.9 here](https://github.com/tmux/tmux/releases/download/2.9/tmux-2.9.tar.gz)** ([changes in this version](https://raw.githubusercontent.com/tmux/tmux/2.9/CHANGES)).
 
