@@ -283,9 +283,9 @@ On OS X, look at the pbcopy(1) and pbpaste(1) commands.
 
 ### Why do I see dots around a session when I attach to it?
 
-tmux limits the size of the window to the smallest attached session. If
-it didn't do this then it would be impossible to see the entire window.
-The dots mark the size of the window tmux can display.
+Until version 2.9, tmux limits the size of the window to the smallest attached
+client. If it didn't do this then it would be impossible to see the entire
+window. The dots mark the size of the window tmux can display.
 
 To avoid this, detach all other clients when attaching:
 
@@ -299,6 +299,9 @@ using:
 ~~~~
 C-b : attach -d
 ~~~~
+
+With 2.9 or later, setting the window-size option to largest will use the
+largest attached client rather than smallest.
 
 ### Why don't XMODEM, YMODEM and ZMODEM work inside tmux?
 
