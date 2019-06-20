@@ -133,10 +133,6 @@ items, to avoid any duplication of effort.
 - The lexer in cmd-parse.y should be a single state machine rather than separate
   functions for environment variables, strings and formats.
 
-- Pane options - would be more useful if inherited from the window options
-  rather than a global set. select-pane -P and maybe -e/-d would be better as
-  pane options and pane-border-format (and maybe pane-border-style).
-
 ### Large things
 
 - Better layouts. For example it would be good if they were driven by hints
