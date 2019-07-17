@@ -59,7 +59,7 @@ items, to avoid any duplication of effort.
 ### Small things
 
 - It would be good if select-pane had a -Z flag to preserve zoom state (if
-  already zoomed, stay zoomed).
+  already zoomed, stay zoomed), similarly for other commands (swap-pane).
 
 - "After" hooks are missing for many commands that do not use CMD_AFTERHOOK.
 
@@ -86,6 +86,8 @@ items, to avoid any duplication of effort.
   made bigger).
 
 ### Medium things
+
+- Regex searching in copy mode. 
 
 - It would be nice to have a flag for new/neww to open a number of panes at
   once, for example 'neww -X "top" "top" "top"' would open a window with three
