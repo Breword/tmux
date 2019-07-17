@@ -58,8 +58,9 @@ items, to avoid any duplication of effort.
 
 ### Small things
 
-- It would be good if select-pane had a -Z flag to preserve zoom state (if
-  already zoomed, stay zoomed), similarly for other commands (swap-pane).
+- ([#1839](https://github.com/tmux/tmux/issues/1839)) It would be good if
+  select-pane had a -Z flag to preserve zoom state (if already zoomed, stay
+  zoomed), similarly for other commands (swap-pane).
 
 - "After" hooks are missing for many commands that do not use CMD_AFTERHOOK.
 
