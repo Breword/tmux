@@ -87,7 +87,11 @@ items, to avoid any duplication of effort.
 
 ### Medium things
 
-- Regex searching in copy mode. 
+- Regex search and highlighting in copy mode. Could also look at cleaning up
+  and perhaps merging the various stringify and search bits.
+
+- ([#1605](https://github.com/tmux/tmux/issues/1605)) Support for ZERO WIDTH
+  JOINER U+200D.
 
 - It would be nice to have a flag for new/neww to open a number of panes at
   once, for example 'neww -X "top" "top" "top"' would open a window with three
@@ -145,9 +149,6 @@ items, to avoid any duplication of effort.
   blocks. Can be used to reflow on demand. Would be nice to revisit how
   history-limit works - would it be better as a global limit rather than per
   pane?
-
-- ([#1605](https://github.com/tmux/tmux/issues/1605)) Support for ZERO WIDTH
-  JOINER U+200D.
 
 - ([#1503](https://github.com/tmux/tmux/issues/1503)) Panes that cross multiple
   columns for extra height. This seems fraught with complexity for anything but
