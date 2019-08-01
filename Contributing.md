@@ -60,7 +60,8 @@ items, to avoid any duplication of effort.
 
 - ([#1839](https://github.com/tmux/tmux/issues/1839)) It would be good if
   select-pane had a -Z flag to preserve zoom state (if already zoomed, stay
-  zoomed), similarly for other commands (swap-pane).
+  zoomed), similarly for other commands (swap-pane). Perhaps this should be the
+  default rather than adding a flag.
 
 - "After" hooks are missing for many commands that do not use CMD_AFTERHOOK.
 
@@ -139,12 +140,17 @@ items, to avoid any duplication of effort.
 
 - The lexer in cmd-parse.y should be a single state machine rather than separate
   functions for environment variables, strings and formats.
+  
+- ([#1842](https://github.com/tmux/tmux/issues/1842)) Floating windows
+  (wouldn't call them windows though). Could use same overlay mechanism as
+  menus, would need a way to update the content, could just be a separate
+  process with its own screen or could be a command.
 
 ### Large things
 
 - Better layouts. For example it would be good if they were driven by hints
   rather than fixed positions and could be automatically reapplied after
-  resize/split/kill. Pane options would be useful here.
+  resize/split/kill. Pane options can be used.
 
 - ([#1269](https://github.com/tmux/tmux/issues/1269)) Store grids in
   blocks. Can be used to reflow on demand. Would be nice to revisit how
