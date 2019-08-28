@@ -146,6 +146,8 @@ items, to avoid any duplication of effort.
   menus, would need a way to update the content, could just be a separate
   process with its own screen or could be a command.
 
+- ([#1868](https://github.com/tmux/tmux/issues/1868)) Vertical-only zoom.
+
 ### Large things
 
 - Better layouts. For example it would be good if they were driven by hints
