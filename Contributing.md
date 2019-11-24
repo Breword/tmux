@@ -87,6 +87,14 @@ items, to avoid any duplication of effort.
   wrap but preserve any trimmed content (so it can be viewed if the pane is
   made bigger).
 
+- Multiple format modifiers of the same type should be supported where useful -
+  notably s, for example #{s/a/b/;s/x/y/:...}. The parsing code
+  (format_build_modifiers) already handles this, but the replace code
+  (format_replace) only does the last substitution.
+
+- Substitution (s) and some othe format modifiers don't expand their
+  argument. Should they? What would it break?
+
 ### Medium things
 
 - Regex search and highlighting in copy mode. Could also look at cleaning up
