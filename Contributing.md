@@ -85,18 +85,14 @@ items, to avoid any duplication of effort.
 - ([#1605](https://github.com/tmux/tmux/issues/1605)) Support for ZERO WIDTH
   JOINER U+200D.
 
-- It would be nice to have a flag for new/neww to open a number of panes at
-  once, for example 'neww -X "top" "top" "top"' would open a window with three
-  panes - perhaps in a tiled layout by default.
-
 - ([#1755](https://github.com/tmux/tmux/issues/1755)) Instead of load-buffer,
   save-buffer and source-file opening the file in the server, they could ask
-  the client to do so and send back a file descriptor. This would fix the
-  <(echo foo) mechanism in some shells which passes /dev/fd/X as the path
-  (where X is a descriptor open in the client but could be already in use for
-  something different in the server). Probably the existing stdin code could be
-  merged into this as well. Would perhaps need to consider Cygwin which doesn't
-  have file descriptor passing.
+  the client to do so and send back a file descriptor - or to read or write the
+  file (which would work for Cygwin without file descriptor passing). This
+  would fix the <(echo foo) mechanism in some shells which passes /dev/fd/X as
+  the path (where X is a descriptor open in the client but could be already in
+  use for something different in the server). Probably the existing stdin code
+  could be merged into this as well.
 
 - Marked positions in history. Could use the same prompt-detection escape
   sequences as iTerm2. Could be listed by capture-pane and also a menu to jump
