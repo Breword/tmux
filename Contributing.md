@@ -134,6 +134,10 @@ items, to avoid any duplication of effort.
 
 - ([#1868](https://github.com/tmux/tmux/issues/1868)) Vertical-only zoom.
 
+- ([#1774](https://github.com/tmux/tmux/issues/1774)) Resizing panes should
+  move to the parent cell and resize it if this would allow the pane to
+  become closer to what is requested.
+
 ### Large things
 
 - Better layouts. For example it would be good if they were driven by hints
