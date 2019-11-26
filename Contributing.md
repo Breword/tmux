@@ -58,23 +58,13 @@ items, to avoid any duplication of effort.
 
 ### Small things
 
-- ([#1839](https://github.com/tmux/tmux/issues/1839)) It would be good if
-  select-pane had a -Z flag to preserve zoom state (if already zoomed, stay
-  zoomed), similarly for other commands (swap-pane). Perhaps this should be the
-  default rather than adding a flag.
-
 - "After" hooks are missing for many commands that do not use CMD_AFTERHOOK.
 
 - Some sort of menu or menus in copy mode.
 
-- Add resize-pane -p to match split-window -p.
-
 - A flag to wait-for for a timeout or to stop waiting on a signal.
 
 - A command in copy mode to toggle the selection.
-
-- ([#1240](https://github.com/tmux/tmux/issues/1240)) Key in copy mode to
-  search for word under cursor.
 
 - source-file should allow - for stdin like load-buffer (this would be easier
   and work better if ([#1755](https://github.com/tmux/tmux/issues/1755)) below
@@ -140,7 +130,7 @@ items, to avoid any duplication of effort.
 
 - The lexer in cmd-parse.y should be a single state machine rather than separate
   functions for environment variables, strings and formats.
-  
+
 - ([#1842](https://github.com/tmux/tmux/issues/1842)) Floating windows
   (wouldn't call them windows though). Could use same overlay mechanism as
   menus, would need a way to update the content, could just be a separate
