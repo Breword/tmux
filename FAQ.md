@@ -303,6 +303,20 @@ C-b : attach -d
 With 2.9 or later, setting the window-size option to largest will use the
 largest attached client rather than smallest.
 
+### What is the passthrough escape sequence and how do I use it?
+
+tmux takes care not to send escape sequences to a terminal that it isn't going to understand because it can't predict how it will react.
+
+However, it can be forced to pass an escape sequence through by wrapping it in a special form of the DCS sequence with the content prefixed by `tmux;`. Any \033 characters in the wrapped sequence must be doubled, for example:
+~~~~
+\033Ptmux;\033\033]1337;SetProfile=NewProfileName\007\033\\
+~~~~
+Will pass this iTerm2 special escape sequence `\033]1337;SetProfile=NewProfileName\007` through to the terminal without tmux discarding it.
+
+This feature should be used with care. Note that because tmux isn't aware of any changes made to the terminal state by the passthrough escape sequence, it is possible for it to undo them.
+
+The passthrough escape sequence is no longer necessary for changing the cursor colour or style as tmux now has its own support (see the Cs, Cr, Ss and Se capabilities).
+
 ### Why don't XMODEM, YMODEM and ZMODEM work inside tmux?
 
 tmux is not a file transfer program and these protocols are more effort to
