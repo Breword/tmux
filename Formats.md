@@ -294,7 +294,7 @@ expression. The `i` flag means case insensitive:
 $ tmux set @v foobar
 $ tmux display -p '#{m:*foo*,#{@v}}'
 1
-$ tmux display -p '#{m/ri:^FOO,#{@v}}'
+$ tmux display -p '#{m|ri:^FOO,#{@v}}'
 1
 ~~~~
 
@@ -305,7 +305,7 @@ the line number or zero if it is not found.
 $ # xyz
 $ tmux display -p '#{C:x*z}'
 4
-$ tmux display -p '#{C/r:x.z}'
+$ tmux display -p '#{C|r:x.z}'
 2
 ~~~~
 
