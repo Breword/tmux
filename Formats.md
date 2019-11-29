@@ -339,7 +339,7 @@ a
 ~~~~
 
 The `q` modifier quotes any special characters, typically used if the result is
-being passed as an argument to another command.:
+being passed as an argument to another command.
 
 ~~~~
 $ tmux set @v '()'
