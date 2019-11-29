@@ -376,7 +376,7 @@ Format|Description
 `#{b:variable}`|File name of path
 `#{d:variable}`|Directory name of path
 `#{=N:variable}`|Trim to width N
-`#{=/N/format:variable}|Trim to width N with a marker if trimmed
+`#{=/N/format:variable}`|Trim to width N with a marker if trimmed
 `#{pN:variable}`|Pad to width N
 `#{==:format,format}`|Compare two formats (also `!=` `<` `>` `<=` `>=`)
 `#{?single,format,format}`|Choose from two formats
