@@ -268,7 +268,7 @@ $ tmux display -p '#{s|#{@w}|xxx|:@v}'
 xxxbar
 ~~~~
 
-The third argument supports one flag: `i` which means the regular expression
+The third argument supports one flag, `i`, which means the regular expression
 should be case insensitive:
 
 ~~~~
