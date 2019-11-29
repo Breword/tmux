@@ -269,7 +269,7 @@ xxxbar
 ~~~~
 
 The third argument supports one flag, `i`, which means the regular expression
-should be case insensitive:
+is case insensitive:
 
 ~~~~
 $ tmux set @v foobar
@@ -279,7 +279,8 @@ $ tmux display -p '#{s|FOO|xxx|i:@v}'
 xxxbar
 ~~~~
 
-Multiple substitions may be done in series by separating them with `;`, like so:
+Multiple substitutions may be done in series by separating them with `;`, like
+so:
 
 ~~~~
 $ tmux set @v foobar
