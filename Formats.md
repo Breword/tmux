@@ -1,4 +1,4 @@
-### Working with formats
+## Working with formats
 
 Formats are a powerful way to get information about a running tmux server and
 control the output of various commands.
