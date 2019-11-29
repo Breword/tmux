@@ -149,9 +149,9 @@ tmux
 ### Trimming and padding
 
 Format variables may be trimmed or padded to size. The `=` modifier trims and
-the `p` modifier pads. They both take at least one argument which is the width
--- a positive width means to trim on the left or pad on the right and a negative
-the opposite:
+the `p` modifier pads. They both take at least one argument, the width -- a
+positive width means to trim on the left or pad on the right and a negative the
+opposite:
 
 ~~~~
 $ tmux set @v "foobar"
@@ -243,7 +243,7 @@ it as `#,`.
 ### Substitution
 
 Formats support substitution through the `s` modifier. This is similar to
-sed(1) substitution and takes two or three arguments -- a regular expression to
+sed(1) substitution and takes two or three arguments - a regular expression to
 search for, the string to replace it with and a set of flags. Both the regular
 expression to search for and the string to replace with may be formats
 themselves. Patterns in brackets are expanded in the replacement by number
@@ -285,7 +285,7 @@ xxxbar
 ### Matching and searching
 
 The matching modifier `m` is similar to the comparison modifiers and compares
-two formats -- the first is a pattern matched against the second. By default
+two formats - the first is a pattern matched against the second. By default
 this expects an fnmatch(3) pattern, but the `r` flag specifies a regular
 expression. The `i` flag means case insensitive:
 
