@@ -255,7 +255,7 @@ themselves. Patterns in brackets are expanded in the replacement by number
 (`\1`, `\2` and so on).
 
 Like `t` and `b` and `d`, the variable being replaced cannot be a format but
-must be a variable:
+must be a variable. Examples are:
 
 ~~~~
 $ tmux set @v foobar
