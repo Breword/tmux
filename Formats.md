@@ -406,6 +406,7 @@ Format|Description
 `#{pN:variable}`|Pad to width N
 `#{==:format,format}`|Compare two formats (also `!=` `<` `>` `<=` `>=`)
 `#{?single,format,format}`|Choose from two formats
+`#{s/format/format/flags:variable}`|Substitute pattern with a string, flag `i`
 `#{m/flags:format,format}`|Match a pattern against a format, flags `r` and `i`
 `#{C/flags:format}`|Search for a format, flags `r` and `i`
 `#{P:format,format}`|Loop over each pane (also `S`, `W`)
