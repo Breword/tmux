@@ -153,9 +153,9 @@ tmux
 
 ### Trimming and padding
 
-Format variables may be trimmed or padded to size. The `=` modifier trims and
-the `p` modifier pads. They both take at least one argument, the width - a
-positive width means to trim on the left or pad on the right and a negative the
+Format variables may be trimmed or padded. The `=` modifier trims and the `p`
+modifier pads. They both take at least one argument, the width - a positive
+width means to trim on the left or pad on the right and a negative the
 opposite:
 
 ~~~~
