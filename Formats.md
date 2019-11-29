@@ -35,7 +35,8 @@ notably: padding and multiple `s` modifiers.
 ### Basic use
 
 A format is a string containing special directives contained in `#{}` which
-tmux will expand. Each `#{}` can reference named variables with some
+tmux will expand (note that this is different from `#[]` which is used for
+embedded styles). Each `#{}` can reference named variables with some
 information about the server, session, client or similar. Not all variables are
 always present - an unknown or missing variable is replaced with nothing.
 
