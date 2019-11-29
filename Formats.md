@@ -350,8 +350,9 @@ $ tmux display -p '#{q:@v}'
 ### Multiple expansion
 
 tmux has two modifiers which expand their result twice: `E` and `T`.
-`#{E:status-left}` will expand the contents of the `status-left` option. `T`
-also expands `strftime(3)` conversion specifiers (like `%H` and `%M`).
+`#{E:status-left}` will expand the contents of the `status-left` option. `T` is
+the same but also expands `strftime(3)` conversion specifiers (like `%H` and
+`%M`).
 
 ~~~~
 $ tmux display -p '#{status-left}'
