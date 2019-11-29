@@ -292,8 +292,8 @@ xxxbar
 
 The matching modifier `m` is similar to the comparison modifiers and compares
 two formats - the first is a pattern matched against the second. By default
-this expects an fnmatch(3) pattern, but the `r` flag specifies a regular
-expression. The `i` flag means case insensitive:
+this expects an `fnmatch(3)` pattern, but the `r` flag specifies a regular
+expression. The `i` flag means case insensitive.
 
 ~~~~
 $ tmux set @v foobar
@@ -304,7 +304,7 @@ $ tmux display -p '#{m|ri:^FOO,#{@v}}'
 ~~~~
 
 The `C` modifier searches for the given format in the pane content and returns
-the line number or zero if it is not found. 
+the line number or zero if not found. 
 
 ~~~~
 $ # xyz
