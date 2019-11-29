@@ -243,9 +243,9 @@ it as `#,`.
 ### Substitution
 
 Formats support substitution through the `s` modifier. This is similar to
-sed(1) substitution and takes two or three arguments - a regular expression to
-search for, the string to replace it with and a set of flags. Both the regular
-expression to search for and the string to replace with may be formats
+`sed(1)` substitution and takes two or three arguments - a regular expression
+to search for, the string to replace it with and a set of flags. Both the
+regular expression to search for and the string to replace with may be formats
 themselves. Patterns in brackets are expanded in the replacement by number
 (`\1`, `\2` and so on).
 
