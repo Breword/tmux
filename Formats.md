@@ -364,8 +364,7 @@ $ tmux display -p '#{T:status-left}'
 ### Using formats together
 
 Often formats are nested and used together in much more complicated ways than
-the examples here. For example, here is an excerpt from the default
-`status-format[0]`:
+the examples here. For example, here is part of the default `status-format[0]`:
 
 ~~~~
 #{?#{&&:#{||:#{window_activity_flag},#{window_silence_flag}},#{!=:#{window-status-activity-style},default}}, #{window-status-activity-style},}
