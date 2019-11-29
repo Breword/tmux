@@ -5,25 +5,27 @@ control the output of various commands.
 
 They are used widely, for example:
 
-- Displaying information (display-message).
+- Displaying information (`display-message`).
 
 - The format of text on the status lines, the terminal title
-  (set-titles-string), and automatic rename (automatic-rename-format).
+  (`set-titles-string`), and automatic rename (`automatic-rename-format`).
 
-- The output of list commands (list-clients, list-commands, list-sessions,
-  list-windows, list-panes, list-buffers).
+- The output of list commands (`-F` flags to `list-clients`, `list-commands`,
+  `list-sessions`, `list-windows`, `list-panes`, `list-buffers`).
 
-- New window and session names (new-session, break-pane, new-window,
-  split-window).
+- Targets printed by and arguments passed to new window and session (`-F` and
+  `-c` flags to `new-session`, `break-pane`, `new-window`, `split-window`).
 
-- Displayed text and filters in choose modes (choose-client, choose-tree,
-  choose-buffer).
+- Displayed text and filters in choose modes (`-F` and `-f` to `choose-client`,
+  `choose-tree`, `choose-buffer`, as well as the `f` key).
 
-- Setting option values (set-option).
+- Setting option values (`-F` flag to `set-option`).
 
-- Running commands (if-shell, run-shell).
+- Running commands (`-F` flag to `if-shell` and `run-shell`).
 
-- Menu content (display-menu).
+- Menu content (`display-menu`).
+
+- Parse-time conditionals in the configuration file (`%if`).
 
 This document gives a description of their use with examples.
 
@@ -37,7 +39,7 @@ information about the server, session, client or similar. Not all variables are
 always present - an unknown or missing variable is replaced with nothing.
 
 The simplest use is to display some information, for example to get the tmux
-server PID using display-message (the -p flags prints the result rather than
+server PID using `display-message` (the `-p` flag prints the result rather than
 displaying it in the status line):
 
 ~~~~
@@ -45,7 +47,7 @@ $ tmux display -p '#{pid}'
 98764
 ~~~~
 
-Or to modify the list-windows output:
+Or to modify the `list-windows` output:
 
 ~~~~
 $ tmux lsw -F '#{window_id} #{window_name}'
@@ -55,7 +57,7 @@ $ tmux lsw -F '#{window_id} #{window_name}'
 @4 ksh
 ~~~~
 
-display-message is a useful command for working with formats. The `-a` flag
+`display-message` is a useful command for working with formats. The `-a` flag
 lists the formats it knows about:
 
 ~~~~
@@ -299,7 +301,7 @@ $ tmux display -p '#{C/r:x.z}'
 
 ### Loops
 
-The `S`, `W` and `P` modifiers look over every session, every window in the
+The `S`, `W` and `P` modifiers loop over every session, every window in the
 current session and every pane in the current window and expand the given
 format for each. `W` or `P` may be given a second format which is used for the
 current window and active pane. For example:
