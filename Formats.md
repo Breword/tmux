@@ -353,6 +353,20 @@ $ tmux display -p '#{T:status-left}'
 [0]
 ~~~~
 
+### Using formats together
+
+Often many formats are nested and used together in much more complicated ways
+than the examples here. For example, here is an excerpt from he default
+`status-format[0]`:
+
+~~~~
+#{?#{&&:#{||:#{window_activity_flag},#{window_silence_flag}},#{!=:#{window-status-activity-style},default}}, #{window-status-activity-style},}}
+~~~~
+
+This expands to the content of the `window-status-activity-style` option if
+either of `window_activity_flag` or `window_silence_flag` is true and the
+`window-status-activity-style` option is not `default`.
+
 ### Tree mode and formats
 
 XXX
