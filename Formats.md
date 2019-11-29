@@ -29,6 +29,10 @@ They are used widely, for example:
 
 This document gives a description of their use with examples.
 
+Formats are also documented in the manual
+[here](https://man.openbsd.org/tmux.1), together with a list of all the
+variables.
+
 Note that some of these features are only available in tmux 3.1 and later (most
 notably: padding and multiple `s` modifiers.
 
