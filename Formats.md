@@ -29,7 +29,8 @@ They are used widely, for example:
 
 This document gives a description of their use with examples.
 
-Note that some of these features are only available in tmux 3.1 and later.
+Note that some of these features are only available in tmux 3.1 and later (most
+notably: padding and multiple `s` modifiers.
 
 ### Basic use
 
@@ -270,6 +271,14 @@ $ tmux set @v foobar
 $ tmux display -p '#{s|FOO|xxx|:@v}'
 foobar
 $ tmux display -p '#{s|FOO|xxx|i:@v}'
+xxxbar
+~~~~
+
+Multiple substitions may be done in series by separating them with `;`, like so:
+
+~~~~
+$ tmux set @v foobar
+$ tmux display -p '#{s|foo|xxx|;s|bar|yyy|:@v}'
 xxxbar
 ~~~~
 
