@@ -338,7 +338,8 @@ $ tmux display -p '#{?#{l:1},a,b}'
 a
 ~~~~
 
-The `q` modifier quotes any special characters:
+The `q` modifier quotes any special characters, typically used if the result is
+being passed as an argument to another command.:
 
 ~~~~
 $ tmux set @v '()'
