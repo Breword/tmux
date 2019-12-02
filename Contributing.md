@@ -79,6 +79,12 @@ items, to avoid any duplication of effort.
 
 ### Medium things
 
+- Moving, joining and otherwise reorganizing panes, windows and session should
+  be easier in tree mode. For example, either a new key to swap tagged panes if
+  two are tagged, or tagged pane and current if one is tagged, and so on. Or
+  make :swap-pane use tagged panes but that might be much harder. Likewise for
+  move, join, etc.
+
 - Regex search and highlighting in copy mode. Could also look at cleaning up
   and perhaps merging the various stringify and search bits.
 
