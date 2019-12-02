@@ -285,7 +285,7 @@ so:
 ~~~~
 $ tmux set @v foobar
 $ tmux display -p '#{s|foo|xxx|;s|bar|yyy|:@v}'
-xxxbar
+xxxyyy
 ~~~~
 
 ### Matching and searching
