@@ -27,7 +27,7 @@ They are used widely, for example:
 
 - Parse-time conditionals in the configuration file (`%if`).
 
-This document gives a description of their use with examples.
+This document gives a description of their syntax with examples.
 
 Formats are also documented in the manual
 [here](https://man.openbsd.org/tmux.1#FORMATS), together with a list of all the
@@ -374,13 +374,43 @@ This expands to the content of the `window-status-activity-style` option if
 either of `window_activity_flag` or `window_silence_flag` is true and the
 `window-status-activity-style` option is not `default`.
 
-### Modes and formats
+### Choose modes and formats
 
-XXX
+Formats are used for two purposes in the three choose modes: for the format of
+each line and for filters.
 
-### Formats as filters
+The format of each line is specified with `-F` to `choose-buffer`,
+`choose-tree` or `choose-client`. The default formats are themselves available
+in formats:
 
-XXX
+~~~~
+$ tmux display -p '#{client_mode_format}'
+session #{session_name} (#{client_width}x#{client_height}, #{t:client_activity})
+$ tmux lsc -F '#{E:client_mode_format}'
+session 0 (143x44, Mon Dec  2 12:51:29 2019)
+session 0 (81x24, Mon Dec  2 12:51:26 2019)
+~~~~
+
+`choose-tree` is the most complicated because it may be used for a line
+containing a session, a window or a pane. The same format does all three by
+using the `pane_format`, `window_format` and `session_format` variables. The
+first is true for all three types of line; the second only for panes and
+windows; and the third only for sessions.
+
+All three modes support filters using the `-f` flag or by pressing the `f` key.
+A filter is a format which is expanded for each line, if it is true then the
+line is included in the list and if false it is not. For example to only show
+sessions named `mysession`:
+
+~~~~
+$ tmux choose-tree -sf '#{==:#{session_name},mysession}'
+~~~~
+
+Or only windows with a pane containing the text `foo`:
+
+~~~~
+$ tmux choose-tree -wf '#{C:foo}'
+~~~~
 
 ### Summary of modifiers
 
