@@ -412,6 +412,8 @@ Or only windows with a pane containing the text `foo`:
 $ tmux choose-tree -wf '#{C:foo}'
 ~~~~
 
+The `find-window` command works by automatically generating a filter like this.
+
 ### Summary of modifiers
 
 The table below shows the syntax of the modifiers. The following fields are
