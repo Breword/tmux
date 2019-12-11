@@ -62,8 +62,6 @@ items, to avoid any duplication of effort.
 
 - Some sort of menu or menus in copy mode.
 
-- A flag to wait-for for a timeout or to stop waiting on a signal.
-
 - A command in copy mode to toggle the selection.
 
 - source-file should allow - for stdin like load-buffer (this would be easier
@@ -71,11 +69,17 @@ items, to avoid any duplication of effort.
   was done first).
 
 - wait-for could do more, for example being able to wait for a pane to exit or
-  close (could use the existing notify code in some way).
+  close (could use the existing notify code in some way). Also a flag for a
+  timeout or to stop waiting on a signal.
 
 - ([#1784](https://github.com/tmux/tmux/issues/1784)) A way to disable line
   wrap but preserve any trimmed content (so it can be viewed if the pane is
   made bigger).
+
+- Timeout to command-prompt, if the timeout expires the command is run with
+  whatever is in the prompt at the time. This would allow numbers to be bound
+  for example "bind 2 command-prompt -I2 -T50 select-window -t':%%'" and the
+  user has 50 milliseconds to enter window 23 or it will go to window 2.
 
 ### Medium things
 
