@@ -64,10 +64,6 @@ items, to avoid any duplication of effort.
 
 - A command in copy mode to toggle the selection.
 
-- source-file should allow - for stdin like load-buffer (this would be easier
-  and work better if ([#1755](https://github.com/tmux/tmux/issues/1755)) below
-  was done first).
-
 - wait-for could do more, for example being able to wait for a pane to exit or
   close (could use the existing notify code in some way). Also a flag for a
   timeout or to stop waiting on a signal.
@@ -94,15 +90,6 @@ items, to avoid any duplication of effort.
 
 - ([#1605](https://github.com/tmux/tmux/issues/1605)) Support for ZERO WIDTH
   JOINER U+200D.
-
-- ([#1755](https://github.com/tmux/tmux/issues/1755)) Instead of load-buffer,
-  save-buffer and source-file opening the file in the server, they could ask
-  the client to do so and send back a file descriptor - or to read or write the
-  file (which would work for Cygwin without file descriptor passing). This
-  would fix the <(echo foo) mechanism in some shells which passes /dev/fd/X as
-  the path (where X is a descriptor open in the client but could be already in
-  use for something different in the server). Probably the existing stdin code
-  could be merged into this as well.
 
 - Marked positions in history. Could use the same prompt-detection escape
   sequences as iTerm2. Could be listed by capture-pane and also a menu to jump
