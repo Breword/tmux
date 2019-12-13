@@ -162,7 +162,7 @@ set -g mode-style fg=yellow,bg=red,blink,underline
 
 The format of style options is described [in the manual](https://man.openbsd.org/tmux.1#STYLES).
 
-### What is the `escape-tim`e option? Is zero a good value?
+### What is the `escape-time` option? Is zero a good value?
 
 Terminal applications like tmux receive key presses as a stream of bytes with
 special keys marked by the ASCII ESC character (`\033`). The problem - and the
@@ -180,7 +180,7 @@ to this is that there is a delay before an Escape key press is recognised.
 
 If tmux is running on the same computer as the terminal, or over a fast
 network, then typically the bytes representing a key will all arrive together,
-so an escape-time of zero is likely to be fine. Over a slower network, a larger
+so an `escape-time` of zero is likely to be fine. Over a slower network, a larger
 value would be better.
 
 ### How do I make modified function and arrow keys (like C-Up, M-PageUp) work
