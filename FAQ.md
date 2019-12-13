@@ -196,9 +196,9 @@ If this is different, then `TERM` outside tmux is probably incorrect and tmux
 can't recognise the keys coming from the outside terminal.
 
 If it is correct, then some applications inside tmux do not recognise these
-keys if `TERM` is set to `screen` or `screen-256color, because these terminal
-descriptions lack the capabilities. The `tmux` and `tmux-256color` descriptions do
-have such capabilities, so using those instead may work. In `.tmux.conf`:
+keys if `TERM` is set to `screen` or `screen-256color`, because these terminal
+descriptions lack the capabilities. The `tmux` and `tmux-256color` descriptions
+do have such capabilities, so using those instead may work. In `.tmux.conf`:
 
 ~~~~
 set -g default-terminal tmux-256color
