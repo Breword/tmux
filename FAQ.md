@@ -50,8 +50,7 @@ colour. screen ignores this, tmux does not. If the terminal emulator in use
 supports colour, use a value for `TERM` which correctly lists this, such as
 `xterm-color`.
 
-### tmux freezes my terminal when I attach. I have to `kill -9` the shell it
-    was started from to recover!
+### tmux freezes my terminal when I attach. I have to `kill -9` the shell it was started from to recover!
 
 Some consoles don't like attempts to set the window title. Tell tmux not to do
 this by turning off the `set-titles` option (you can do this in `.tmux.conf`:
@@ -183,8 +182,7 @@ network, then typically the bytes representing a key will all arrive together,
 so an `escape-time` of zero is likely to be fine. Over a slower network, a larger
 value would be better.
 
-### How do I make modified function and arrow keys (like C-Up, M-PageUp) work
-    inside tmux?
+### How do I make modified function and arrow keys (like C-Up, M-PageUp) work inside tmux?
 
 tmux sends modified function keys using xterm(1)-style escape sequences. This
 can be verified using `cat`, for example pressing M-Left:
@@ -239,8 +237,7 @@ X:
 uptime|awk '{split(substr($0, index($0, "load")), a, ":"); print a[2]}'
 ~~~~
 
-### How do I attach the same session to multiple clients but with a different
-    current window, like `screen -x`?
+### How do I attach the same session to multiple clients but with a different current window, like `screen -x`?
 
 One or more of the windows can be linked into multiple sessions manually with
 `link-window`, or a grouped session with all the windows can be created with
