@@ -47,11 +47,11 @@ option.
 
 On a few platforms, common terminal descriptions such as `xterm` do not include
 colour. screen ignores this, tmux does not. If the terminal emulator in use
-supports colour, use a value for TERM which correctly lists this, such as
+supports colour, use a value for `TERM` which correctly lists this, such as
 `xterm-color`.
 
-### tmux freezes my terminal when I attach to a session. I have to `kill -9` the
-    shell it was started from to recover!
+### tmux freezes my terminal when I attach. I have to `kill -9` the shell it
+    was started from to recover!
 
 Some consoles don't like attempts to set the window title. Tell tmux not to do
 this by turning off the `set-titles` option (you can do this in `.tmux.conf`:
