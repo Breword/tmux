@@ -113,10 +113,10 @@ And make sure that `TERM` outside tmux also shows 256 colours, or use the tmux
 ### How do I use RGB colour?
 
 tmux must be told that the terminal outside supports RGB colour. This is done
-by specifying the `RGB` or `Tc` terminfo(5) flags. `RGB` is the official flag,
-`Tc` is a tmux extension. The easiest method is with the `terminal-overrides`
-option, for example (change `gnome*` to something that matches `TERM` outside
-tmux):
+by specifying the `RGB` or `Tc` *terminfo(5)* flags. `RGB` is the official
+flag, `Tc` is a tmux extension. The easiest method is with the
+`terminal-overrides` option, for example (change `gnome*` to something that
+matches `TERM` outside tmux):
 
 ~~~~
 set -as terminal-overrides ",gnome*:RGB"
@@ -184,7 +184,7 @@ value would be better.
 
 ### How do I make modified function and arrow keys (like C-Up, M-PageUp) work inside tmux?
 
-tmux sends modified function keys using xterm(1)-style escape sequences. This
+tmux sends modified function keys using *xterm(1)*-style escape sequences. This
 can be verified using `cat`, for example pressing M-Left:
 
 ~~~~
@@ -285,7 +285,7 @@ XTerm*disallowedWindowOps: 20,21,SetXprop
 For rxvt-unicode (urxvt), there is an unofficial Perl extension
 [here](http://anti.teamidiot.de/static/nei/*/Code/urxvt/).
 
-Otherwise a key binding for copy mode using `xclip(1)` (or `xsel(1)`) works:
+Otherwise a key binding for copy mode using *xclip(1)* (or *xsel(1)*) works:
 
 ~~~~
 bind -Tcopy-mode C-y send -X copy-pipe "xclip -i >/dev/null"
@@ -297,7 +297,7 @@ Or for inside and outside copy mode with the prefix key:
 bind C-y run -b "tmux save-buffer - | xclip -i"
 ~~~~
 
-On OS X, look at the `pbcopy(1)` and `pbpaste(1)` commands.
+On OS X, look at the *pbcopy(1)* and *pbpaste(1)* commands.
 
 ### Why do I see dots around a session when I attach to it?
 
