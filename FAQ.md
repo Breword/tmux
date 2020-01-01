@@ -31,7 +31,8 @@ present.
 
 Please send bug reports by email to *nicholas.marriott@gmail.com* or
 *tmux-users@googlegroups.com* or by opening a GitHub issue. Please see the
-CONTRIBUTING file for information on what to include.
+[CONTRIBUTING](https://github.com/tmux/tmux/blob/master/.github/CONTRIBUTING.md)
+file for information on what to include.
 
 ### Why doesn't tmux do $x?
 
@@ -42,6 +43,28 @@ Please send feature requests by email to *tmux-users@googlegroups.com*.
 It is already widely available. `tmux` and `tmux-256color` entries are provided
 by modern *ncurses(3)* and can be used instead by setting the `default-terminal`
 option.
+
+#### tmux exited with `server exited unexpectedly` or `lost server`. What does this mean?
+
+This message usually means the tmux server has crashed.
+
+If the problem can be reproduced, please open a issue reporting this - there is
+information in the [CONTRIBUTING](https://github.com/tmux/tmux/blob/master/.github/CONTRIBUTING.md)
+file on what to include and how to get logs from tmux.
+
+It can also be useful to enable core dumps to see why tmux crashed. On most
+platforms this can be done by running `ulimit -c unlimited` before starting
+tmux; if it crashes again it may generate a core file in the directory where it
+is started. This may be called `tmux.core` or `core.*` or just `core`. It can
+be loaded into `gdb` like this:
+
+~~~~
+$ gdb `which tmux` /path/to/core/file
+...
+(gdb) bt full
+~~~~
+
+If this works, include the output in the issue.
 
 ### I don't see any colour in my terminal! Help!
 
