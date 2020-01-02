@@ -171,8 +171,8 @@ In tmux 1.9 each set of three options were combined into a single option (so
 old options were removed. So for example:
 
 ~~~~
-set -g mode-bg yellow
-set -g mode-fg red
+set -g mode-fg yellow
+set -g mode-bg red
 set -g mode-attr blink,underline
 ~~~~
 
