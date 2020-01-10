@@ -44,7 +44,7 @@ It is already widely available. `tmux` and `tmux-256color` entries are provided
 by modern *ncurses(3)* and can be used instead by setting the `default-terminal`
 option.
 
-#### tmux exited with `server exited unexpectedly` or `lost server`. What does this mean?
+### tmux exited with `server exited unexpectedly` or `lost server`. What does this mean?
 
 This message usually means the tmux server has crashed.
 
