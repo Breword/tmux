@@ -114,7 +114,7 @@ items, to avoid any duplication of effort.
 
 - ([#682](https://github.com/tmux/tmux/issues/682)) Improve word and line
   selection in copy mode (for example when dragging it should select by
-  word. Compare how xterm(1) works.
+  word. Compare how *xterm(1)* works.
 
 - ([#1718](https://github.com/tmux/tmux/issues/1718)) Copy mode should behave
   better if the pane outside is modified. At the moment it stops reading which

@@ -248,7 +248,7 @@ it as `#,`.
 ### Substitution
 
 Formats support substitution through the `s` modifier. This is similar to
-`sed(1)` substitution and takes two or three arguments - a regular expression
+*sed(1)* substitution and takes two or three arguments - a regular expression
 to search for, the string to replace it with and a set of flags. Both the
 regular expression to search for and the string to replace with may be formats
 themselves. Patterns in brackets are expanded in the replacement by number
@@ -292,7 +292,7 @@ xxxyyy
 
 The matching modifier `m` is similar to the comparison modifiers and compares
 two formats - the first is a pattern matched against the second. By default
-this expects an `fnmatch(3)` pattern, but the `r` flag specifies a regular
+this expects an *fnmatch(3)* pattern, but the `r` flag specifies a regular
 expression. The `i` flag means case insensitive.
 
 ~~~~
@@ -351,7 +351,7 @@ $ tmux display -p '#{q:@v}'
 
 tmux has two modifiers which expand their result twice: `E` and `T`.
 `#{E:status-left}` will expand the contents of the `status-left` option. `T` is
-the same but also expands `strftime(3)` conversion specifiers (like `%H` and
+the same but also expands *strftime(3)* conversion specifiers (like `%H` and
 `%M`).
 
 ~~~~
