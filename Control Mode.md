@@ -151,19 +151,21 @@ The following notifications are supported:
 
 Notification|Description
 ---|---
-%pane-mode-changed %pane|A pane's mode was changed.
-%window-pane-changed @window %pane|A window's active pane changed.
-%window-close @window|A window was closed in the attached session.
-%unlinked-window-close @window|A window was closed in another session.
-%window-add @window|A window was added to the attached session.
-%unlinked-window-add @window|A window was added to another session.
-%window-renamed @window new-name|A window was renamed in the attached session.
-%unlinked-window-renamed @window new-name|A window was renamed in another session.
-%session-changed $session session-name|The attached session was changed.
-%client-session-changed client $session session-name|Another client's attached session was changed.
-%session-renamed $session new-name|A session was renamed.
-%sessions-changed|A session was created or destroyed.
-%session-window-changed $session @window|A session's current window was changed.
+`%pane-mode-changed %pane`|A pane's mode was changed.
+`%window-pane-changed @window %pane`|A window's active pane changed.
+`%window-close @window`|A window was closed in the attached session.
+`%unlinked-window-close @window`|A window was closed in another session.
+`%window-add @window`|A window was added to the attached session.
+`%unlinked-window-add @window`|A window was added to another session.
+`%window-renamed @window new-name`|A window was renamed in the attached session.
+`%unlinked-window-renamed @window new-name`|A window was renamed in another session.
+`%session-changed $session session-name`|The attached session was changed.
+`%client-session-changed client $session session-name`|Another client's attached session was changed.
+`%session-renamed $session new-name`|A session was renamed.
+`%sessions-changed`|A session was created or destroyed.
+`%session-window-changed $session @window`|A session's current window was changed.
+
+`$session`, `@window` and `%pane` are session, window and pane IDs.
 
 ### Special commands
 
