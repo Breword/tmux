@@ -205,3 +205,19 @@ hexadecimal form.
 
 A few commands like `suspend-client` have no effect when used with
 a control mode client.
+
+### General notes
+
+A few other notes:
+
+- Using session, window and pane IDs rather than names or indexes is strongly
+  recommended because they are unambiguous.
+
+- User options  can be used  to store and retrieve  custom options in  the tmux
+  server (they can be set to server, session, window or pane). `show-options -v
+  @foo` shows only the option value for user option `@foo`.
+
+- Formats are the primary method of inspecting properties of a session, window
+  or pane or the tmux server itself. The `display-message -p` command is useful
+  for this as well as the `-F` flag to the list commands.
+
