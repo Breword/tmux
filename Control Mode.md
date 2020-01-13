@@ -102,8 +102,27 @@ parse error: unknown command: abcdef
 %error 1578923149 270 1
 ~~~~~
 
-It is recommended the `-F` flag be used where possible for output in a known
-format rather than relying on the default.
+### Getting information
+
+Most control mode users will want to get information from the tmux server. The
+most useful commands to do this are `list-sessions`, `list-windows`,
+`list-panes` and `show-options`.
+
+The `-F` flag should be used where possible for output in a known format rather
+than relying on the default. The `q` format modifier is useful for escaping.
+
+For example listing all sessions with their ID and name:
+
+~~~~
+ls -F '#{session_id} "#{q:session_name}"'
+%begin 1578925957 337 1
+$4 "\"quoted\""
+$2 "abc\ def"
+$0 "bar"
+$1 "foo"
+$3 "😀"
+%end 1578925957 337 1
+~~~~
 
 ### Pane output
 
@@ -181,5 +200,8 @@ mode clients to perform actions not needed by normal clients. These are:
   currently supported, `no-output` which stops any `%output` notifications
   being sent to the client.
 
-In addition, a few commands like `suspend-client` have no effect when used with
+In addition, send-keys has a `-H` flag allowing Unicode keys to be entered in a
+hexadecimal form.
+
+A few commands like `suspend-client` have no effect when used with
 a control mode client.
