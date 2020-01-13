@@ -10,7 +10,7 @@ drawing the terminal, tmux communicates using text. Because control mode is
 text only, it can easily be parsed and used over *ssh(1)*.
 
 Control mode clients accept standard tmux commands and return their output, and
-additionally send control mode only information (mostly asynchronous
+additionally sends control mode only information (mostly asynchronous
 notifications) prefixed by `%`. The idea is that users of control mode use tmux
 commands (`new-window`, `list-sesssions`, `show-options`, and so on) to control
 tmux rather than duplicating a separate command set just for control mode.
@@ -29,8 +29,8 @@ delete and kill still work.
 Two `-C` (so `-CC`) disables canonical mode and most other terminal features
 and is intended for applications (that, for example, don't need echo).
 
-In either mode, entering an empty line (just pressing `Enter`) will detach the
-client.
+With either form, entering an empty line (just pressing `Enter`) will detach
+the client.
 
 For example, this shows output from starting a new tmux server on a socket
 called `test` with a new session (it runs `new-session`) and attaching a client
