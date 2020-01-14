@@ -85,9 +85,6 @@ items, to avoid any duplication of effort.
   make :swap-pane use tagged panes but that might be much harder. Likewise for
   move, join, etc.
 
-- Regex search and highlighting in copy mode. Could also look at cleaning up
-  and perhaps merging the various stringify and search bits.
-
 - ([#1605](https://github.com/tmux/tmux/issues/1605)) Support for ZERO WIDTH
   JOINER U+200D.
 
@@ -99,18 +96,12 @@ items, to avoid any duplication of effort.
 - ([#1545](https://github.com/tmux/tmux/issues/1545)) Copy mode searching is
   very slow when there is a big history, need a good solution.
 
-- Drag panes and windows around in tree mode in order to move or swap them.
-
 - Make the commmand prompt able to take up multiple lines.
 
 - ([#918](https://github.com/tmux/tmux/issues/918)) A way to specify how panes
   are merged when one is killed. Could be an option to kill-pane.
 
 - Allow multiple targets either with multiple -t or by giving a pattern or both.
-
-- Searching in copy mode should handle wrapping, so a search for "foobar" then
-  it should be found even if wrapped into "foo\nbar" (that is, the
-  GRID_LINE_WRAPPED flag is set on the line).
 
 - ([#682](https://github.com/tmux/tmux/issues/682)) Improve word and line
   selection in copy mode (for example when dragging it should select by
