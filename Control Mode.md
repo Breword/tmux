@@ -1,4 +1,4 @@
-## tmux control mode
+## Control mode
 
 Control mode is a special mode that allows a tmux client to be used to talk to
 tmux using a simple text-only protocol. It was designed and written by George
