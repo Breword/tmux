@@ -135,16 +135,16 @@ The libevent library or its headers are not installed. Make sure the
 appropriate packages are installed (some platforms split libraries from headers
 into a `-dev` or `-devel` package).
 
-### tmux won't run from `~/local`
+#### tmux won't run from `~/local`
 
 On Linux, make sure `LD_LIBRARY_PATH` is set, or try a static build instead
 (give `--enable-static` to configure).
 
-### `autogen.sh` complains about `AM_BLAH`
+#### `autogen.sh` complains about `AM_BLAH`
 
 Make sure pkg-config is installed.
 
-### configure says: `C compiler cannot create executables`
+#### configure says: `C compiler cannot create executables`
 
 Either no C compiler (gcc, clang) is installed, or it doesn't work - check
 there is nothing stupid in `CFLAGS` or `CPPFLAGS`.
