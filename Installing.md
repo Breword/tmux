@@ -10,7 +10,8 @@ tmux requires two libraries to be available:
 
 In addition, tmux requires a C compiler, make and pkg-config.
 
-On most platforms, these are available as packages:
+On most platforms, these are available as packages. This table lists the
+packages needed to run or to buld tmux:
 
 Platform|Command|Run Packages|Build Packages
 ---|---|---|---
