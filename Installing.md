@@ -14,7 +14,6 @@ On most platforms, these are available as packages:
 
 Platform|Command|Run Packages|Build Packages
 ---|---|---|---
-OpenBSD||Builtin|Builtin
 Debian|`apt-get install`|`libevent ncurses`|`libevent-dev ncurses-dev build-essential pkg-config`
 RHEL or CentOS|`yum install`|`libevent ncurses`|`libevent-devel ncurses-devel gcc make pkg-config`
 
