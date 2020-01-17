@@ -21,7 +21,7 @@ RHEL or CentOS|`yum install`|`libevent ncurses`|`libevent-devel ncurses-devel gc
 If libevent and ncurses are not available as packages, they can be built from
 source, see [this section](#building-dependencies).
 
-tmux uses autoconf so it provides a `configure` script. To build and install
+tmux uses autoconf so it provides a configure script. To build and install
 into `/usr/local` using sudo, run:
 
 ~~~~
@@ -37,16 +37,17 @@ To install elsewhere add `--prefix` to configure, for example for `/usr` add
 ### Building dependencies
 
 If the dependencies are not available, they can be built from source and
-installed locally. This is not required and is not recommended if they can be
-installed from system packages.
+installed locally. This is not recommended if the dependencies can be installed
+from system packages.
 
 Building requires a C compiler, make, automake, autoconf and pkg-config to be
 installed. It is more common to need to build libevent than ncurses.
 
 Full instructions can be found on the project sites but this is a summary of
-how to install them into `~/local` for a single user. To install system-wide
-into `/opt` or `/usr/local`, substitute for `$HOME/local` and run `make
-install` as root (for example with sudo: `make && sudo make install`).
+how to install libevent and ncurses into `~/local` for a single user. To
+install system-wide into `/opt` or `/usr/local`, substitute for `$HOME/local`
+and run `make install` as root (for example with sudo: `make && sudo make
+install`).
 
 For libevent:
 
@@ -66,7 +67,8 @@ cd ncurses-*/
 make && make install
 ~~~~
 
-Then tmux needs to be pointed to the local libraries using `PKG_CONFIG_PATH`:
+Then the tmux configure script needs to be pointed to the local libraries
+using `PKG_CONFIG_PATH`:
 
 ~~~~
 tar -zxf tmux-*.tar.gz
@@ -75,7 +77,7 @@ PKG_CONFIG_PATH=$HOME/local/lib/pkgconfig ./configure --prefix=$HOME/local
 make && make install
 ~~~~
 
-Then tmux can be found in `~/local/bin/tmux`.
+The newly built tmux can be found in `~/local/bin/tmux`.
 
 When tmux is installed locally on Linux, the runtime linker may need to be told
 where to find the libraries using the `LD_LIBRARY_PATH` environment variable,
@@ -124,6 +126,28 @@ Option|Description
 --enable-static|Create a static build
 --enable-utempter|Use the utempter library if it is installed
 --enable-utf8proc|Use the utf8proc library if it is installed
+
+### Common problems
+
+#### configure says: `libevent not found` or `ncurses not found`
+
+The libevent library or its headers are not installed. Make sure the
+appropriate packages are installed (some platforms split libraries from headers
+into a `-dev` or `-devel` package).
+
+### tmux won't run from `~/local`
+
+On Linux, make sure `LD_LIBRARY_PATH` is set, or try a static build instead
+(give `--enable-static` to configure).
+
+### `autogen.sh` complains about `AM_BLAH`
+
+Make sure pkg-config is installed.
+
+### configure says: `C compiler cannot create executables`
+
+Either no C compiler (gcc, clang) is installed, or it doesn't work - check
+there is nothing stupid in `CFLAGS` or `CPPFLAGS`.
 
 ### AppImage package
 
