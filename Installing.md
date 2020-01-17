@@ -122,10 +122,10 @@ tmux provides a few configure options:
 
 Option|Description
 ---|---
---enable-debug|Build with debug symbols
---enable-static|Create a static build
---enable-utempter|Use the utempter library if it is installed
---enable-utf8proc|Use the utf8proc library if it is installed
+`--enable-debug`|Build with debug symbols
+`--enable-static`|Create a static build
+`--enable-utempter`|Use the utempter library if it is installed
+`--enable-utf8proc`|Use the utf8proc library if it is installed
 
 ### Common problems
 
