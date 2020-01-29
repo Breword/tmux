@@ -26,26 +26,6 @@ The release process consists of a branch from which one or more release
 candidates are produced for testing, until the final release is published and
 the branch removed.
 
-## Non-code contributions
-
-Here are some ideas for anyone who would like to contribute to tmux without
-writing any code:
-
-- Testing. Test master, test release candidates, test releases.
-
-- Improve the FAQ. Write (and maintain) some official howto guides.
-
-- Help with packaging releases for different platforms or produce static builds
-  so people can test more easily.
-
-- CI for more platforms.
-
-- Write regression tests (see the regress/ directory).
-
-- Write (and maintain) build and installation instructions for different platforms.
-
-- Triage and manage open issues and help to reply.
-
 ## Code contributions
 
 Here is a list of outstanding feature requests or notes for future
