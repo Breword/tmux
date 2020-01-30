@@ -106,6 +106,10 @@ items, to avoid any duplication of effort.
   move to the parent cell and resize it if this would allow the pane to
   become closer to what is requested.
 
+- ([#2028](https://github.com/tmux/tmux/issues/2028)) Style strings should be
+  saved and parsed when they are used if they contain #{, so that formats can
+  be emdedded in styles.
+
 ### Large things
 
 - Better layouts. For example it would be good if they were driven by hints
