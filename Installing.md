@@ -97,7 +97,7 @@ Most users will want to configure these in a shell profile, for example in
 `.profile` for ksh or `.bash_profile` for bash:
 
 ~~~~
-export PATH=$HOME/local/lib:$PATH
+export PATH=$HOME/local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 export MANPATH=$HOME/local/share/man:$MANPATH
 ~~~~
