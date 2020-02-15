@@ -37,9 +37,6 @@ items, to avoid any duplication of effort.
 
 ### Small things
 
-- A flag to list-keys to make -N also include keys without notes (showing the
-  command instead probably).
-
 - Should remember the last layout before select-layout was used and
   select-layout without an argument should include it, so C-Space could cycle
   through it with the preset layouts. Also a separate flag or layout name to
