@@ -202,7 +202,7 @@ mode clients to perform actions not needed by normal clients. These are:
   currently supported, `no-output` which stops any `%output` notifications
   being sent to the client.
 
-In addition, send-keys has a `-H` flag allowing Unicode keys to be entered in a
+In addition, `send-keys` has a `-H` flag allowing Unicode keys to be entered in a
 hexadecimal form.
 
 A few commands like `suspend-client` have no effect when used with
