@@ -12,7 +12,7 @@ text only, it can easily be parsed and used over *ssh(1)*.
 Control mode clients accept standard tmux commands and return their output, and
 additionally sends control mode only information (mostly asynchronous
 notifications) prefixed by `%`. The idea is that users of control mode use tmux
-commands (`new-window`, `list-sesssions`, `show-options`, and so on) to control
+commands (`new-window`, `list-sessions`, `show-options`, and so on) to control
 tmux rather than duplicating a separate command set just for control mode.
 
 ### Entering control mode
