@@ -36,7 +36,7 @@ file for information on what to include.
 
 ### Why doesn't tmux do $x?
 
-Please send feature requests by email to *tmux-users@googlegroups.com*.
+Please send feature requests by email to *tmux-users@googlegroups.com* or open a GitHub issue.
 
 ### Why do you use the screen terminal description inside tmux?
 
