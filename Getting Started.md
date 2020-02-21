@@ -263,7 +263,7 @@ command, for example to run the `new-session` command (alias `new`) with flags
 `-d` and `-n`:
 
 ~~~~
-$ tmux new-session -d -nmyname
+$ tmux new-session -d -nmysession
 ~~~~
 
 All commands and their flags are documented in the tmux manual page.
@@ -276,6 +276,53 @@ and appears instead of the status line.
 At the prompt, commands can be entered similarly to how they are at the shell.
 Output will either be shown for a short period in the status line, or switch
 the active pane into view mode.
+
+#### Attaching and detaching
+
+Detaching from tmux means that the client exits and detaches from the outside
+terminal, returning to the shell. To detach tmux, use the `C-b d` key binding.
+
+The `attach-session` command attaches to an existing session. Without
+arguments, it will attach to the most recently used session that is not already
+attached:
+
+~~~~
+$ tmux attach
+~~~~
+
+Or `-t` gives the name of a session to attach to:
+
+~~~~
+$ tmux attach -tmysession
+~~~~
+
+By default, attaching to a session does not detach any other clients attached
+to the same session. To do this, add the `-d` flag:
+
+~~~~
+$ tmux attach -dtmysession
+~~~~
+
+The `new-session` command has a `-A` flag to attach to an existing session if
+it exists, or create a new one if it does not. For a session named `mysession`:
+
+~~~~
+$ tmux new -Atmysession
+~~~~
+
+The `-D` flag may be added to make `new-session` also behave like
+`attach-session` with `-d` and detach any other clients attached to the
+session.
+
+#### Killing tmux entirely
+
+If there are no sessions, windows or panes inside tmux, the server will exit.
+It can also be entirely killed using the `kill-server` command. For example, at
+the command prompt:
+
+~~~~
+:kill-server
+~~~~
 
 #### Creating new windows
 
@@ -324,8 +371,8 @@ command which is bound to two keys by default:
 * `C-b %` splits the current pane into two horizontally, producing two panes
   next to each other, one on the left and one on the right.
 
-* `C-b "` splitw the current pane into two vertically, producing two panes
-  one above the other.
+* `C-b "` splits the current pane into two vertically, producing two panes one
+  above the other.
 
 Each time a pane is split into two, each of those panes may be split again
 using the same key bindings, until the pane becomes too small.
@@ -347,9 +394,47 @@ way as `new-session` and `new-window`.
 
 #### Changing the current window
 
-XXX
+There are several key bindings to change the current window of a session:
+
+* `C-b 0` changes to window 0, `C-b 1` to window 1, up to window `C-b 9` for
+  window 9.
+
+* `C-b '` prompts for a window index and changes to that window.
+
+* `C-b n` changes to the next window in the window list by number. So pressing
+  `C-b n` when in window 1 will change to window 2 if it exists.
+
+* `C-b p` changes to the previous window in the window list by number.
+
+* `C-b l` changes to the last window, which is the window that was last the
+  current window before the window that is now.
+
+These are all variations of the `select-window` command.
 
 #### Changing the active pane
+
+The active pane can be changed between the panes in a window with these key
+bindings:
+
+* `C-b Up`, `C-b Down`, `C-b Left` and `C-b Right` change to the pane above,
+  below, left or right of the active pane. These keys wrap around the window,
+  so pressing `C-b Down` on a pane at the bottom will change to a pane at the
+  top.
+
+* `C-b q` prints the pane numbers and their sizes on top of the panes for a
+  short time. Pressing one of the number keys before they disappear changes the
+  active pane to the chosen pane, so `C-b q 1` will change to pane number 1.
+
+* `C-b o` moves to the next pane by pane number and `C-b C-o` swaps that pane
+  with the active pane, so they exchange positions and sizes in the window.
+
+These use the `select-pane` and `display-panes` commands.
+
+Pane numbers are not fixed, instead panes are numbered by their position in the
+window, so if the pane with number 0 is swapped with the pane with number 1,
+the numbers are swapped as well as the panes themselves.
+
+#### Choosing sessions, windows and panes
 
 XXX
 
@@ -357,7 +442,11 @@ XXX
 
 XXX
 
-#### Choosing sessions, windows and panes
+#### Detaching other clients
+
+XXX
+
+#### Killing a session
 
 XXX
 
@@ -369,9 +458,6 @@ XXX
 
 XXX
 
-#### Attaching and detaching
-
-XXX
 
 #### Working with sessions
 
@@ -410,7 +496,7 @@ XXX
 - bind-key command
 - unbind-key command
 
-#### Options
+#### Types of option
 
 XXX
 
@@ -425,6 +511,8 @@ XXX
 #### The status line
 
 XXX
+
+#### Alerts and monitoring
 
 ### Further information
 
