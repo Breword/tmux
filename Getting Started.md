@@ -280,7 +280,9 @@ the active pane into view mode.
 #### Attaching and detaching
 
 Detaching from tmux means that the client exits and detaches from the outside
-terminal, returning to the shell. To detach tmux, use the `C-b d` key binding.
+terminal, returning to the shell and leaving the tmux session and any programs
+inside it running in the background. To detach tmux, use the `C-b d` key
+binding.
 
 The `attach-session` command attaches to an existing session. Without
 arguments, it will attach to the most recently used session that is not already
