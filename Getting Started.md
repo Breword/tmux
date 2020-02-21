@@ -1,0 +1,431 @@
+## Getting started
+
+### About tmux
+
+tmux is a terminal program which allows multiple other terminals to be created
+and accessed from a single terminal outside tmux. tmux - and any terminals
+created inside it - may be detached from the terminal where it is running and
+and later reattached to the same or another terminal.
+
+Programs run on terminals inside tmux may be full screen interactive programs
+like *vi(1)* or *top(1)*, shells like *bash(1)* or *ksh(1)*, or any other
+program that can be run in a Unix terminal.
+
+There is a powerful feature set to access, manage and organize terminals inside
+tmux, both interactively and from scripts.
+
+The main uses of tmux are to:
+
+* Protect running programs on a remote server from connection drops by running
+  them inside tmux.
+
+* Allow programs running on a remote server to be accessed from multiple
+  different local computers.
+
+* Work with multiple programs and shells together in one terminal, a bit like a
+  window manager.
+
+For example, a user connects to a remote server using *ssh(1)* from their work
+computer and creates several terminals: perhaps one with an editor, one with a
+compiler and a few shells. They work in the different terminals interactively,
+perhaps start compiling, then detach from tmux and go home for the day. They
+are then able to connect to the same remote server from home, attach tmux, and
+continue from where they were previously.
+
+Note that this document assumes you are using the latest tmux release.
+
+### Installing tmux
+
+tmux may be installed from package management systems on most major platforms.
+See [this document](Installing.md) for instructions on how to install tmux or
+how to build it from source.
+
+### Other documentation and help
+
+Here are several places to find documentation and help about tmux:
+
+- [The manual page](https://man.openbsd.org/tmux) has detailed reference
+  documentation on tmux a description of every command, flag and option. Once
+  tmux is installed it is also available in section 1:
+
+  ~~~~
+  $ man 1 tmux
+  ~~~~
+
+- [The FAQ](FAQ.md) has solutions to commonly asked questions, mostly about
+  specific configuration issues.
+
+- The [#tmux IRC channel on freenode](irc://irc.freenode.net/tmux).
+
+- The [tmux-users@googlegroups.com mailing list](mailto:tmux-users@googlegroups.com).
+
+### Basic concepts
+
+tmux has a set of basic concepts and terms with which it is important to be
+familiar. This section gives a description of how the terminals inside tmux are
+grouped together and the various terms tmux uses.
+
+#### The tmux server and clients
+
+tmux keeps all its state in a single main process, called the tmux server. This
+runs in the background and manages all the terminals and programs running
+inside tmux and keeps track of their output. The tmux server is started
+automatically when the user runs a tmux command and by default exits when there
+are no running programs.
+
+Users attach to the tmux server by starting a client. This takes over the
+terminal where it is run and talks to the server using a socket file in `/tmp`.
+Each client runs in one terminal, which may be an X terminal such as
+*xterm(1)*, the system console, or a terminal inside another program (such as
+tmux itself). Each client is identified by the name of the outside terminal
+where it is started, for example `/dev/ttypf`.
+
+#### Sessions, windows and panes
+
+Every terminal inside tmux belongs to one pane, this is a rectangular area
+which shows the content of the terminal inside tmux. Because each terminal
+inside tmux is shown in only one pane, the term pane can be used to mean all of
+the pane, the terminal and the program running inside it.
+
+Each pane appears in one window. A window is made up of one or more panes which
+together cover its entire area - so multiple panes may be visible at the same
+time. A window normally takes up the whole of the terminal where tmux is
+attached, but it can be bigger or smaller. The sizes and positions of all the
+panes in a window is called the window layout.
+
+Every window has a name - by default tmux will choose one but it can be changed
+by the user. Window names do not have to be unique, windows are usually
+identified by the session and the window index rather than their name.
+
+Each pane is separated from the panes around it by a line, this is called the
+pane border. There is one pane in each window called the active pane, this is
+where any text typed is sent and is the default pane used for commands that
+target the window. The pane border of the active pane is marked in green, or if
+there are only two panes then the top, bottom, left or right half of the border
+is green.
+
+Multiple windows are grouped together into sessions. If a window is part of a
+session, it is said to be linked to that session. Windows may be linked to
+multiple sessions to the same time, although mostly they are only in one. Each
+window in a session has a number, called the window index - the same window may
+be linked at different indexes in different sessions. A session's window list
+is all the windows linked to that session in order of their indexes
+
+Each session has one current window, this is the window displayed when the
+session is attached and is the default window for any commands that target the
+session. If the current window is changed, the previous current window becomes
+known as the last window.
+
+A session may be attached to one or more clients, which means it is shown on
+the outside terminal where that client is running. Any text typed into that
+outside terminal is sent to the active pane in the current window of the
+attached session. Sessions do not have an index but they do have a name, which
+must be unique.
+
+In summary:
+
+* Programs run in terminals in panes, which each belong to one window.
+* Each window has a name and one active pane.
+* Windows are linked to one or more sessions.
+* Each session has a list of windows, each with an index.
+* One of the windows in a session is the current window.
+* Sessions are attached to zero or more clients.
+* Each client is attached to one session.
+
+#### Summary of terms
+
+Term|Description
+---|---
+Client|Attaches a tmux session from an outside terminal such as *xterm(1)*
+Session|Groups one or more windows together
+Window|Groups one or more panes together, linked to one or more sessions
+Pane|Contains a terminal and running program, appears in one window
+Active pane|The pane in the current window where typing is sent; one per window
+Current window|The window in the attached session where typing is sent; one per session
+Last window|The previous current window
+Session name|The name of a session, defaults to a number starting from zero
+Window list|The list of windows in a session in order by number
+Window name|The name of a window, defaults to the name of the running program in the active pane
+Window index|The number of a window in a session's window list
+Window layout|The size and position of the panes in a window
+
+### Using tmux interactively
+
+#### Creating sessions
+
+To create the first tmux session, run tmux from the shell. A new session is
+created using the `new-session` command - `new` for short:
+
+~~~~
+$ tmux new
+~~~~
+
+Without arguments, `new-session` creates a new session and attaches it. Because
+this is the first session, the tmux server is started and the tmux run from the
+shell becomes the first client and attaches to it.
+
+The new session will have one window (at index 0) with a single pane containing
+a shell. The shell prompt should appear at the top of the terminal and the
+green status line at the bottom (more on the status line is below).
+
+By default, the first session will be called `0`, the second `1` and so on.
+`new-session` allows a name to be specified for the session with the `-s` flag:
+
+~~~~
+$ tmux new -smysession
+~~~~
+
+This creates a new session called `mysession`. A command may be given instead
+of running a shell by passing additional arguments. If one argument is given,
+tmux will pass it to the shell, if more than one it runs the command directly.
+For example these run *emacs(1)*:
+
+~~~~
+$ tmux new 'emacs ~/.tmux.conf'
+~~~~
+
+Or:
+
+~~~~
+$ tmux new -- emacs ~/.tmux.conf
+~~~~
+
+By default, tmux calls the first window in the session after whatever is
+running in it. The `-n` flag gives a name to use instead, in this case a window
+`mytopwindow` running *top(1)*:
+
+~~~~
+$ tmux new -nmytopwindow top
+~~~~
+
+`new-session` has other flags - some are covered below. A full list is [in the
+tmux manual](https://man.openbsd.org/tmux#new-session).
+
+#### The prefix key
+
+Once a tmux client is attached, any keys entered are forwarded to the program
+running in the active pane of the current window. For keys that control tmux
+itself, a special key must be pressed first - this is called the prefix key.
+
+The default prefix key is `C-b`, which means the `Ctrl` key and `b`. In tmux,
+modifier keys are shown by prefixing a key with `C-` for the control key, `M-`
+for the meta key (normally `Alt` on modern computers) and `S-` for the shift
+key. These may be combined together, so 'C-M-x' means pressing the control key,
+meta key and `x` together.
+
+When the prefix key is pressed, tmux waits for another key press and that
+determines what tmux command is executed. Keys like this are shown here with a
+space between them: `C-b c` means first the prefix key `C-b` is pressed, then
+it is released and then the `c` key is pressed. Care must be taken to release
+the `Ctrl` key after pressing `C-b` if necessary - `C-b c` is different from
+`C-b C-c`.
+
+#### Help keys
+
+Every default tmux key binding has a short description to help remember what
+the key does. A list of all the keys can be seen by pressing `C-b ?`.
+
+`C-b ?` enters view mode to show text. A pane in view mode has its own key
+bindings which do not need the prefix key. These broadly follow *emacs(1)*. The
+most important are `Up`, `Down`, `C-Up`, `C-Down` to scroll up and down, and
+`q` to exit the mode.
+
+Alternatively, the same list can be seen from the shell by running:
+
+~~~~
+$ tmux lsk -N|more
+~~~~
+
+`C-b /` shows the description of a single key - a prompt at the bottom of the
+terminal appears. Pressing a key will show its description in the same place.
+For example, pressing `C-b /` then `?` shows:
+
+~~~~
+C-b ? List key bindings
+~~~~
+
+#### Commands and flags
+
+tmux has a large set of commands. These all have a name like `new-window` or
+`new-session` or `list-keys` and many also have a shorter alias like `neww` or
+`new` or `lsk`.
+
+Any time a key binding is used, it runs one or more tmux commands. For example,
+`C-b c` runs the `new-window` command.
+
+Commands can also be used from the shell, as with `new-session` and `list-keys`
+above.
+
+Each command has zero or more flags, in the same way as standard Unix commands.
+Flags may or may not take a single argument themselves. In addition, commands
+may take additional arguments after the flags Flags are passed after the
+command, for example to run the `new-session` command (alias `new`) with flags
+`-d` and `-n`:
+
+~~~~
+$ tmux new-session -d -nmyname
+~~~~
+
+All commands and their flags are documented in the tmux manual page.
+
+#### The command prompt
+
+tmux has an interactive command prompt. This can be opened by pressing `C-b :`
+and appears instead of the status line.
+
+At the prompt, commands can be entered similarly to how they are at the shell.
+Output will either be shown for a short period in the status line, or switch
+the active pane into view mode.
+
+#### Creating new windows
+
+A new window can be created in an attached session with the `C-b c` key binding
+which runs the `new-window` command. The new window is created at the first
+available index - so the second window will have index 1. The new window
+becomes the current window of the session.
+
+If there are any gaps in the window list, they are filled by new windows. So if
+there are windows with indexes 0 and 2, the next new window will be created as
+index 1.
+
+The `new-window` command has some useful flags which can be used with the
+command prompt:
+
+* The `-d` flag creates the window, but does not make it the current window.
+
+* `-n` allows a name for the new window to be given. For example using the
+  command prompt to create a window called `mynewwindow` without making it the
+  current window:
+
+  ~~~~
+  :neww -dnmynewwindow
+  ~~~~
+
+* The `-t` flag specifies a target for the window. Command targets have a
+  special syntax, but for simple use with `new-window` it is enough just to
+  give a window index. This creates a window at index 999:
+
+  ~~~~
+  :neww -t999
+  ~~~~
+
+A command to be run in the new window may be given to `new-window` in the same
+way as `split-window`. For example to create a new window running *top(1)*:
+
+~~~~
+:neww top
+~~~~
+
+#### Splitting the window
+
+A pane is created by splitting a window. This is done with the `split-window`
+command which is bound to two keys by default:
+
+* `C-b %` splits the current pane into two horizontally, producing two panes
+  next to each other, one on the left and one on the right.
+
+* `C-b "` splitw the current pane into two vertically, producing two panes
+  one above the other.
+
+Each time a pane is split into two, each of those panes may be split again
+using the same key bindings, until the pane becomes too small.
+
+`split-window` has several useful flags:
+
+* `-h` does a horizontal split and `-v` a vertical split.
+
+* `-d` does not change the active pane to the newly created pane.
+
+* `-f` makes a new pane spanning the whole width or height of the window
+  instead of being constrained to the size of the pane being split.
+
+* `-b` puts the new pane to the left or above of the pane being split instead
+  of to the right or below.
+
+A command to be run in the new pane may be given to `split-window` in the same
+way as `new-session` and `new-window`.
+
+#### Changing the current window
+
+XXX
+
+#### Changing the active pane
+
+XXX
+
+#### Changing the attached session
+
+XXX
+
+#### Choosing sessions, windows and panes
+
+XXX
+
+#### Killing a window or pane
+
+XXX
+
+#### The status line
+
+XXX
+
+#### Attaching and detaching
+
+XXX
+
+#### Working with sessions
+
+XXX
+
+#### Working with windows
+
+XXX
+
+#### Working with panes
+
+XXX
+
+#### Buffers, copy and paste
+
+XXX
+
+#### Finding windows
+
+XXX
+
+#### Using the mouse
+
+XXX
+
+#### Respawning panes and windows
+
+XXX
+
+### Configuring tmux
+
+#### Key bindings
+
+XXX
+- root and prefix tables
+- bind-key command
+- unbind-key command
+
+#### Options
+
+XXX
+
+#### Showing and changing options
+
+XXX
+
+#### Changing the prefix key
+
+XXX
+
+#### The status line
+
+XXX
+
+### Further information
+
+XXX
