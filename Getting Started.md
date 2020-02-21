@@ -488,8 +488,8 @@ Up|Select previous item
 Down|Select next item
 x|Kill selected item
 X|Kill tagged items
-\<|Scroll previews left
-\>|Scroll previews right
+\<|Scroll preview left
+\>|Scroll preview right
 C-s|Search by name
 n|Repeat last search
 t|Toggle if item is tagged
