@@ -268,6 +268,10 @@ $ tmux new-session -d -nmysession
 
 All commands and their flags are documented in the tmux manual page.
 
+This document focuses on the available key bindings, but commands are mentioned
+for information or where there is a useful flag. They can be entered from the
+shell or from the command prompt, described in the next section.
+
 #### The command prompt
 
 tmux has an interactive command prompt. This can be opened by pressing `C-b :`
@@ -438,8 +442,11 @@ the numbers are swapped as well as the panes themselves.
 
 #### Choosing sessions, windows and panes
 
-tmux includes an interactive mode where sessions, windows or panes can be
-chosen from a tree, this is called tree mode.
+tmux includes a mode where sessions, windows or panes can be chosen from a
+tree, this is called tree mode. It can be used browse sessions, windows and
+panes; to change the attached session, the current window or active pane; to
+kill sessions, windows and panes; or apply a command to several at once by
+tagging them.
 
 There are two key bindings to enter tree mode: `C-b s` starts showing only
 sessions and with the attached session selected; `C-b w` starts with sessions
@@ -476,21 +483,32 @@ q|Exit tree mode
 
 Tree mode is activated with the `choose-tree` command.
 
-#### Changing the attached session
-
-XXX
-
 #### Detaching other clients
 
-XXX
+A list of clients is available by pressing `C-b D` (that is, `C-b S-d`). This
+is similar to tree mode and is called client mode. The movement and tag keys
+are the same, but others are different:
 
-#### Killing a session
+Key|Function
+---|---
+Enter|Detach selected client
+d|Detach selected client, same as `Enter`
+D|Detach tagged clients
+x|Detach selected client and try to kill the shell it was started from
+X|Detach tagged clients and try to kill the shell they were started from
 
-XXX
+Other than using client mode, the `detach-client` flag has a `-a` flag to
+detach all clients other than the attached client.
 
-#### Killing a window or pane
+#### Killing a session, window or pane
 
-XXX
+Pressing `C-b &` prompts for confirmation then kills (closes) the current
+window. All panes in the window are killed at the same time. `C-b x` kills only
+the active pane. These are bound to the `kill-window` and `kill-pane` commands.
+
+The `kill-session` command kills the attached session and all its windows and
+detaches the client. There is no key binding for `kill-session` but it can be
+used from the command prompt or the `:` prompt in tree mode.
 
 #### The status line
 
@@ -518,7 +536,13 @@ XXX
 
 #### Using the mouse
 
-XXX
+##### On the status line
+
+##### With panes
+
+##### With copy mode
+
+##### Using menus
 
 #### Respawning panes and windows
 
@@ -550,6 +574,8 @@ XXX
 XXX
 
 #### Alerts and monitoring
+
+### Other key bindings
 
 ### Further information
 
