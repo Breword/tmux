@@ -455,6 +455,7 @@ panes only the selected pane.
 These keys are available in tree mode without pressing the prefix key:
 
 Key|Function
+---|---
 Enter|Change the attached session, current window or active pane
 Up|Select previous item
 Down|Select next item
