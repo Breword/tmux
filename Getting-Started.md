@@ -105,10 +105,10 @@ is green.
 
 Multiple windows are grouped together into sessions. If a window is part of a
 session, it is said to be linked to that session. Windows may be linked to
-multiple sessions to the same time, although mostly they are only in one. Each
+multiple sessions at the same time, although mostly they are only in one. Each
 window in a session has a number, called the window index - the same window may
 be linked at different indexes in different sessions. A session's window list
-is all the windows linked to that session in order of their indexes
+is all the windows linked to that session in order of their indexes.
 
 Each session has one current window, this is the window displayed when the
 session is attached and is the default window for any commands that target the
