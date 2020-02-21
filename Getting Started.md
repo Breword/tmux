@@ -461,8 +461,8 @@ Up|Select previous item
 Down|Select next item
 x|Kill selected item
 X|Kill tagged items
-<|Scroll previews left
->|Scroll previews right
+\<|Scroll previews left
+\>|Scroll previews right
 C-s|Search by name
 n|Repeat last search
 t|Toggle if item is tagged
