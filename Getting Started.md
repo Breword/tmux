@@ -438,7 +438,42 @@ the numbers are swapped as well as the panes themselves.
 
 #### Choosing sessions, windows and panes
 
-XXX
+tmux includes an interactive mode where sessions, windows or panes can be
+chosen from a tree, this is called tree mode.
+
+There are two key bindings to enter tree mode: `C-b s` starts showing only
+sessions and with the attached session selected; `C-b w` starts with sessions
+expanded so windows are shown and with the current window in the attached
+session selected.
+
+Tree mode splits the window into two sections: the top half has a tree of
+sessions, windows and panes and the bottom half has a preview of the area
+around the cursor in each pane. For sessions the preview shows the active panes
+in as many windows will fit; for windows as many panes as will fit; and for
+panes only the selected pane.
+
+These keys are available in tree mode without pressing the prefix key:
+
+Key|Function
+Enter|Change the attached session, current window or active pane
+Up|Select previous item
+Down|Select next item
+x|Kill selected item
+X|Kill tagged items
+<|Scroll previews left
+>|Scroll previews right
+C-s|Search by name
+n|Repeat last search
+t|Toggle if item is tagged
+T|Tag no items
+C-t|Tag all items
+:|Prompt for a command to run for the selected item or each tagged item
+O|Change sort field
+r|Reverse sort order
+v|Toggle preview
+q|Exit tree mode
+
+Tree mode is activated with the `choose-tree` command.
 
 #### Changing the attached session
 
@@ -459,7 +494,6 @@ XXX
 #### The status line
 
 XXX
-
 
 #### Working with sessions
 
