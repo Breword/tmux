@@ -7,12 +7,11 @@ and accessed from a single outside terminal. tmux - and any terminals
 created inside it - may be detached from the terminal where it is running and
 and later reattached to the same or another terminal.
 
-Programs run on terminals inside tmux may be full screen interactive programs
+Programs run on terminals inside tmux may be interactive programs
 like *vi(1)* or *top(1)*, shells like *bash(1)* or *ksh(1)*, or any other
 program that can be run in a Unix terminal.
 
-There is a powerful feature set to access, manage and organize terminals inside
-tmux, both interactively and from scripts.
+tmux includes a powerful feature set to access, manage and organize terminals, both interactively and from scripts.
 
 The main uses of tmux are to:
 
