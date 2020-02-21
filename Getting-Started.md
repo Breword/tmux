@@ -2,8 +2,8 @@
 
 ### About tmux
 
-tmux is a terminal program which allows multiple other terminals to be created
-and accessed from a single terminal outside tmux. tmux - and any terminals
+tmux is a program which allows multiple terminals to be created
+and accessed from a single outside terminal. tmux - and any terminals
 created inside it - may be detached from the terminal where it is running and
 and later reattached to the same or another terminal.
 
