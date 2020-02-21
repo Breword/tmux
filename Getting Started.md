@@ -201,6 +201,26 @@ $ tmux new -nmytopwindow top
 `new-session` has other flags - some are covered below. A full list is [in the
 tmux manual](https://man.openbsd.org/tmux#new-session).
 
+#### The status line
+
+When a tmux client is attached, it shows a status line on the bottom line of
+the screen. By default this is green and shows:
+
+* On the left, the name of the attached session: `[0]`.
+
+* In the middle, a list of the windows in the session, with their index, for
+  example with one window called `ksh` at index 0: `0:ksh`.
+
+* On the right, the pane title in quotes (this defaults to the name of the host
+  running tmux) and the time and the date.
+
+As new windows are opened, the window list grows - if there are too many
+windows to fit on the width of the terminal, a `<` or `>` will be added at the
+left or right or both to show there are hidden windows.
+
+In the window list, the current window is marked with a `*` after the name, and
+the last window with a `-`.
+
 #### The prefix key
 
 Once a tmux client is attached, any keys entered are forwarded to the program
@@ -510,21 +530,27 @@ The `kill-session` command kills the attached session and all its windows and
 detaches the client. There is no key binding for `kill-session` but it can be
 used from the command prompt or the `:` prompt in tree mode.
 
-#### The status line
-
-XXX
-
 #### Working with sessions
 
 XXX
+- renaming
 
 #### Working with windows
 
 XXX
+- the size and panning
+- renaming
+- swapping, moving
+- renumber
 
 #### Working with panes
 
 XXX
+- resizing
+- zooming
+- the marked pane
+- swapping
+- moving
 
 #### Buffers, copy and paste
 
