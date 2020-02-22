@@ -431,9 +431,9 @@ way as `split-window`. For example to create a new window running *top(1)*:
 
 #### Splitting the window
 
-<p><img src="images/tmux_split_h.png" align="right" width=376 height=243>
+<img src="images/tmux_split_h.png" align="right" width=376 height=243>
 A pane is created by splitting a window. This is done with the `split-window`
-command which is bound to two keys by default:</p>
+command which is bound to two keys by default:
 
 *`C-b %` splits the current pane into two horizontally, producing two panes
   next to each other, one on the left and one on the right.
