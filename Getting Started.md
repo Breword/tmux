@@ -233,6 +233,8 @@ the screen. By default this is green and shows:
 * On the right, the pane title in quotes (this defaults to the name of the host
   running tmux) and the time and the date.
 
+<img src="images/tmux_status_line.png" align=left width=613 height=250>
+
 As new windows are opened, the window list grows - if there are too many
 windows to fit on the width of the terminal, a `<` or `>` will be added at the
 left or right or both to show there are hidden windows.
