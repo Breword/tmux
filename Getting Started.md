@@ -97,13 +97,13 @@ where it is started, for example `/dev/ttypf`.
 
 #### Sessions, windows and panes
 
-<img src="images/tmux_with_panes.png" align=right width=368 height=235>
+<p><img src="images/tmux_with_panes.png" align=right width=368 height=235>
 Every terminal inside tmux belongs to one pane, this is a rectangular area
 which shows the content of the terminal inside tmux. Because each terminal
 inside tmux is shown in only one pane, the term pane can be used to mean all of
 the pane, the terminal and the program running inside it. The screenshot to the
-right shows tmux with panes.
-<br>
+right shows tmux with panes.</p>
+
 Each pane appears in one window. A window is made up of one or more panes which
 together cover its entire area - so multiple panes may be visible at the same
 time. A window normally takes up the whole of the terminal where tmux is
