@@ -59,7 +59,7 @@ approximately every six months.
 
 Here are several places to find documentation and help about tmux:
 
-- <img src="images/man_tmux.png" align=right width=368 height=235>[The
+- <img src="images/man_tmux.png" align="right" width=368 height=235>[The
   manual page](https://man.openbsd.org/tmux) has detailed reference
   documentation on tmux a description of every command, flag and option. Once
   tmux is installed it is also available in section 1:
@@ -98,7 +98,7 @@ where it is started, for example `/dev/ttypf`.
 
 #### Sessions, windows and panes
 
-<p><img src="images/tmux_with_panes.png" align=right width=368 height=235>
+<p><img src="images/tmux_with_panes.png" align="right" width=368 height=235>
 Every terminal inside tmux belongs to one pane, this is a rectangular area
 which shows the content of the terminal inside tmux. Because each terminal
 inside tmux is shown in only one pane, the term pane can be used to mean all of
@@ -115,7 +115,7 @@ Every window has a name - by default tmux will choose one but it can be changed
 by the user. Window names do not have to be unique, windows are usually
 identified by the session and the window index rather than their name.
 
-<p><img src="images/tmux_pane_diagram.png" align=right width=418 height=285>
+<p><img src="images/tmux_pane_diagram.png" align="right" width=418 height=285>
 Each pane is separated from the panes around it by a line, this is called the
 pane border. There is one pane in each window called the active pane, this is
 where any text typed is sent and is the default pane used for commands that
@@ -233,7 +233,7 @@ the screen. By default this is green and shows:
 * On the right, the pane title in quotes (this defaults to the name of the host
   running tmux) and the time and the date.
 
-<img src="images/tmux_status_line.png" align=left width=613 height=250>
+<p align="center"><img src="images/tmux_status_line.png" width=613 height=250></p>
 
 As new windows are opened, the window list grows - if there are too many
 windows to fit on the width of the terminal, a `<` or `>` will be added at the
