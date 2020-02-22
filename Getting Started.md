@@ -44,7 +44,7 @@ For example:
 Here are two screenshots of tmux in an *xterm(1)*, the first showing the shell
 and the second *emacs(1)* and *man(1)*:
 
-<p align="center"><img src="images/tmux_default_shell.png" width=368 height=235></p>
+<p align="center"><img src="images/tmux_default_shell.png" width=368 height=235><img src="images/tmux_emacs_man.png" width=368 height=235></p>
 
 ### Installing tmux
 
