@@ -266,12 +266,13 @@ the `Ctrl` key after pressing `C-b` if necessary - `C-b c` is different from
 Every default tmux key binding has a short description to help remember what
 the key does. A list of all the keys can be seen by pressing `C-b ?`.
 
-<p><img src="images/tmux_list_keys.png" align="right" width=376 height=243>
+<img src="images/tmux_list_keys.png" align="right" width=376 height=243>
+
 `C-b ?` enters view mode to show text. A pane in view mode has its own key
 bindings which do not need the prefix key. These broadly follow *emacs(1)*. The
 most important are `Up`, `Down`, `C-Up`, `C-Down` to scroll up and down, and
 `q` to exit the mode. The line number of the top visible line together with the
-total number of lines is shown in the top right.<p>
+total number of lines is shown in the top right.
 
 Alternatively, the same list can be seen from the shell by running:
 
