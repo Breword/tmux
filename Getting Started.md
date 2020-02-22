@@ -504,11 +504,12 @@ the numbers are swapped as well as the panes themselves.
 
 #### Choosing sessions, windows and panes
 
+<p><img src="images/tmux_choose_tree1.png" align="right" width=376 height=243>
 tmux includes a mode where sessions, windows or panes can be chosen from a
 tree, this is called tree mode. It can be used browse sessions, windows and
 panes; to change the attached session, the current window or active pane; to
 kill sessions, windows and panes; or apply a command to several at once by
-tagging them.
+tagging them.</p>
 
 There are two key bindings to enter tree mode: `C-b s` starts showing only
 sessions and with the attached session selected; `C-b w` starts with sessions
@@ -521,13 +522,29 @@ around the cursor in each pane. For sessions the preview shows the active panes
 in as many windows will fit; for windows as many panes as will fit; and for
 panes only the selected pane.
 
-These keys are available in tree mode without pressing the prefix key:
+Keys to control tree mode do not require the prefix. The list may be navigated
+with the `Up` and `Down` keys. `Enter` changes to the selected item (it becomes
+the attached session, current window or active pane) and exits the mode.
+'Right' expands the item if possible - sessions expand to show their windows
+and windows to show their panes. `Left` collapses the item to hide any windows
+or panes. `O` changes the order of the items and `q` exits tree mode.
+
+<p><img src="images/tmux_choose_tree2.png" align="right" width=376 height=243>
+Items in the tree are tagged by pressing `t` and untagged by pressing `t`
+again. All tagged items may be untagged b pressing `T`. Tagged items may be
+killed together by pressing `X`, or a command applied to them all by pressing
+`:` for a prompt.</p>
+
+This is a list of the keysavailable in tree mode without pressing the prefix
+key:
 
 Key|Function
 ---|---
 Enter|Change the attached session, current window or active pane
 Up|Select previous item
 Down|Select next item
+Right|Expand item
+Left|Collapse item
 x|Kill selected item
 X|Kill tagged items
 \<|Scroll preview left
