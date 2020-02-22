@@ -529,11 +529,11 @@ the attached session, current window or active pane) and exits the mode.
 and windows to show their panes. `Left` collapses the item to hide any windows
 or panes. `O` changes the order of the items and `q` exits tree mode.
 
-<p><img src="images/tmux_choose_tree2.png" align="right" width=376 height=243>
+<img src="images/tmux_choose_tree2.png" align="right" width=376 height=243>
 Items in the tree are tagged by pressing `t` and untagged by pressing `t`
 again. All tagged items may be untagged b pressing `T`. Tagged items may be
 killed together by pressing `X`, or a command applied to them all by pressing
-`:` for a prompt.</p>
+`:` for a prompt.
 
 This is a list of the keysavailable in tree mode without pressing the prefix
 key:
