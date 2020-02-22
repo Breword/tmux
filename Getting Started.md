@@ -44,7 +44,7 @@ For example:
 Here are two screenshots of tmux in an *xterm(1)*, the first showing the shell
 and the second *emacs(1)* and *man(1)*:
 
-!()[images/tmux_default_shell.png]!()[images/tmux_default_emacs_man.png]
+![](images/tmux_default_shell.png)![](images/tmux_default_emacs_man.png)
 
 ### Installing tmux
 
