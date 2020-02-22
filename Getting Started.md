@@ -59,10 +59,10 @@ approximately every six months.
 
 Here are several places to find documentation and help about tmux:
 
-- <img src="images/man_tmux.png" align="right" width=376 height=243>[The
-  manual page](https://man.openbsd.org/tmux) has detailed reference
-  documentation on tmux a description of every command, flag and option. Once
-  tmux is installed it is also available in section 1:
+- <img src="images/man_tmux.png" align="right" width=376 height=243>[The manual
+  page](https://man.openbsd.org/tmux) has detailed reference documentation on
+  tmux and a description of every command, flag and option. Once tmux is
+  installed it is also available in section 1:
 
   ~~~~
   $ man 1 tmux
