@@ -115,12 +115,13 @@ Every window has a name - by default tmux will choose one but it can be changed
 by the user. Window names do not have to be unique, windows are usually
 identified by the session and the window index rather than their name.
 
+<p><img src="images/tmux_pane_diagram.png" align=right width=418 height=285>
 Each pane is separated from the panes around it by a line, this is called the
 pane border. There is one pane in each window called the active pane, this is
 where any text typed is sent and is the default pane used for commands that
 target the window. The pane border of the active pane is marked in green, or if
 there are only two panes then the top, bottom, left or right half of the border
-is green.
+is green.</p>
 
 Multiple windows are grouped together into sessions. If a window is part of a
 session, it is said to be linked to that session. Windows may be linked to
