@@ -59,7 +59,7 @@ approximately every six months.
 
 Here are several places to find documentation and help about tmux:
 
-- <img src="images/man_tmux.png" align="right" width=368 height=235>[The
+- <img src="images/man_tmux.png" align="right" width=376 height=243>[The
   manual page](https://man.openbsd.org/tmux) has detailed reference
   documentation on tmux a description of every command, flag and option. Once
   tmux is installed it is also available in section 1:
@@ -98,7 +98,7 @@ where it is started, for example `/dev/ttypf`.
 
 #### Sessions, windows and panes
 
-<p><img src="images/tmux_with_panes.png" align="right" width=368 height=235>
+<p><img src="images/tmux_with_panes.png" align="right" width=376 height=243>
 Every terminal inside tmux belongs to one pane, this is a rectangular area
 which shows the content of the terminal inside tmux. Because each terminal
 inside tmux is shown in only one pane, the term pane can be used to mean all of
@@ -266,10 +266,12 @@ the `Ctrl` key after pressing `C-b` if necessary - `C-b c` is different from
 Every default tmux key binding has a short description to help remember what
 the key does. A list of all the keys can be seen by pressing `C-b ?`.
 
+<p><img src="images/tmux_list_keys" align="right" width=376 height=243>
 `C-b ?` enters view mode to show text. A pane in view mode has its own key
 bindings which do not need the prefix key. These broadly follow *emacs(1)*. The
 most important are `Up`, `Down`, `C-Up`, `C-Down` to scroll up and down, and
-`q` to exit the mode.
+`q` to exit the mode. The line number of the top visible line together with the
+total number of lines is shown in the top right.<p>
 
 Alternatively, the same list can be seen from the shell by running:
 
