@@ -63,6 +63,7 @@ Here are several places to find documentation and help about tmux:
   documentation on tmux a description of every command, flag and option. Once
   tmux is installed it is also available in section 1:
 
+  <img src="images/man_tmux.png" align=left width=368 height=235>
   ~~~~
   $ man 1 tmux
   ~~~~
