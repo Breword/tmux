@@ -532,9 +532,9 @@ and windows to show their panes. `Left` collapses the item to hide any windows
 or panes. `O` changes the order of the items and `q` exits tree mode.
 
 Items in the tree are tagged by pressing `t` and untagged by pressing `t`
-again. All tagged items may be untagged b pressing `T`. Tagged items may be
-killed together by pressing `X`, or a command applied to them all by pressing
-`:` for a prompt.
+again. Tagged items are shown in bold and with `*` after their name. All tagged
+items may be untagged b pressing `T`. Tagged items may be killed together by
+pressing `X`, or a command applied to them all by pressing `:` for a prompt.
 
 This is a list of the keys available in tree mode without pressing the prefix
 key:
