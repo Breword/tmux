@@ -364,6 +364,21 @@ The `-D` flag may be added to make `new-session` also behave like
 `attach-session` with `-d` and detach any other clients attached to the
 session.
 
+#### Listing sessions
+
+The `list-session` command (alias `ls`) shows a list of available sessions that
+can be attached to. This shows four sessions called `1`, `2`, `myothersession`
+and `mysession`:
+
+~~~~
+$ tmux ls
+1: 3 windows (created Sat Feb 22 11:44:51 2020)
+2: 1 windows (created Sat Feb 22 11:44:51 2020)
+myothersession: 2 windows (created Sat Feb 22 11:44:51 2020)
+mysession: 1 windows (created Sat Feb 22 11:44:51 2020)
+
+~~~~
+
 #### Killing tmux entirely
 
 If there are no sessions, windows or panes inside tmux, the server will exit.
