@@ -59,7 +59,7 @@ approximately every six months.
 
 Here are several places to find documentation and help about tmux:
 
-- <p><img src="images/man_tmux.png" align=right width=368 height=235>[The
+- <img src="images/man_tmux.png" align=right width=368 height=235>[The
   manual page](https://man.openbsd.org/tmux) has detailed reference
   documentation on tmux a description of every command, flag and option. Once
   tmux is installed it is also available in section 1:
@@ -67,7 +67,7 @@ Here are several places to find documentation and help about tmux:
   ~~~~
   $ man 1 tmux
   ~~~~
-</p>
+
 - [The FAQ](FAQ.md) has solutions to commonly asked questions, mostly about
   specific configuration issues.
 
