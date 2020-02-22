@@ -570,8 +570,9 @@ Tree mode is activated with the `choose-tree` command.
 A list of clients is available by pressing `C-b D` (that is, `C-b S-d`). This
 is similar to tree mode and is called client mode.
 
-Each client is shown in the list in the top half and a preview of the selected
-client (including its status line) is shown in the bottom half.
+Each client is shown in the list in the top half with its name, attached
+session, size and the time and date when it was last used and a preview of the
+selected client (including its status line) is shown in the bottom half.
 
 The movement and tag keys are the same as tree mode, but others are different,
 for example the `Enter` key detaches the selected client.
