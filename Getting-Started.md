@@ -318,9 +318,10 @@ shell or from the command prompt, described in the next section.
 
 #### The command prompt
 
-<p><img src="images/tmux_command_prompt.png" align="right" width=376 height=243>
+<img src="images/tmux_command_prompt.png" align="right" width=376 height=243>
+
 tmux has an interactive command prompt. This can be opened by pressing `C-b :`
-and appears instead of the status line, as shown in this screenshot.</p>
+and appears instead of the status line, as shown in this screenshot.
 
 At the prompt, commands can be entered similarly to how they are at the shell.
 Output will either be shown for a short period in the status line, or switch
