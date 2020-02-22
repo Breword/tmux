@@ -572,7 +572,11 @@ is similar to tree mode and is called client mode.
 Each client is shown in the list in the top half and a preview of the selected
 client (including its status line) is shown in the bottom half.
 
-The movement and tag keys are the same as tree mode, but others are different:
+The movement and tag keys are the same as tree mode, but others are different,
+for example the `Enter` key detaches the selected client.
+
+This is a list of the keys in client mode without the movement and tagging keys
+that are the same as tree mode:
 
 Key|Function
 ---|---
