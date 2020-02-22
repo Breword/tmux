@@ -393,11 +393,12 @@ the command prompt:
 
 #### Creating new windows
 
-<p><img src="images/tmux_new_windows.png" align="right" width=376 height=243>
+<img src="images/tmux_new_windows.png" align="right" width=376 height=243>
+
 A new window can be created in an attached session with the `C-b c` key
 binding which runs the `new-window` command. The new window is created at the
 first available index - so the second window will have index 1. The new window
-becomes the current window of the session.</p>
+becomes the current window of the session.
 
 If there are any gaps in the window list, they are filled by new windows. So if
 there are windows with indexes 0 and 2, the next new window will be created as
@@ -433,9 +434,10 @@ way as `split-window`. For example to create a new window running *top(1)*:
 
 #### Splitting the window
 
-<p><img src="images/tmux_split_h.png" align="right" width=376 height=243>
+<img src="images/tmux_split_h.png" align="right" width=376 height=243>
+
 A pane is created by splitting a window. This is done with the `split-window`
-command which is bound to two keys by default:</p>
+command which is bound to two keys by default:
 
 * `C-b %` splits the current pane into two horizontally, producing two panes
   next to each other, one on the left and one on the right.
@@ -446,8 +448,9 @@ command which is bound to two keys by default:</p>
 Each time a pane is split into two, each of those panes may be split again
 using the same key bindings, until the pane becomes too small.
 
-<p><img src="images/tmux_split_v.png" align="right" width=376 height=243>
-`split-window` has several useful flags:</p>
+<img src="images/tmux_split_v.png" align="right" width=376 height=243>
+
+`split-window` has several useful flags:It isn't sexism, it is just a mistake, slightly thoughtless at worst. Reaching straight for sexism, casual or otherwise, is also a little thoughtless as well as unnecessarily rude.
 
 * `-h` does a horizontal split and `-v` a vertical split.
 
