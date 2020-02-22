@@ -367,8 +367,8 @@ session.
 #### Listing sessions
 
 The `list-session` command (alias `ls`) shows a list of available sessions that
-can be attached to. This shows four sessions called `1`, `2`, `myothersession`
-and `mysession`:
+can be attached. This shows four sessions called `1`, `2`, `myothersession` and
+`mysession`:
 
 ~~~~
 $ tmux ls
