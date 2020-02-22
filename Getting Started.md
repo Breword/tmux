@@ -522,14 +522,14 @@ around the cursor in each pane. For sessions the preview shows the active panes
 in as many windows will fit; for windows as many panes as will fit; and for
 panes only the selected pane.
 
+<img src="images/tmux_choose_tree2.png" align="right" width=376 height=243>
+
 Keys to control tree mode do not require the prefix. The list may be navigated
 with the `Up` and `Down` keys. `Enter` changes to the selected item (it becomes
 the attached session, current window or active pane) and exits the mode.
 'Right' expands the item if possible - sessions expand to show their windows
 and windows to show their panes. `Left` collapses the item to hide any windows
 or panes. `O` changes the order of the items and `q` exits tree mode.
-
-<img src="images/tmux_choose_tree2.png" align="right" width=376 height=243>
 
 Items in the tree are tagged by pressing `t` and untagged by pressing `t`
 again. All tagged items may be untagged b pressing `T`. Tagged items may be
