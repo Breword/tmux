@@ -565,6 +565,7 @@ Tree mode is activated with the `choose-tree` command.
 
 #### Detaching other clients
 
+<img src="images/tmux_choose_client.png" align="right" width=376 height=243>
 A list of clients is available by pressing `C-b D` (that is, `C-b S-d`). This
 is similar to tree mode and is called client mode. The movement and tag keys
 are the same, but others are different:
