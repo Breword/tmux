@@ -302,7 +302,7 @@ above.
 
 Each command has zero or more flags, in the same way as standard Unix commands.
 Flags may or may not take a single argument themselves. In addition, commands
-may take additional arguments after the flags Flags are passed after the
+may take additional arguments after the flags. Flags are passed after the
 command, for example to run the `new-session` command (alias `new`) with flags
 `-d` and `-n`:
 
