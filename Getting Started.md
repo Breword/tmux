@@ -391,10 +391,11 @@ the command prompt:
 
 #### Creating new windows
 
-A new window can be created in an attached session with the `C-b c` key binding
-which runs the `new-window` command. The new window is created at the first
-available index - so the second window will have index 1. The new window
-becomes the current window of the session.
+<p><img src="images/tmux_new_windows.png" align="right" width=376 height=243>
+A new window can be created in an attached session with the `C-b c` key
+binding which runs the `new-window` command. The new window is created at the
+first available index - so the second window will have index 1. The new window
+becomes the current window of the session.</p>
 
 If there are any gaps in the window list, they are filled by new windows. So if
 there are windows with indexes 0 and 2, the next new window will be created as
