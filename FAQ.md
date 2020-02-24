@@ -71,9 +71,9 @@ If this works, include the output in the issue.
 Check if tmux is still running with `pgrep` or `ps`. If not, then the server
 probably crashed or was killed and the sessions are gone.
 
-If tmux is still running, it is probably that something deleted the socket in
-`/tmp`. The tmux server can be asked to recreate its socket by sending it the
-`USR1` signal, for example: `pkill -USR1 tmux`
+If tmux is still running, most likely something deleted the socket in `/tmp`.
+The tmux server can be asked to recreate its socket by sending it the `USR1`
+signal, for example: `pkill -USR1 tmux`
 
 ### I don't see any colour in my terminal! Help!
 
