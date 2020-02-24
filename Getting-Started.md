@@ -619,14 +619,14 @@ current window, using the `rename-window` command.
 tmux allows panes and windows to be swapped `swap-pane` and `swap-window`
 commands.
 
-<img src="images/tmux_marked_pane.png" align="right" width=368 height=235>
-
 To make swapping easy, a single pane can be marked. There is one marked pane
 across all sessions. The `C-b m` key binding toggles whether the active pane in
 the current window in the attached session is the marked pane. `C-b M` clears
 the marked pane entirely. The marked pane is shown by a green background to its
 border and the window containing the marked pane has an `M` flag in the status
 line.
+
+<img src="images/tmux_marked_pane.png" align="right" width=368 height=235>
 
 Once a pane is marked, it can be swapped with the active pane in the current
 window with the `swap-pane` command, or the window containing the marked pane
@@ -682,10 +682,6 @@ XXX
 ##### With copy mode
 
 ##### Using menus
-
-#### Respawning panes and windows
-
-XXX
 
 ### Configuring tmux
 
