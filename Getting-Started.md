@@ -606,10 +606,13 @@ The `kill-session` command kills the attached session and all its windows and
 detaches the client. There is no key binding for `kill-session` but it can be
 used from the command prompt or the `:` prompt in tree mode.
 
-#### Working with sessions
+#### Other session keys
 
-XXX
-- renaming
+`C-b $` will prompt for a new name for the attached session. This uses the
+`rename-session` command.
+
+`C-b (`, `C-b )` and `C-b L` will switch the client between the previous, next
+and last used sessions using the `switch-client` command.
 
 #### Working with windows
 
