@@ -611,8 +611,8 @@ used from the command prompt or the `:` prompt in tree mode.
 `C-b $` will prompt for a new name for the attached session. This uses the
 `rename-session` command.
 
-`C-b (`, `C-b )` and `C-b L` will switch the client between the previous, next
-and last used sessions using the `switch-client` command.
+`C-b (`, `C-b )` and `C-b L` will switch the attached session between the
+previous, next and last used sessions using the `switch-client` command.
 
 #### Working with windows
 
