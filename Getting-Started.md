@@ -608,6 +608,8 @@ used from the command prompt or the `:` prompt in tree mode.
 
 #### Other session keys
 
+<img src="images/tmux_rename_session.png" align="right" width=368 height=235>
+
 `C-b $` will prompt for a new name for the attached session. This uses the
 `rename-session` command.
 
