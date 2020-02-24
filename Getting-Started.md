@@ -606,32 +606,64 @@ The `kill-session` command kills the attached session and all its windows and
 detaches the client. There is no key binding for `kill-session` but it can be
 used from the command prompt or the `:` prompt in tree mode.
 
-#### Other session keys
+#### Renaming sessions and windows
 
 <img src="images/tmux_rename_session.png" align="right" width=368 height=235>
 
 `C-b $` will prompt for a new name for the attached session. This uses the
-`rename-session` command.
+`rename-session` command. Likewise, `C-b ,` prompts for a new name for the
+current window, using the `rename-window` command.
 
-`C-b (`, `C-b )` and `C-b L` will switch the attached session between the
-previous, next and last used sessions using the `switch-client` command.
+#### Swapping and moving
 
-#### Working with windows
+<img src="images/tmux_marked_pane.png" align="right" width=368 height=235>
+
+tmux allows panes and windows to be swapped `swap-pane` and `swap-window`
+commands.
+
+To make swapping easy, a single pane can be marked. There is one marked pane
+across all sessions. The `C-b m` key binding toggles whether the active pane in
+the current window in the attached session is the marked pane. `C-b M` clears
+the marked pane entirely. The marked pane is shown by a green background to its
+border and the window containing the marked pane has an `M` flag in the status
+line.
+
+Once a pane is marked, it can be swapped with the active pane in the current
+window with the `swap-pane` command, or the window containing the marked pane
+can be swapped with the current window using the `swap-window` command. For
+example, using the command prompt:
+
+~~~~
+:swap-pane
+~~~~
+
+Panes can additionally be swapped with the pane above or below using the `C-b
+{` and `C-b }` key bindings.
+
+Moving windows uses the `move-window` command or the `C-b .` key binding.
+Pressing `C-b .` will prompt for a new index for the current window. If a
+window already exists at the given index, an error will be shown. An existing
+window can be replaced by using the `-k` flag - to move a window to index 999:
+
+~~~~
+:move-window -kt999
+~~~~
+
+If there are gaps in the window list, the indexes can be renumbered with the
+`-r` flag to `move-window`. For example, this will change a window list of 0,
+1, 3, 999 into 0, 1, 2, 3:
+
+~~~~
+:movew -r
+~~~~
+
+#### Resizing and zooming panes
 
 XXX
-- the size and panning
-- renaming
-- swapping, moving
-- renumber
 
-#### Working with panes
+#### Window layouts
 
 XXX
-- resizing
-- zooming
-- the marked pane
-- swapping
-- moving
 
 #### Buffers, copy and paste
 
@@ -681,6 +713,8 @@ XXX
 XXX
 
 #### Alerts and monitoring
+
+#### List of useful options
 
 ### Other key bindings
 
