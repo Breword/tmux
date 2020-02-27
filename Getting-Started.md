@@ -675,7 +675,9 @@ the window automatically unzoom the window.
 
 The panes in a window may be automatically arranged into one of several named
 layouts, these may be rotated between with the `C-b Space` key binding or
-chosen directly with `C-b M-1`, `C-b M-2` and so on. The available layouts are:
+chosen directly with `C-b M-1`, `C-b M-2` and so on.
+
+ The available layouts are:
 
 Name|Key|Description
 ---|---|---
