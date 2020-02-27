@@ -659,11 +659,29 @@ If there are gaps in the window list, the indexes can be renumbered with the
 
 #### Resizing and zooming panes
 
-XXX
+Panes may be resized in small steps with `C-b C-Left', `C-b C-Right`, `C-b
+C-Up` and `C-b C-Down` and in larger steps with `C-b M-Left', `C-b M-Right`,
+`C-b M-Up` and `C-b M-Down`.
+
+A single pane may be temporarily make to take up the full window with `C-b Z`;
+pressing `C-b Z` again puts the window back where it was. This is called
+zooming and unzooming. A window where a pane has been zoomed is marked with a
+`Z` in the status line. Commands that change the size or position of panes in
+the window automatically unzoom the window.
 
 #### Window layouts
 
-XXX
+The panes in a window may be automatically arranged into one of several named
+layouts, these may be rotated between with the `C-b Space` key binding or
+chosen directly with `C-b 1`, `C-b 2` and so on. The available layouts are:
+
+Name|Key|Description
+---|---|---
+even-horizontal|M-1|Spread out evenly across
+even-vertical|M-2|Spread out evenly up and down
+main-horizontal|M-3|One large pane at the top, the rest spread out evenly across
+main-vertical|M-4|One large pane on the left, the rest spread out evenly up and down
+tiled|M-5|Tiled in the same number of rows as columns
 
 #### Buffers, copy and paste
 
@@ -688,9 +706,6 @@ XXX
 #### Key bindings
 
 XXX
-- root and prefix tables
-- bind-key command
-- unbind-key command
 
 #### Types of option
 
@@ -710,9 +725,15 @@ XXX
 
 #### Alerts and monitoring
 
+XXX
+
 #### List of useful options
 
+XXX
+
 ### Other key bindings
+
+XXX
 
 ### Further information
 
