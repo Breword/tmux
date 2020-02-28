@@ -677,15 +677,15 @@ The panes in a window may be automatically arranged into one of several named
 layouts, these may be rotated between with the `C-b Space` key binding or
 chosen directly with `C-b M-1`, `C-b M-2` and so on.
 
- The available layouts are:
+The available layouts are:
 
 Name|Key|Description
 ---|---|---
-even-horizontal|`M-1`|Spread out evenly across
-even-vertical|`M-2`|Spread out evenly up and down
-main-horizontal|`M-3`|One large pane at the top, the rest spread out evenly across
-main-vertical|`M-4`|One large pane on the left, the rest spread out evenly up and down
-tiled|`M-5`|Tiled in the same number of rows as columns
+even-horizontal|`C-b M-1`|Spread out evenly across
+even-vertical|`C-b M-2`|Spread out evenly up and down
+main-horizontal|`C-b M-3`|One large pane at the top, the rest spread out evenly across
+main-vertical|`C-b M-4`|One large pane on the left, the rest spread out evenly up and down
+tiled|`C-b M-5`|Tiled in the same number of rows as columns
 
 #### Buffers, copy and paste
 
