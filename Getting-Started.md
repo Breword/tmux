@@ -698,7 +698,7 @@ recently copied text is pasted into the active pane with `C-b ]`.
 Paste buffers can be given names but by default they are assigned a name by
 tmux, such as `buffer0` or `buffer1`. Buffers like this are called automatic
 buffers and at most 50 are kept - once there are 50 buffers, the oldest is
-removed when another is added. If a buffer is givena a name, it is called a
+removed when another is added. If a buffer is given a name, it is called a
 named buffer; named buffers are not deleted no matter how many there are.
 
 Copy mode freezes any output in a pane and allows text to be copied. View mode
