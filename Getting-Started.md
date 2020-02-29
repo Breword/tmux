@@ -560,8 +560,8 @@ Key|Function
 `Left`|Collapse item
 `x`|Kill selected item
 `X`|Kill tagged items
-`\<`|Scroll preview left
-`\>`|Scroll preview right
+`<`|Scroll preview left
+`>`|Scroll preview right
 `C-s`|Search by name
 `n`|Repeat last search
 `t`|Toggle if item is tagged
