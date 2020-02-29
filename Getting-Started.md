@@ -701,8 +701,9 @@ buffers and at most 50 are kept - once there are 50 buffers, the oldest is
 removed when another is added. If a buffer is givena a name, it is called a
 named buffer; named buffers are not deleted no matter how many there are.
 
-Copy mode freezes any output in a pane and allows text to be copied. The
-following keys are some of those available in copy mode:
+Copy mode freezes any output in a pane and allows text to be copied. View mode
+(described earlier) is a read-only form of copy mode. The following keys are
+some of those available in copy mode:
 
 Key|Action
 ---|---
