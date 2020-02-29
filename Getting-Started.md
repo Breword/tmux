@@ -494,6 +494,8 @@ bindings:
   so pressing `C-b Down` on a pane at the bottom will change to a pane at the
   top.
 
+<img src="images/tmux_display_panes.png" align="right" width=368 height=235>
+
 * `C-b q` prints the pane numbers and their sizes on top of the panes for a
   short time. Pressing one of the number keys before they disappear changes the
   active pane to the chosen pane, so `C-b q 1` will change to pane number 1.
