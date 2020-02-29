@@ -546,25 +546,25 @@ key:
 
 Key|Function
 ---|---
-Enter|Change the attached session, current window or active pane
-Up|Select previous item
-Down|Select next item
-Right|Expand item
-Left|Collapse item
-x|Kill selected item
-X|Kill tagged items
-\<|Scroll preview left
-\>|Scroll preview right
-C-s|Search by name
-n|Repeat last search
-t|Toggle if item is tagged
-T|Tag no items
-C-t|Tag all items
-:|Prompt for a command to run for the selected item or each tagged item
-O|Change sort field
-r|Reverse sort order
-v|Toggle preview
-q|Exit tree mode
+`Enter`|Change the attached session, current window or active pane
+`Up`|Select previous item
+`Down`|Select next item
+`Right`|Expand item
+`Left`|Collapse item
+`x`|Kill selected item
+`X`|Kill tagged items
+`\<`|Scroll preview left
+`\>`|Scroll preview right
+`C-s`|Search by name
+`n`|Repeat last search
+`t`|Toggle if item is tagged
+`T`|Tag no items
+`C-t`|Tag all items
+`:`|Prompt for a command to run for the selected item or each tagged item
+`O`|Change sort field
+`r`|Reverse sort order
+`v`|Toggle preview
+`q`|Exit tree mode
 
 Tree mode is activated with the `choose-tree` command.
 
@@ -587,11 +587,11 @@ that are the same as tree mode:
 
 Key|Function
 ---|---
-Enter|Detach selected client
-d|Detach selected client, same as `Enter`
-D|Detach tagged clients
-x|Detach selected client and try to kill the shell it was started from
-X|Detach tagged clients and try to kill the shell they were started from
+`Enter`|Detach selected client
+`d`|Detach selected client, same as `Enter`
+`D`|Detach tagged clients
+`x`|Detach selected client and try to kill the shell it was started from
+`X`|Detach tagged clients and try to kill the shell they were started from
 
 Other than using client mode, the `detach-client` flag has a `-a` flag to
 detach all clients other than the attached client.
@@ -687,9 +687,80 @@ main-horizontal|`C-b M-3`|One large pane at the top, the rest spread out evenly 
 main-vertical|`C-b M-4`|One large pane on the left, the rest spread out evenly up and down
 tiled|`C-b M-5`|Tiled in the same number of rows as columns
 
-#### Buffers, copy and paste
+#### Copy and paste
 
-XXX
+tmux has its own copy and paste system. A piece of copied text is called a
+paste buffer. Text is copied using copy mode, entered with `C-b [` and the most
+recently copied text is pasted into the active pane with `C-b ]`.
+
+<img src="images/tmux_copy_mode.png" align="right" width=368 height=235>
+
+Paste buffers can be given names but by default they are assigned a name by
+tmux, such as `buffer0` or `buffer1`. Buffers like this are called automatic
+buffers and at most 50 are kept - once there are 50 buffers, the oldest is
+removed when another is added. If a buffer is givena a name, it is called a
+named buffer; named buffers are not deleted no matter how many there are.
+
+Copy mode freezes any output in a pane and allows text to be copied. The
+following keys are some of those available in copy mode:
+
+Key|Action
+---|---
+`Up`, `Down`, `Left`, `Right`|Move the cursor
+`C-Space`|Start a selection
+`C-w`|Copy the selection and exit copy mode
+`q`|Exit copy mode
+`C-g`|Stop selecting without copying, or stop searching
+`C-a`|Move the cursor to the start of the line
+`C-e`|Move the cursor to the end of the line
+`C-r`|Search interactively backwards
+`M-f`|Move the cursor to the next word
+`M-b`|Move the cursor to the previous word
+
+<img src="images/tmux_buffer_mode.png" align="right" width=368 height=235>
+
+Once some text is copied, the most recent may be pasted with `C-b ]` or an
+older one pasted by using buffer mode, entered with `C-b =`. Buffer mode is
+similar to client mode and tree mode and offers a list of buffers together with
+a preview of their contents. As well as the navigation and tagging keys used in
+tree mode and client mode, buffer mode supports the following keys:
+
+Key|Function
+---|---
+`Enter`|Paste selected buffer
+`p`|Paste selected buffer, same as `Enter`
+`P`|Paste tagged buffers
+`d`|Delete selected buffer
+`D`|Delete tagged buffers
+
+A buffer may be renamed using the `set-buffer` command. The `-b` flag gives the
+existing buffer name and `-n` the new name. This converts it into a named
+buffer. For example, to rename `buffer0` to `mybuffer` from the command prompt:
+
+~~~~
+:setb -bbuffer0 -nmybuffer
+~~~~
+
+`set-buffer` can also be used to create buffers. To create a buffer called
+`foo` with text `bar`:
+
+~~~~
+:setb -bfoo bar
+~~~~
+
+`load-buffer` will load a buffer from a file:
+
+~~~~
+:loadb -bbuffername ~/a/file
+~~~~
+
+`set-buffer` or `load-buffer` without `-b` creates an automatic buffer.
+
+An existing buffer can be saved to a file with `save-buffer`:
+
+~~~~
+:saveb -bbuffer0 ~/saved_buffer
+~~~~
 
 #### Finding windows
 
