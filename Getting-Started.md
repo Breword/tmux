@@ -765,9 +765,16 @@ An existing buffer can be saved to a file with `save-buffer`:
 :saveb -bbuffer0 ~/saved_buffer
 ~~~~
 
-#### Finding windows
+#### Finding windows and panes
 
-XXX
+<img src="images/tmux_find_window.png" align="right" width=368 height=235>
+
+`C-b f` prompts for some text and then enters tree mode with a filter to show
+only panes where that text appears in the visible content or title of the pane
+or in the window name. If panes are found, only those panes appear in the tree,
+and the text `filter: active` is shown above the preview. If no panes are
+found, all panes are shown in the tree and the text `filter: no matches`
+appears above the preview.
 
 #### Using the mouse
 
