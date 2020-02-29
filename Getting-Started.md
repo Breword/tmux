@@ -543,6 +543,11 @@ again. Tagged items are shown in bold and with `*` after their name. All tagged
 items may be untagged b pressing `T`. Tagged items may be killed together by
 pressing `X`, or a command applied to them all by pressing `:` for a prompt.
 
+Each item in the tree has as shortcut key in brackets at the start of the line.
+Pressing this key will immediately choose that item (as if it had been selected
+and `Enter` pressed). The first ten items are keys `0` to `9` and after that
+keys `M-a` to `M-z` are used.
+
 This is a list of the keys available in tree mode without pressing the prefix
 key:
 
