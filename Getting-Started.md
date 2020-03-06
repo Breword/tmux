@@ -261,6 +261,9 @@ it is released and then the `c` key is pressed. Care must be taken to release
 the `Ctrl` key after pressing `C-b` if necessary - `C-b c` is different from
 `C-b C-c`.
 
+Pressing `C-b` twice sends the `C-b` key to the program running in the active
+pane.
+
 #### Help keys
 
 Every default tmux key binding has a short description to help remember what
@@ -1033,13 +1036,14 @@ useful are:
 
 * `fg` sets the foreground colour. Like `bg`, the colour is given: `fg=green`.
 
-* `bright`, `underscore`, `reverse`, `italics` set the attributes. These appear
-  alone, such as: `bright,reverse`.
+* `bright` or `bold`, `underscore`, `reverse`, `italics` set the attributes.
+  These appear alone, such as: `bright,reverse`.
 
 Colours may be one of `black`, `red`, `green`, `yellow`, `blue`, `magenta`,
-`cyan`, `white` for the standard terminal colours; `colour0` to `colour255` for
-the colours from the 256-colour palette; `default` for the default colour; or a
-hexadecimal RGB colour such as `#882244`.
+`cyan`, `white` for the standard terminal colours; `brightred`, `brightyellow`
+and so on for the bright variants; `colour0` to `colour255` for the colours
+from the 256-colour palette; `default` for the default colour; or a hexadecimal
+RGB colour such as `#882244`.
 
 The remaining style terms are described [in the manual
 page](https://man.openbsd.org/tmux#STYLES).
@@ -1110,15 +1114,52 @@ Option|Type|Description
 
 ### Common configuration changes
 
+This section shows examples of some common configuration requests for
+`.tmux.conf`.
+
 #### Changing the prefix key
 
-XXX
+The prefix key is set by the `prefix` option. The `C-b` key is also bound to
+the `send-prefix` command in the prefix key table so pressing `C-b` twice sends
+it through to the active pane. To change to `C-a`:
+
+~~~~
+set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+~~~~
 
 #### Customizing the status line
 
-XXX
+There are many options for customizing the status line. The simplest options are:
 
-#### Alerts and monitoring
+* Turn the status line off: `set -g status off`
+
+* Move it to the top: `set -g status-position top`
+
+* Set the background colour to red: `set -g status-style bg=red`
+
+* Change the text on the left to the time only: `set -g status-left '%H:%M'`
+
+* Underline the current window: `set -g window-status-current-style 'underscore'`
+
+#### Configuring the pane border
+
+The pane border colours may be set:
+
+~~~~
+set -g pane-border-style fg=red
+set -g pane-active-border-style 'fg=red,bg=yellow'
+
+Each pane may be given a status line with the `pane-border-status` option, for
+example to show the pane title in bold:
+
+~~~~
+set -g pane-border-status top
+set -g pane-border-format '#[bold]#{pane_title}#[default]'
+~~~~
+
+### Alerts and monitoring
 
 XXX
 
