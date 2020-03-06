@@ -833,7 +833,12 @@ again from a running server using the command prompt:
 ~~~~
 
 Commands in a configuration file appear one per line. Any lines starting with
-`#` are comments and are ignored.
+`#` are comments and are ignored:
+
+~~~~
+# This is a comment - turn status line off
+set -g status off
+~~~~
 
 #### Key bindings
 
@@ -889,8 +894,8 @@ bind M-0 selectw -t:=10
 
 The `-t` flag to `select-window` specifies the target window. In this example,
 the `:` means the target is a window and `=` means the name must match `10`
-exactly. Targets are documented further in the manual [COMMANDS
-section](https://man.openbsd.org/tmux#COMMANDS).
+exactly. Targets are documented further in the [COMMANDS section of the manual
+page](https://man.openbsd.org/tmux#COMMANDS).
 
 The `unbind-key` command removes a key binding. Like `bind-key` it has `-T` and
 `-n` flags for the key table. It is not necessary to remove a key binding
