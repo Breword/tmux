@@ -1154,6 +1154,7 @@ The pane border colours may be set:
 ~~~~
 set -g pane-border-style fg=red
 set -g pane-active-border-style 'fg=red,bg=yellow'
+~~~~
 
 Each pane may be given a status line with the `pane-border-status` option, for
 example to show the pane title in bold:
