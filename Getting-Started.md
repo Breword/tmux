@@ -1060,20 +1060,23 @@ Option|Type|Description
 `base-index`|session|If `on`, then windows are numbered from 1 instead of from 0
 `buffer-limit`|server|The maximum number of automatic buffers to keep, the default is 50
 `default-terminal`|server|The default value of the `TERM` environment variable inside tmux
+`display-panes-time`|window|The time in milliseconds the pane numbers are shown for `C-b q`
 `display-time`|session|The time in milliseconds for which messages on the status line are shown
 `escape-time`|server|The time tmux waits after receiving an `Escape` key to see if it is part of a longer key sequence
 `focus-events`|server|Whether focus key sequences are sent by tmux when the active pane changes and when received from the outside terminal if it supports them
 `history-limit`|session|The maximum number of lines kept in the history for each pane
 `mode-keys`|window|Whether *emacs(1)* or *vi(1)* key bindings are used in copy mode
 `mouse`|session|If the mouse is enabled
+`pane-border-status`|window|Whether a status line appears in every pane border: `top` or `bottom`
 `prefix`|session|The prefix key, the default is `C-b`
 `remain-on-exit`|window|Whether panes are automatically killed when the program running in the exits
 `renumber-windows`|session|If `on`, windows are automatically renumbered to close any gaps in the window list
 `set-clipboard`|server|Whether tmux should attempt to set the external *X(7)* clipboard when text is copied and if the outside terminal supports it
 `set-titles`|session|If `on`, tmux will set the title of the outside terminal
-`status-keys`|session|Whether *emacs(1)* or *vi(1)* key bindings are used at the command prompt
-`status-position`|session|The position of the status line: `top` or `bottom`
 `status`|session|Whether the status line if visible
+`status-keys`|session|Whether *emacs(1)* or *vi(1)* key bindings are used at the command prompt
+`status-interval`|session|The maximum time in seconds before the status line is redrawn
+`status-position`|session|The position of the status line: `top` or `bottom`
 `synchronize-panes`|window|If `on`, typing in any pane in the window is sent to all panes in the window - care should be taken with this option!
 `terminal-overrides`|server|Any capabilities tmux should override from the `TERM` given for the outside terminal
 
@@ -1083,8 +1086,28 @@ This is a list of the most commonly used tmux options for style and format of
 various components:
 
 Option|Type|Description
----|
-XXX
+---|---|---
+`display-panes-active-colour`|session|The style of the active pane number for `C-b q`
+`display-panes-colour`|session|The style of the pane numbers, apart from the active pane for`C-b q`
+`message-style`|session|The style of messages shown on the status line
+`mode-style`|window|The style of the selection in copy mode
+`pane-active-border-style`|window|The style of the active pane border
+`pane-border-format`|window|The format of text that appears in the pane border status line if `pane-border-status` is set
+`pane-border-style`|window|The style of the pane borders, apart from the active pane
+`status-left-length`|session|The maximum length of the status line left 
+`status-left-style`|session|The style of the status line left
+`status-left`|session|The format of the text in the status line left
+`status-right-length`|session|The maximum length of the status line right 
+`status-right-style`|session|The style of the status line right
+`status-right`|session|The format of the text in the status line right
+`status-style`|session|The style of the status line as a whole, parts may be overridden by more specific options like `status-left-style`
+`window-active-style`|window|The style of the default colour in the active pane in the window
+`window-status-current-format`|window|The format of the current window in the window list
+`window-status-current-style`|window|The style of the current window in the window list
+`window-status-format`|window|The format of windows in the window list, apart from the current window
+`window-status-separator`|The separator between windows in the window list
+`window-status-style`|window|The style of windows in the window list, apart from the current window
+`window-style`|window|The style of the default colour of panes in the window, apart from the active pane
 
 ### Common configuration changes
 
