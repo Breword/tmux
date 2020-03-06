@@ -836,7 +836,7 @@ Commands in a configuration file appear one per line. Any lines starting with
 `#` are comments and are ignored:
 
 ~~~~
-# This is a comment - turn status line off
+# This is a comment - this command turns the status line off
 set -g status off
 ~~~~
 
