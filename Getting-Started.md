@@ -836,7 +836,7 @@ Commands in a configuration file appear one per line. Any lines starting with
 `#` are comments and are ignored:
 
 ~~~~
-# This is a comment - this command turns the status line off
+# This is a comment - the command below turns the status line off
 set -g status off
 ~~~~
 
@@ -859,7 +859,7 @@ For example to list only keys in the `prefix` table:
 
 ~~~~
 $ tmux lsk -Tprefix
-bind-key    -T prefix C-a     send-prefix
+bind-key    -T prefix C-b     send-prefix
 bind-key    -T prefix C-o     rotate-window
 ...
 ~~~~
@@ -868,8 +868,8 @@ Or:
 
 ~~~~
 $ tmux lsk -Tprefix -N
+C-b     Send the prefix key
 C-o     Rotate through the panes
-C-z     Suspend the current client
 ...
 ~~~~
 
