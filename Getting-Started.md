@@ -909,51 +909,30 @@ unbind M-0
 
 #### Types of option
 
-tmux is configured by setting options. tmux has several different sets of option:
+tmux is configured by setting options. There are several types of options:
 
-* A set of server options which affect the entire server.
+* Server options which affect the entire server.
 
-* A set of global session options and a set of session options for each
-  session.
+* Session options which affect one or all sessions.
 
-* A set of global window options and a set of window options for each window.
+* Window options which affect one or all windows.
 
-* A set of pane options for each pane.
+* Pane options which affect one or all panes.
 
-The way global session and window options work is:
+* User options which are not used by tmux but are reserved for the user.
 
-* By default, the set of session options for a session and the set of window
-  options for a window is empty.
+Session and window options have both a global set of options and a set for each
+session or window. If the option is not present in the session or window set,
+the global option is used. Pane options are similar except the window options
+are also checked.
 
-* The global options are always set to something.
-
-* When tmux is looking for a session or a window option, first it will check
-  the set of options for that session or window. If the option is found, its
-  value is used.
-
-* If the option is not present in the set of options for that session or
-  window, either the global session options (for a session) or the global
-  window options (for a window) is used.
-
-Pane options are mostly similar except all pane options are also window options
-- if the pane option is not set for a pane, the window option is checked, then
-the global window options.
-
-All tmux's option names are lowercase, like `status` or `word-separators`. A
-few options are called array options and may hold multiple values, each value
-has an index after the name for example index 99 of the `update-environment`
-option appears as `update-environment[99]`.
-
-Custom options may be set, these are called user options and have names
-starting with `@` (for example `@myoption`). User options are not used by tmux
-itself.
+When configuring tmux, it is most common to set server options and global
+session or window options. This document only covers these.
 
 #### Showing options
 
-Options are displayed using the `show-options` command. Without flags this
-shows the session options for the attached session - by default there will not
-be any set, so it will show nothing. There are several flags to show the
-different types of options:
+Options are displayed using the `show-options` command. The `-g` flag shows
+global options. It can show server, session or window options:
 
 * `-s` shows server options:
 
@@ -964,7 +943,7 @@ buffer-limit 50
 ...
 ~~~~
 
-* `-g` shows global options. Without `-w` this is global session options:
+* With no other flags, `-g` shows session options:
 
 ~~~~
 $ tmux show -g
@@ -973,7 +952,7 @@ assume-paste-time 1
 ...
 ~~~~
 
-* `-w` shows window options. With `-g` this is global window options:
+* `-w` shows window options:
 
 ~~~~
 $ tmux show -wg
@@ -982,23 +961,10 @@ allow-rename off
 ...
 ~~~~
 
-* `-p` shows pane options, if any are set.
-
-* `-A` shows both pane, window or session options and the global options if the
-  option is not set for the pane, window or session. Global options are marked
-  with a `*`:
-
-~~~~
-$ tmux show -pA
-allow-rename off
-alternate-screen* on
-...
-~~~~
-
 An individual option value may be shown by giving its name to `show-option`.
 When an option name is given, it is not necessary to give `-s` or `-w` because
-tmux can work it out from the option name, except for user options. `-p` is
-always needed for pane options. For example to show the `status` option:
+tmux can work it out from the option name. For example, to show the `status`
+option:
 
 ~~~~
 $ tmux show -g status
@@ -1007,29 +973,65 @@ status on
 
 #### Changing options
 
-XXX
+Options are set or unset using the `set-option` command. Like `show-option`, it
+is not necessary to give `-s` or `-w` because tmux can work out it out from the
+option name. `-g` is necessary to set global session or window options; for
+server options it does nothing.
+
+To set the `status` option:
+
+~~~~
+set -g status off
+~~~~
+
+Or the `default-terminal` option:
+
+~~~~
+set -s default-terminal 'tmux-256color'
+~~~~
+
+The `-u` flag unsets an option. Unsetting a global option restores it to its
+default value, for example:
+
+~~~~
+set -gu status
+~~~~
 
 #### Formats
 
-XXX
+Many options make use of formats. Formats provide a powerful syntax to
+configure how text appears, based on various attributes of the tmux server, a
+session, window or pane. Formats are enclosed in `#{}` in string options, such
+as the default `status-right`:
+
+~~~~
+$ tmux show -s status-right
+status-right "#{?window_bigger,[#{window_offset_x}#,#{window_offset_y}] ,}\"#{=21:pane_title}\" %H:%M %d-%b-%y"
+~~~~
+
+Formats are described [in this
+document](https://github.com/tmux/tmux/wiki/Formats) and [in the manual
+page](https://man.openbsd.org/tmux#FORMATS).
 
 #### Colours and styles
 
 XXX
 
+#### List of useful options
+
+XXX
+
+### Common configuration changes
+
 #### Changing the prefix key
 
 XXX
 
-#### The status line
+#### Customizing the status line
 
 XXX
 
 #### Alerts and monitoring
-
-XXX
-
-#### List of useful options
 
 XXX
 
