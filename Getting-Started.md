@@ -1047,7 +1047,7 @@ page](https://man.openbsd.org/tmux#STYLES).
 For example, to set the status line background to blue using the `status-style` option:
 
 ~~~~
-set -g status-style `bg=blue`
+set -g status-style 'bg=blue'
 ~~~~
 
 #### List of useful options
