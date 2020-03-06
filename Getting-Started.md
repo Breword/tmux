@@ -1105,7 +1105,7 @@ Option|Type|Description
 `window-status-current-format`|window|The format of the current window in the window list
 `window-status-current-style`|window|The style of the current window in the window list
 `window-status-format`|window|The format of windows in the window list, apart from the current window
-`window-status-separator`|The separator between windows in the window list
+`window-status-separator`|window|The separator between windows in the window list
 `window-status-style`|window|The style of windows in the window list, apart from the current window
 `window-style`|window|The style of the default colour of panes in the window, apart from the active pane
 
