@@ -45,6 +45,12 @@ Here is a screenshot of tmux in an *xterm(1)* showing the shell:
 
 <p align="center"><img src="images/tmux_default.png" width=368 height=235></p>
 
+### About this document
+
+This document gives an overview of some of tmux's key concepts, a description
+of how to use the main features interactively and some information on basic
+customization and configuration.
+
 ### Installing tmux
 
 tmux may be installed from package management systems on most major platforms.
@@ -1158,15 +1164,3 @@ example to show the pane title in bold:
 set -g pane-border-status top
 set -g pane-border-format '#[bold]#{pane_title}#[default]'
 ~~~~
-
-### Alerts and monitoring
-
-XXX
-
-### Other key bindings
-
-XXX
-
-### Further information
-
-XXX
