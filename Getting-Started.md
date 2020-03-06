@@ -51,15 +51,13 @@ This document gives an overview of some of tmux's key concepts, a description
 of how to use the main features interactively and some information on basic
 customization and configuration.
 
-### Installing tmux
+Note that this document may mention features only available in the latest tmux
+release. Only the latest tmux release is supported. Releases are made
+approximately every six months.
 
 tmux may be installed from package management systems on most major platforms.
 See [this document](Installing.md) for instructions on how to install tmux or
 how to build it from source.
-
-Note that this document may mention features only available in the latest tmux
-release. Only the latest tmux release is supported. Releases are made
-approximately every six months.
 
 ### Other documentation and help
 
