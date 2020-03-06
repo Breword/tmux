@@ -15,16 +15,15 @@ See:
 
 * [how to install tmux](Installing);
 
-* [the tmux(1) manual page](http://man.openbsd.org/OpenBSD-current/man1/tmux.1);
+* the [tmux(1) manual page](http://man.openbsd.org/OpenBSD-current/man1/tmux.1);
 
-* and [the README](https://github.com/tmux/tmux/blob/master/.github/README.md).
+* and the [README](https://github.com/tmux/tmux/blob/master/.github/README.md).
 
 For support:
 
-* [the FAQ](FAQ);
+* the [FAQ](FAQ);
 
-* the [tmux-users@googlegroups.com mailing
-list](mailto:tmux-users@googlegroups.com);
+* the [tmux-users@googlegroups.com mailing list](mailto:tmux-users@googlegroups.com);
 
 * the [#tmux IRC channel on freenode](irc://irc.freenode.net/tmux).
 
