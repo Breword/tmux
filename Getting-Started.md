@@ -1163,3 +1163,50 @@ example to show the pane title in bold:
 set -g pane-border-status top
 set -g pane-border-format '#[bold]#{pane_title}#[default]'
 ~~~~
+
+### Other features
+
+tmux has a large set of features and commands not mentioned in this document,
+many allowing powerful scripting. Here is a list of some that may be worth
+further reading:
+
+* Alerts: `monitor-activity`, `monitor-bell`, `monitor-silence`,
+  `activity-action`, `bell-action` and other options.
+
+* Options for individual session, windows and panes.
+
+* Moving panes with `join-pane` and `break-pane`.
+
+* Sending keys to panes with `send-keys`.
+
+* The command prompt `history-file` option.
+
+* Saved layout strings with `select-layout`.
+
+* Command sequences: `select-window; kill-window`.
+
+* Configuration file syntax: `{}`, `%if` and so on.
+
+* Mouse key bindings: `MouseDown1Pane` and so on.
+
+* Locking: `lock-command`, `lock-after-time` and other options.
+
+* Capturing pane content with `capture-pane` and piping with `pipe-pane`.
+
+* Linking windows: the `link-window` command.
+
+* Session groups: the `-t` flag to `new-session`.
+
+* Respawing window and panes with `respawn-window` and `respawn-pane`.
+
+* Custom menus with the `display-menu` command and custom prompts with
+  `command-prompt` and `confirm-before`.
+
+* Different key tables: `bind-key` and the `-T` flag to `switch-client`.
+
+* Empty panes: the `split-window` with an empty command and `-I` to
+  `display-message`.
+
+* Hooks: `set-hook` and `show-hooks`.
+
+* Synchronization for scripts with `wait-for`.
