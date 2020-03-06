@@ -91,7 +91,7 @@ programs.
 
 Users attach to the tmux server by starting a client. This takes over the
 terminal where it is run and talks to the server using a socket file in `/tmp`.
-Each client runs in one terminal, which may be an X terminal such as
+Each client runs in one terminal, which may be an *X(7)* terminal such as
 *xterm(1)*, the system console, or a terminal inside another program (such as
 tmux itself). Each client is identified by the name of the outside terminal
 where it is started, for example `/dev/ttypf`.
@@ -1001,8 +1001,9 @@ set -gu status
 
 Many options make use of formats. Formats provide a powerful syntax to
 configure how text appears, based on various attributes of the tmux server, a
-session, window or pane. Formats are enclosed in `#{}` in string options, such
-as the default `status-right`:
+session, window or pane. Formats are enclosed in `#{}` in string options or as
+a single uppercase letter like `#F`. This is the default `status-right` with
+several formats:
 
 ~~~~
 $ tmux show -s status-right
@@ -1015,10 +1016,74 @@ page](https://man.openbsd.org/tmux#FORMATS).
 
 #### Colours and styles
 
-XXX
+tmux allows the colour and attribute of text to be configured with a simple
+syntax, this is known as the style. There are two places styles appear:
+
+* In options, such as `status-style`.
+
+* Enclosed in string options in `#[]`, this is called an embedded style.
+
+A style has a number of terms separated by spaces or commas, the most
+useful are:
+
+* `default` uses the default colour; this must appear on its own.
+
+* `bg` sets the background colour. The colour is also given, for example
+  `bg=red`.
+
+* `fg` sets the foreground colour. Like `bg`, the colour is given: `fg=green`.
+
+* `bright`, `underscore`, `reverse`, `italics` set the attributes. These appear
+  alone, such as: `bright,reverse`.
+
+Colours may be one of `black`, `red`, `green`, `yellow`, `blue`, `magenta`,
+`cyan`, `white` for the standard terminal colours; `colour0` to `colour255` for
+the colours from the 256-colour palette; `default` for the default colour; or a
+hexadecimal RGB colour such as `#882244`.
+
+The remaining style terms are described [in the manual
+page](https://man.openbsd.org/tmux#STYLES).
+
+For example, to set the status line background to blue using the `status-style` option:
+
+~~~~
+set -g status-style `bg=blue`
+~~~~
 
 #### List of useful options
 
+This is a short list of the most commonly used tmux options, apart from style
+options:
+
+Option|Type|Description
+---|---|---
+base-index|session|If `on`, then windows are numbered from 1 instead of from 0
+buffer-limit|server|The maximum number of automatic buffers to keep, the default is 50
+default-terminal|server|The default value of the `TERM` environment variable inside tmux
+display-time|session|The time in milliseconds for which messages on the status line are shown
+escape-time|server|The time tmux waits after receiving an `Escape` key to see if it is part of a longer key sequence
+focus-events|server|Whether focus key sequences are sent by tmux when the active pane changes and when received from the outside terminal if it supports them
+history-limit|session|The maximum number of lines kept in the history for each pane
+mode-keys|window|Whether *emacs(1)* or *vi(1)* key bindings are used in copy mode
+mouse|session|If the mouse is enabled
+prefix|session|The prefix key, the default is `C-b`
+remain-on-exit|window|Whether panes are automatically killed when the program running in the exits
+renumber-windows|session|If `on`, windows are automatically renumbered to close any gaps in the window list
+set-clipboard|server|Whether tmux should attempt to set the external *X(7)* clipboard when text is copied and if the outside terminal supports it
+set-titles|session|If `on`, tmux will set the title of the outside terminal
+status-keys|session|Whether *emacs(1)* or *vi(1)* key bindings are used at the command prompt
+status-position|session|The position of the status line: `top` or `bottom`
+status|session|Whether the status line if visible
+synchronize-panes|window|If `on`, typing in any pane in the window is sent to all panes in the window - care should be taken with this option!
+terminal-overrides|server|Any capabilities tmux should override from the `TERM` given for the outside terminal
+
+#### List of style and format options
+
+This is a list of the most commonly used tmux options for style and format of
+various components:
+
+Option|Type|Description
+---|
 XXX
 
 ### Common configuration changes
