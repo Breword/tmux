@@ -783,15 +783,43 @@ appears above the preview.
 
 #### Using the mouse
 
-##### On the status line
+tmux has rich support for the mouse. It can be used to change the active pane
+or window, to resize panes, to copy text, or to choose items from menus.
 
-##### With panes
+Support for the mouse is enabled with the `mouse` option; options and the
+configuration file are described in detail in the next section. To turn the
+mouse on from the command prompt, use the `set-option` command:
 
-##### With copy mode
+~~~~
+:set -g mouse on
+~~~~
 
-##### Using menus
+Once the mouse is enabled:
+
+<img src="images/tmux_pane_menu.png" align="right" width=376 height=243>
+
+* Pressing the left button on a pane will make that pane the active pane.
+
+* Pressing the left button on a window name on the status line will make that
+  the current window.
+
+* Dragging with the left button on a pane border resizes the pane.
+
+* Dragging with the left button inside a pane selects text; the selected text
+  is copied when the mouse is released.
+
+* Pressing the right button on a pane opens a menu with various commands. When
+  the mouse button is released, the selected command is run with the pane as
+  target. Each menu item also has a key shortcut shown in brackets.
+
+* Pressing the right button on a window or on the session name on the status
+  line opens a similar menu for the window or session.
 
 ### Configuring tmux
+
+#### The configuration file
+
+XXX
 
 #### Key bindings
 
