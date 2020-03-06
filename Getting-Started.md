@@ -1082,8 +1082,7 @@ Option|Type|Description
 
 #### List of style and format options
 
-This is a list of the most commonly used tmux options for style and format of
-various components:
+This is a list of the most commonly used tmux style and format options:
 
 Option|Type|Description
 ---|---|---
