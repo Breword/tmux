@@ -852,7 +852,7 @@ Key bindings in tmux appear in key tables - there are two default key tables:
 
 All the key bindings or those for a single table can be listed with the
 `list-keys` command. By default, this shows the keys as a series of `bind-key`
-commands. The `-T flag gives the key table to show and the `-N` flag shows the
+commands. The `-T` flag gives the key table to show and the `-N` flag shows the
 key help, like the `C-b ?` key binding.
 
 For example to list only keys in the `prefix` table:
