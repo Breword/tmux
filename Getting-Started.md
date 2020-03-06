@@ -874,9 +874,10 @@ C-z     Suspend the current client
 ~~~~
 
 `bind-key` commands can be used to set a key binding, either interactively or
-most commonly from the configuration file. Like `list-keys`, it has a `-T` flag
-for the key table to use. If `-T` is not given, the key is put in the `prefix`
-table; the `-n` flag is a shorthand for `-Troot` to use the `root` table.
+most commonly from the configuration file. Like `list-keys`, `bind-key` has a
+`-T` flag for the key table to use. If `-T` is not given, the key is put in the
+`prefix` table; the `-n` flag is a shorthand for `-Troot` to use the `root`
+table.
 
 For example, the `list-keys` command shows that `C-b 9` changes to window 9
 using the `select-window` command:
