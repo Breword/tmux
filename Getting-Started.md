@@ -867,7 +867,7 @@ bind-key    -T prefix C-o     rotate-window
 Or:
 
 ~~~~
-$ tmux lsk -Tprefix -N|head
+$ tmux lsk -Tprefix -N
 C-o     Rotate through the panes
 C-z     Suspend the current client
 ...
