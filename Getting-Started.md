@@ -366,7 +366,7 @@ The `new-session` command has a `-A` flag to attach to an existing session if
 it exists, or create a new one if it does not. For a session named `mysession`:
 
 ~~~~
-$ tmux new -Atmysession
+$ tmux new -Asmysession
 ~~~~
 
 The `-D` flag may be added to make `new-session` also behave like
