@@ -629,8 +629,8 @@ current window, using the `rename-window` command.
 
 #### Swapping and moving
 
-tmux allows panes and windows to be swapped `swap-pane` and `swap-window`
-commands.
+tmux allows panes and windows to be swapped with the `swap-pane` and
+`swap-window` commands.
 
 To make swapping easy, a single pane can be marked. There is one marked pane
 across all sessions. The `C-b m` key binding toggles whether the active pane in
