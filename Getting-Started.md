@@ -432,7 +432,7 @@ command prompt:
   ~~~~
 
 A command to be run in the new window may be given to `new-window` in the same
-way as `split-window`. For example to create a new window running *top(1)*:
+way as `new-session`. For example to create a new window running *top(1)*:
 
 ~~~~
 :neww top
