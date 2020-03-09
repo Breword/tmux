@@ -385,7 +385,6 @@ $ tmux ls
 2: 1 windows (created Sat Feb 22 11:44:51 2020)
 myothersession: 2 windows (created Sat Feb 22 11:44:51 2020)
 mysession: 1 windows (created Sat Feb 22 11:44:51 2020)
-
 ~~~~
 
 #### Killing tmux entirely
