@@ -676,11 +676,11 @@ Panes may be resized in small steps with `C-b C-Left`, `C-b C-Right`, `C-b
 C-Up` and `C-b C-Down` and in larger steps with `C-b M-Left`, `C-b M-Right`,
 `C-b M-Up` and `C-b M-Down`.
 
-A single pane may be temporarily make to take up the full window with `C-b Z`;
+A single pane may be temporarily made to take up the whole window with `C-b Z`;
 pressing `C-b Z` again puts the window back where it was. This is called
 zooming and unzooming. A window where a pane has been zoomed is marked with a
 `Z` in the status line. Commands that change the size or position of panes in
-the window automatically unzoom the window.
+a window automatically unzoom the window.
 
 #### Window layouts
 
