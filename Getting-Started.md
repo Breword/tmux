@@ -848,7 +848,7 @@ set -g status off
 
 #### Key bindings
 
-tmux key bindings are changed using the `bind-key` and `unbind-key` command.
+tmux key bindings are changed using the `bind-key` and `unbind-key` commands.
 Key bindings in tmux appear in key tables - there are two default key tables:
 
 * The `root` table contains key bindings for keys pressed without the prefix key.
@@ -907,7 +907,7 @@ page](https://man.openbsd.org/tmux#COMMANDS).
 The `unbind-key` command removes a key binding. Like `bind-key` it has `-T` and
 `-n` flags for the key table. It is not necessary to remove a key binding
 before binding it again, `bind-key` will replace any existing key binding.
-`unbind-key` is necessary only to completely remove a key binding`:
+`unbind-key` is necessary only to completely remove a key binding:
 
 ~~~~
 unbind M-0
