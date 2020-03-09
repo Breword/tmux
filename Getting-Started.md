@@ -540,7 +540,7 @@ panes only the selected pane.
 Keys to control tree mode do not require the prefix. The list may be navigated
 with the `Up` and `Down` keys. `Enter` changes to the selected item (it becomes
 the attached session, current window or active pane) and exits the mode.
-'Right' expands the item if possible - sessions expand to show their windows
+`Right` expands the item if possible - sessions expand to show their windows
 and windows to show their panes. `Left` collapses the item to hide any windows
 or panes. `O` changes the order of the items and `q` exits tree mode.
 
