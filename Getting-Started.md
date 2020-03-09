@@ -693,7 +693,7 @@ chosen directly with `C-b M-1`, `C-b M-2` and so on.
 The available layouts are:
 
 Name|Key|Description
----|-------|---
+---|---|---
 even-horizontal|`C-b M-1`|Spread out evenly across
 even-vertical|`C-b M-2`|Spread out evenly up and down
 main-horizontal|`C-b M-3`|One large pane at the top, the rest spread out evenly across
