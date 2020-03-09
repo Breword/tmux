@@ -546,7 +546,7 @@ or panes. `O` changes the order of the items and `q` exits tree mode.
 
 Items in the tree are tagged by pressing `t` and untagged by pressing `t`
 again. Tagged items are shown in bold and with `*` after their name. All tagged
-items may be untagged b pressing `T`. Tagged items may be killed together by
+items may be untagged by pressing `T`. Tagged items may be killed together by
 pressing `X`, or a command applied to them all by pressing `:` for a prompt.
 
 Each item in the tree has as shortcut key in brackets at the start of the line.
