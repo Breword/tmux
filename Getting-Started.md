@@ -703,7 +703,7 @@ tiled|`C-b M-5`|Tiled in the same number of rows as columns
 #### Copy and paste
 
 tmux has its own copy and paste system. A piece of copied text is called a
-paste buffer. Text is copied using copy mode, entered with `C-b [` and the most
+paste buffer. Text is copied using copy mode, entered with `C-b [`, and the most
 recently copied text is pasted into the active pane with `C-b ]`.
 
 <img src="images/tmux_copy_mode.png" align="right" width=368 height=235>
