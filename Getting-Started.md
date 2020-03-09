@@ -255,7 +255,7 @@ itself, a special key must be pressed first - this is called the prefix key.
 The default prefix key is `C-b`, which means the `Ctrl` key and `b`. In tmux,
 modifier keys are shown by prefixing a key with `C-` for the control key, `M-`
 for the meta key (normally `Alt` on modern computers) and `S-` for the shift
-key. These may be combined together, so 'C-M-x' means pressing the control key,
+key. These may be combined together, so `C-M-x` means pressing the control key,
 meta key and `x` together.
 
 When the prefix key is pressed, tmux waits for another key press and that
