@@ -943,7 +943,7 @@ global options. It can show server, session or window options:
 * `-s` shows server options:
 
 ~~~~
-$ tmux show -s|head
+$ tmux show -s
 backspace C-?
 buffer-limit 50
 ...
