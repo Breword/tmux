@@ -949,7 +949,7 @@ buffer-limit 50
 ...
 ~~~~
 
-* With no other flags, `-g` shows session options:
+* With no other flags, `-g` shows global session options:
 
 ~~~~
 $ tmux show -g
@@ -958,7 +958,7 @@ assume-paste-time 1
 ...
 ~~~~
 
-* `-w` shows window options:
+* With `-w` it shows global window options:
 
 ~~~~
 $ tmux show -wg
