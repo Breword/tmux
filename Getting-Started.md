@@ -734,7 +734,7 @@ Key|Action
 <img src="images/tmux_buffer_mode.png" align="right" width=368 height=235>
 
 Once some text is copied, the most recent may be pasted with `C-b ]` or an
-older one pasted by using buffer mode, entered with `C-b =`. Buffer mode is
+older buffer pasted by using buffer mode, entered with `C-b =`. Buffer mode is
 similar to client mode and tree mode and offers a list of buffers together with
 a preview of their contents. As well as the navigation and tagging keys used in
 tree mode and client mode, buffer mode supports the following keys:
