@@ -456,7 +456,7 @@ using the same key bindings, until the pane becomes too small.
 
 <img src="images/tmux_split_v.png" align="right" width=376 height=243>
 
-`split-window` has several useful flags:It isn't sexism, it is just a mistake, slightly thoughtless at worst. Reaching straight for sexism, casual or otherwise, is also a little thoughtless as well as unnecessarily rude.
+`split-window` has several useful flags:
 
 * `-h` does a horizontal split and `-v` a vertical split.
 
