@@ -1142,7 +1142,7 @@ There are many options for customizing the status line. The simplest options are
 
 * Set the background colour to red: `set -g status-style bg=red`
 
-* Change the text on the left to the time only: `set -g status-left '%H:%M'`
+* Change the text on the right to the time only: `set -g status-right '%H:%M'`
 
 * Underline the current window: `set -g window-status-current-style 'underscore'`
 
