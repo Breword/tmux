@@ -1064,7 +1064,7 @@ options:
 
 Option|Type|Description
 ---|---|---
-`base-index`|session|If `on`, then windows are numbered from 1 instead of from 0
+`base-index`|session|If set, then windows indexes start from this instead of from 0
 `buffer-limit`|server|The maximum number of automatic buffers to keep, the default is 50
 `default-terminal`|server|The default value of the `TERM` environment variable inside tmux
 `display-panes-time`|window|The time in milliseconds the pane numbers are shown for `C-b q`
