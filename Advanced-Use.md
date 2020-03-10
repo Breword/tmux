@@ -62,8 +62,6 @@ $ pkill -USR1 tmux
 An alert is a way of notifying the user when something happens in a pane in a
 window. tmux supports three kinds of alerts:
 
-<img src="images/tmux_alert_flags.png" align="right" width=368 height=235>
-
 * Bell: when the program sends an ASCII `BEL` character. This is turned on or
   off with the `monitor-bell` option.
 
@@ -73,6 +71,8 @@ window. tmux supports three kinds of alerts:
 * Silence: when no output is received from the program. A time period in
   seconds during which there must be no output is set with the
   `monitor-silence` option. A period of zero disables this alert.
+
+<img src="images/tmux_alert_flags.png" align="right" width=368 height=235>
 
 An alert in a pane does two things for each session containing the pane's
 window.
@@ -84,7 +84,6 @@ the current window. While this flag is set:
   `window-status-bell-style` (for bell) or `window-status-activity-style` (for
   activity and silence) options. The default is to use the reverse attribute.
 
-<img src="images/tmux_alert_message.png" align="right" width=368 height=235>
 
 * The window name is followed by a `!` for bell, a `#` for activity and a `~`
   for silence.
@@ -96,6 +95,8 @@ window. All flags in a session may be cleared by using `kill-session` with the
 ~~~~
 :kill-session -C
 ~~~~
+
+<img src="images/tmux_alert_message.png" align="right" width=368 height=235>
 
 The `C-b M-n` and `C-b M-p` key bindings move to the next or previous window
 with an alert, using the `-a` flag to the `next-window` and `previous-window`
