@@ -87,13 +87,13 @@ the current window. While this flag is set:
 * The window name is followed by a `!` for bell, a `#` for activity and a `~`
   for silence.
 
+<img src="images/tmux_alert_message.png" align="right" width=368 height=235>
+
 Secondly, it may show a message in the status line, sound a bell in the outside
 terminal, or both. Whether this is a bell or a message is controlled by the
 `visual-bell`, `visual-activity` and `visual-silence` options. The choice of
 when to take this action is controlled by the `bell-action`, `activity-action`
 and `silence-action` options which may be:
-
-<img src="images/tmux_alert_message.png" align="right" width=368 height=235>
 
 Value|Meaning
 ---|---
