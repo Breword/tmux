@@ -89,6 +89,18 @@ the current window. While this flag is set:
 * The window name is followed by a `!` for bell, a `#` for activity and a `~`
   for silence.
 
+Alert flags on a window are cleared as soon as the window becomes the current
+window. All flags in a session may be cleared by using `kill-session` with the
+`-C` flag:
+
+~~~~
+:kill-session -C
+~~~~
+
+The `C-b M-n` and `C-b M-p` key bindings move to the next or previous window
+with an alert, using the `-a` flag to the `next-window` and `previous-window`
+commands.
+
 Secondly, it may show a message in the status line, sound a bell in the outside
 terminal, or both. Whether this is a bell or a message is controlled by the
 `visual-bell`, `visual-activity` and `visual-silence` options. The choice of
@@ -101,14 +113,6 @@ Value|Meaning
 `none`|No action is triggered in the session
 `current`|An alert is triggered for a bell, activity or silence in the current window but not other windows
 `other`|An alert is triggered for a bell, activity or silence in any window except the current window
-
-There are a couple of commands and key bindings associated with alerts:
-
-- The `-C` flag to `kill-session` clear all alerts in a session.
-
-- The `C-b M-n` and `C-b M-p` key bindings move to the next or previous window
-  with an alert, using the `-a` flag to the `next-window` and `previous-window`
-  commands.
 
 #### Working directories
 
