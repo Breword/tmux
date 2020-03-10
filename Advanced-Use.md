@@ -59,7 +59,56 @@ $ pkill -USR1 tmux
 
 #### Alerts and monitoring
 
-XXX
+An alert is a way of notifying the user when something happens in a pane in a
+window. tmux supports three kinds of alerts:
+
+* Bell: when the program sends an ASCII `BEL` character. This is turned on or
+  off with the `monitor-bell` option.
+
+* Activity: when any output is received from the program. This is turned on or
+  off with the `monitor-activity` option.
+
+* Silence: when no output is received from the program. A time period in
+  seconds during which there must be no output is set with the
+  `monitor-silence` option. A period of zero disables this alert.
+
+<img src="images/tmux_alert_flags.png" align="right" width=368 height=235>
+
+An alert in a pane does two things for each session containing the pane's
+window.
+
+Firstly, it sets a flag on the window in the window list, but only if the window is not
+the current window. While this flag is set:
+
+* The window is drawn in the window list using the style in the
+  `window-status-bell-style` (for bell) or `window-status-activity-style` (for
+  activity and silence) options. The default is to use the reverse attribute.
+
+* The window name is followed by a `!` for bell, a `#` for activity and a `~`
+  for silence.
+
+Secondly, it may show a message in the status line, sound a bell in the outside
+terminal, or both. Whether this is a bell or a message is controlled by the
+`visual-bell`, `visual-activity` and `visual-silence` options. The choice of
+when to take this action is controlled by the `bell-action`, `activity-action`
+and `silence-action` options which may be:
+
+<img src="images/tmux_alert_message.png" align="right" width=368 height=235>
+
+Value|Meaning
+---|---
+`any`|An alert in any window in the session triggers an action
+`none`|No action is triggered in the session
+`current`|An alert is triggered for a bell, activity or silence in the current window but not other windows
+`other`|An alert is triggered for a bell, activity or silence in any window except the current window
+
+There are a couple of commands and key bindings associated with alerts:
+
+- The `-C` flag to `kill-session` clear all alerts in a session.
+
+- The `C-b M-n` and `C-b M-p` key bindings move to the next or previous window
+  with an alert, using the `-a` flag to the `next-window` and `previous-window`
+  commands.
 
 #### Working directories
 
