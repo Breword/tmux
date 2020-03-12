@@ -37,6 +37,16 @@ items, to avoid any duplication of effort.
 
 ### Small things
 
+- It is annoying that -t= is still needed for select-window on the status line
+  when it is not needed for panes.
+
+- Triple click should not fire double click first (needs a timeout).
+
+- list-keys should be able to show long commands with {} and newlines more
+  nicely. Either any string containing newlines or starting with a newline, or
+  have some knowledge of command arguments - eg know that if-shell argument 2
+  is a command.
+
 - Should remember the last layout before select-layout was used and
   select-layout without an argument should include it, so C-Space could cycle
   through it with the preset layouts. Also a separate flag or layout name to
