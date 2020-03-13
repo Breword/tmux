@@ -117,7 +117,52 @@ Value|Meaning
 
 #### Working directories
 
-XXX
+Each tmux session has default working directory. This is the working directory
+used for each new pane.
+
+A session's working directory is set when it is first created:
+
+* It may be given with the `-c` flag to `new-session`, for example:
+
+~~~~
+$ tmux new -c/tmp
+~~~~
+
+* If the session is created from a key binding or from the command prompt, it
+  is the working directory of the attached session
+
+* If the session is created from the shell prompt inside or outside tmux, it is
+  the working directory of the shell.
+
+A session's working directory may be changed with the `-c` flag to
+`attach-session`, for example:
+
+~~~~
+:attach -c/tmp
+~~~~
+
+When a window or pane is created, a working directory may be given with `-c` to
+`new-window` or `split-window`. This is used instead of the session's default
+working directory:
+
+~~~~
+:neww -c/tmp
+~~~~
+
+Or:
+
+~~~~
+:splitw -c/tmp
+~~~~
+
+tmux can try to read the current working directory of a pane from outside the
+pane. This is available in the `pane_current_path` format. This changes the
+`C-b "` binding to create a new pane with the same working directory as the
+active pane:
+
+~~~~
+bind '"' splitw -c '#{pane_current_path}'
+~~~~
 
 #### Linking windows
 
