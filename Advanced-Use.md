@@ -204,6 +204,10 @@ XXX
 
 XXX
 
+#### Command aliases
+
+XXX
+
 ### Scripting tmux
 
 #### Basics of scripting
