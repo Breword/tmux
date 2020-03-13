@@ -100,9 +100,10 @@ items, to avoid any duplication of effort.
   word. Compare how *xterm(1)* works.
 
 - ([#1718](https://github.com/tmux/tmux/issues/1718)) Copy mode should behave
-  better if the pane outside is modified. At the moment it stops reading which
-  is not ideal, and there are also questions about how it should work with
-  copy-mode -e.
+  better if the pane outside is modified. The best idea so far is to copy the
+  state when copy mode is entered, allowing the pane's old grid to continue to
+  update, and provide a command and key binding to refresh from the latest grid
+  manually.
 
 - The lexer in cmd-parse.y should be a single state machine rather than separate
   functions for environment variables, strings and formats.
