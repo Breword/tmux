@@ -201,11 +201,11 @@ set the working directory.
 
 <img src="images/tmux_remain_on_exit.png" align="right" width=368 height=235>
 
-`respawn-pane` and `respawn-window` are useful when used with the
-`remain-on-exit` option. When this is on, panes are not automatically killed
-when the program running in them exits. Instead, a message is shown and the
-pane remains as it was. This is called a dead pane, and `respawn-pane` or
-`respawn-window` can be used to start the same or a different program again.
+`respawn-pane` and `respawn-window` are useful with the `remain-on-exit`
+option. When this is on, panes are not automatically killed when the program
+running in them exits. Instead, a message is shown and the pane remains as it
+was. This is called a dead pane, and `respawn-pane` or `respawn-window` can be
+used to start the same or a different program again.
 
 #### Window sizing
 
