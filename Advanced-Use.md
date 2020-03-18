@@ -196,6 +196,9 @@ starting the new one:
 :respawn-pane -k top
 ~~~~
 
+Like `split-window`, `respawn-pane` and `respawn-window` have a `-c` flag to
+set the working directory.
+
 <img src="images/tmux_remain_on_exit.png" align="right" width=368 height=235>
 
 `respawn-pane` and `respawn-window` are useful when used with the
