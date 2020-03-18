@@ -170,7 +170,39 @@ XXX
 
 #### Respawing panes and windows
 
-XXX
+Respawning a pane or window is a way to start a different (or restart the same)
+program without need to recreate the window, maintaining its size, position and
+index.
+
+The `respawn-pane` command respawns a pane and `respawn-window` a window. By
+default, they run the same program as the pane or window as initially created
+with using `split-window` or `new-window`:
+
+~~~~
+:respawn-pane
+~~~~
+
+A different command may be given as arguments:
+
+~~~~
+:respawn-pane top
+~~~~
+
+If a program is still running in the pane or window, the commands will refuse
+to work. The `-k` flag forces this and kills the program in the window before
+starting the new one:
+
+~~~~
+:respawn-pane -k top
+~~~~
+
+<img src="images/tmux_remain_on_exit.png" align="right" width=368 height=235>
+
+`respawn-pane` and `respawn-window` are useful when used with the
+`remain-on-exit` option. When this is on, panes are not automatically killed
+when the program running in them exits. Instead, a message is shown and the
+pane remains as it was. This is called a dead pane, and `respawn-pane` or
+`respawn-window` can be used to start the same or a different program again.
 
 #### Window sizing
 
@@ -252,9 +284,6 @@ XXX
 
 XXX
 
-#### XXX remain-on-exit
-
-XXX
 
 #### XXX exit-empty
 
