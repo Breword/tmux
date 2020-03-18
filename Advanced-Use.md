@@ -205,7 +205,7 @@ set the working directory.
 option. When this is on, panes are not automatically killed when the program
 running in them exits. Instead, a message is shown and the pane remains as it
 was. This is called a dead pane, and `respawn-pane` or `respawn-window` can be
-used to start the same or a different program again.
+used to start the same or a different program.
 
 #### Window sizing
 
