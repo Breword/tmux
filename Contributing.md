@@ -52,8 +52,6 @@ items, to avoid any duplication of effort.
 
 - "After" hooks are missing for many commands that do not use CMD_AFTERHOOK.
 
-- Some sort of menu or menus in copy mode.
-
 - A command in copy mode to toggle the selection.
 
 - wait-for could do more, for example being able to wait for a pane to exit or
@@ -95,10 +93,6 @@ items, to avoid any duplication of effort.
 
 - Allow multiple targets either with multiple -t or by giving a pattern or both.
 
-- ([#682](https://github.com/tmux/tmux/issues/682)) Improve word and line
-  selection in copy mode (for example when dragging it should select by
-  word. Compare how *xterm(1)* works.
-
 - ([#1718](https://github.com/tmux/tmux/issues/1718)) Copy mode should behave
   better if the pane outside is modified. The best idea so far is to copy the
   state when copy mode is entered, allowing the pane's old grid to continue to
@@ -107,11 +101,6 @@ items, to avoid any duplication of effort.
 
 - The lexer in cmd-parse.y should be a single state machine rather than separate
   functions for environment variables, strings and formats.
-
-- ([#1842](https://github.com/tmux/tmux/issues/1842)) Floating windows
-  (wouldn't call them windows though). Could use same overlay mechanism as
-  menus, would need a way to update the content, could just be a separate
-  process with its own screen or could be a command.
 
 - ([#1868](https://github.com/tmux/tmux/issues/1868)) Vertical-only zoom.
 
@@ -133,10 +122,6 @@ items, to avoid any duplication of effort.
   blocks. Can be used to reflow on demand. Would be nice to revisit how
   history-limit works - would it be better as a global limit rather than per
   pane?
-
-- ([#1503](https://github.com/tmux/tmux/issues/1503)) Panes that cross multiple
-  columns for extra height. This seems fraught with complexity for anything but
-  the simplest cases.
 
 - Link panes into multiple windows.
 
