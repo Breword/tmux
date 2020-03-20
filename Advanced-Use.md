@@ -216,10 +216,10 @@ be:
 
 Value|Meaning
 ---|---
-largest|The window has the size of the largest attached client; only part of the window is shown on smaller clients
-smallest|The window has the size of the smallest attached client; on larger clients any unused space is filled with the `·` character
-latest|The window has the size of the client which has been most recently used, for example by typing into it
-manual|The window size is fixed; new windows use the `default-size` option and may be resized with the `resize-window` command
+`largest`|The window has the size of the largest attached client; only part of the window is shown on smaller clients
+`smallest`|The window has the size of the smallest attached client; on larger clients any unused space is filled with the `·` character
+`latest`|The window has the size of the client which has been most recently used, for example by typing into it
+`manual`|The window size is fixed; new windows use the `default-size` option and may be resized with the `resize-window` command
 
 A window's size is not changed when it is only linked to sessions that are not
 attached.
@@ -260,7 +260,8 @@ current window will reset to the cursor position. These keys are bound to the
 `refresh-client` command.
 
 A window size for an existing window may be set using the `resize-window`
-commmand, for example:
+commmand. This sets the size and automatically sets the `window-size` option to
+`manual` for that window. For example:
 
 ~~~~
 :resizew -x200 -y100
