@@ -207,7 +207,7 @@ running in them exits. Instead, a message is shown and the pane remains as it
 was. This is called a dead pane, and `respawn-pane` or `respawn-window` can be
 used to start the same or a different program.
 
-#### Window and session sizes
+#### Window sizes
 
 Every window has a size, its horizontal and vertical dimensions. A window's
 size is determined from the size of the clients attached to sessions it is
