@@ -355,6 +355,9 @@ XXX
 
 XXX
 
+#### XXX set-clipboard
+
+XXX
 
 #### XXX exit-empty
 
