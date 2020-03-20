@@ -207,9 +207,76 @@ running in them exits. Instead, a message is shown and the pane remains as it
 was. This is called a dead pane, and `respawn-pane` or `respawn-window` can be
 used to start the same or a different program.
 
-#### Window sizing
+#### Window and session sizes
 
-XXX
+Every window has a size, its horizontal and vertical dimensions. A window's
+size is determined from the size of the clients attached to sessions it is
+linked to. How this is done is controlled by the `window-size` option which may
+be:
+
+Value|Meaning
+---|---
+largest|The window has the size of the largest attached client; only part of the window is shown on smaller clients
+smallest|The window has the size of the smallest attached client; on larger clients any unused space is filled with the `·` character
+latest|The window has the size of the client which has been most recently used, for example by typing into it
+manual|The window size is fixed; new windows use the `default-size` option and may be resized with the `resize-window` command
+
+A window's size is not changed when it is only linked to sessions that are not
+attached.
+
+If a window has never been linked to an attached session - for example when
+created as part of `new-session` with `-d` - it gets its size from the
+`default-size` option. This is a session option with a default of 80x24:
+
+~~~~
+$ tmux show -g default-size
+80x24
+~~~~
+
+When a session is created, its `default-size` option may be set at the same
+time with the `-x` and `-y` flags:
+
+~~~~~
+$ tmux new -smysession -d -x160 -y48
+$ tmux show -tmysession default-size
+default-size 160x48
+$ tmux lsw -tmysession
+0: ksh* (1 panes) [160x48] [layout cc01,160x48,0,0,4] @4 (active)
+~~~~~
+
+When a window is larger than the client showing it, the visible area tracks the
+cursor position. These keys may be used to view different areas of the window.
+
+Key|Function
+---|---
+`C-b S-Up`|Move the visible area up
+`C-b S-Down`|Move the visible area down
+`C-b S-Left`|Move the visible area left
+`C-b S-Right`|Move the visible area right
+`C-b DC` (`C-b Delete`)|Return to tracking the cursor position
+
+These are a property of the client, so detaching the client or changing the
+current window will reset to the cursor position. These keys are bound to the
+`refresh-client` command.
+
+A window size for an existing window may be set using the `resize-window`
+commmand, for example:
+
+~~~~
+:resizew -x200 -y100
+~~~~
+
+To adjust the size up (`-U`), down (`-D`), left (`-L`) or right (`-R`):
+
+~~~~
+:resizew -L 20
+~~~~
+
+Or return to working out the size from attached clients:
+
+~~~~
+:resizew -A
+~~~~
 
 #### Session groups
 
