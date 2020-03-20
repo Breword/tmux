@@ -8,15 +8,15 @@ tmux requires two libraries to be available:
 
 2. [ncurses](https://invisible-island.net/ncurses/ncurses.html)
 
-In addition, tmux requires a C compiler, make and pkg-config.
+In addition, tmux requires a C compiler, make, yacc (or bison) and pkg-config.
 
 On most platforms, these are available as packages. This table lists the
 packages needed to run or to buld tmux:
 
 Platform|Command|Run Packages|Build Packages
 ---|---|---|---
-Debian|`apt-get install`|`libevent ncurses`|`libevent-dev ncurses-dev build-essential pkg-config`
-RHEL or CentOS|`yum install`|`libevent ncurses`|`libevent-devel ncurses-devel gcc make pkg-config`
+Debian|`apt-get install`|`libevent ncurses`|`libevent-dev ncurses-dev build-essential bison pkg-config`
+RHEL or CentOS|`yum install`|`libevent ncurses`|`libevent-devel ncurses-devel gcc make bison pkg-config`
 
 If libevent and ncurses are not available as packages, they can be built from
 source, see [this section](#building-dependencies).
@@ -104,9 +104,9 @@ export MANPATH=$HOME/local/share/man:$MANPATH
 
 ### From version control
 
-Building tmux from Git requires a C compiler, autoconf, automake and pkg-config
-to be installed. Building is the same as from a tarball except first the
-configure script must be generated. To install into `/usr/local`:
+Building tmux from Git has the same dependencies as building from tarball plus
+also autoconf and automake. Building is the same as from a tarball except first
+the configure script must be generated. To install into `/usr/local`:
 
 ~~~~
 tar -zxf tmux-*.tar.gz
