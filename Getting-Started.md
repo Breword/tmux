@@ -674,7 +674,7 @@ If there are gaps in the window list, the indexes can be renumbered with the
 
 Panes may be resized in small steps with `C-b C-Left`, `C-b C-Right`, `C-b
 C-Up` and `C-b C-Down` and in larger steps with `C-b M-Left`, `C-b M-Right`,
-`C-b M-Up` and `C-b M-Down`.
+`C-b M-Up` and `C-b M-Down`. These use the `resize-pane` command.
 
 A single pane may be temporarily made to take up the whole window with `C-b Z`;
 pressing `C-b Z` again puts the window back where it was. This is called
