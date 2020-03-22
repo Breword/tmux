@@ -318,9 +318,46 @@ binding:
 bind P pipe-pane -o 'cat >~/mypanelog'
 ~~~~
 
-#### Pane titles
+#### Pane titles and the terminal title
 
-XXX
+Each pane in tmux has a title. A pane's title can be set by the program running
+in the pane. If the program was running outside tmux it would set the outside
+terminal title - normally shown in the *X(7)* window title. Because tmux can
+have multiple programs running inside it, there is a pane title for each rather
+than only one. The pane title is different from the window name which is used
+only by tmux and is the same for all panes in a window.
+
+Programs inside tmux can set the pane title using an escape sequence that looks
+like this:
+
+~~~~
+$ printf '\033]2;title\007'
+~~~~
+
+tmux shows the pane title for the active pane in quotes on the right of the
+status line.
+
+The pane title for a pane can be changed from tmux using the `-T` flag to the
+`select-pane` command:
+
+~~~~
+:selectp -Tmytitle
+~~~~
+
+However there is nothing stopping the program inside tmux changing the title
+again after this.
+
+tmux can set the outside terminal title itself, this is controlled by the
+`set-titles` option:
+
+~~~~
+set -g set-titles on
+~~~~
+
+The default title includes the names of the attached session and current window
+as well as the pane title for the active pane and the indexes of any windows
+with alerts. This can be changed with the `set-titles-string` option which can
+contain formats.
 
 #### Key tables
 
