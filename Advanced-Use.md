@@ -285,7 +285,38 @@ XXX
 
 #### Piping pane content
 
-XXX
+tmux allows any new changes to a pane to be piped to a command. This may be
+used to, for example, make a log of what happens in a pane. The `pipe-pane`
+command does this:
+
+~~~~
+:pipe-pane 'cat >~/mypanelog'
+~~~~
+
+No arguments stops piping:
+
+~~~~
+:pipe-pane
+~~~~
+
+`pipe-pane` can also be used to send the output of a command to a pane. The
+`-I` flag does this. For example this will send `foo` to the pane as if it had
+been typed:
+
+~~~~
+:pipe-pane -I 'echo foo'
+~~~~
+
+Used like this, `pipe-pane` with `-I` is similar to the `send-keys` command
+covered in a later section.
+
+The `-o` flag will toggle piping - starting if it is not already started,
+otherwise stopping it. This is useful to start and stop from a single key
+binding:
+
+~~~~
+bind P pipe-pane -o 'cat >~/mypanelog'
+~~~~
 
 #### Pane titles
 
