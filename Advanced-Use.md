@@ -283,10 +283,6 @@ Or return to working out the size from attached clients:
 
 XXX
 
-#### Capturing pane content
-
-XXX
-
 #### Piping pane content
 
 XXX
@@ -329,7 +325,11 @@ XXX
 
 XXX
 
-#### The `wait-for` command
+#### Capturing pane content
+
+XXX
+
+#### Waiting, signals and locks
 
 XXX
 
