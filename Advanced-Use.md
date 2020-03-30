@@ -344,7 +344,7 @@ The pane title for a pane can be changed from tmux using the `-T` flag to the
 :selectp -Tmytitle
 ~~~~
 
-However there is nothing stopping the program inside tmux changing the title
+However there is nothing to stop the program inside tmux changing the title
 again after this.
 
 tmux can set the outside terminal title itself, this is controlled by the
@@ -359,13 +359,65 @@ as well as the pane title for the active pane and the indexes of any windows
 with alerts. This can be changed with the `set-titles-string` option which can
 contain formats.
 
-#### Key tables
-
-XXX
-
 #### Mouse key bindings
 
-XXX
+tmux handles most mouse behaviour by mapping mouse events to key bindings.
+Mouse keys have special names which are the event, followed by the button
+number if any, then the area where the mouse event took place. For example:
+
+- `MouseDown1Pane` for mouse button 1 pressed down with the mouse over a pane;
+
+- `DoubleClick2Status` for mouse button 2 double-clicked on the status line;
+
+- `MouseDrag1Pane` and `MouseDragEnd1Pane` for mouse drag start and end on a
+  pane.
+
+- `WheelUpStatusLeft` for mouse wheel up on the left of the status line
+
+Terminals only support three buttons.
+
+The possible mouse events are:
+
+Event|Description
+---|---
+WheelUp|Mouse wheel up
+WheelDown|Mouse wheel down
+MouseDown|Mouse button down
+MouseUp|Mouse button up
+MouseDrag|Mouse drag start
+MouseDragEnd|Mouse drag end
+DoubleClick|Double click
+TripleClick|Triple click
+
+The possible areas where a mouse event may take place are:
+
+Area|Description
+---|---
+Pane|The contents of a pane
+Border|A pane border
+Status|The status line window list
+StatusLeft|The left part of the status line
+StatusRight|The right part of the status line
+StatusDefault|Any other part of the status line
+
+Commands bound to a mouse key binding can use `-t` with the mouse target to
+tell tmux they want to use the pane or window where the mouse event took place.
+For example this binds a double-click on the status line window list to zoom
+the active pane of a window:
+
+~~~~
+bind -Troot DoubleClick1Status resizep -Zt=
+~~~~
+
+When the program running in a pane can itself handle the mouse, `send-keys` can
+be used with the `-M` flag to pass the mouse event through to that program. The
+`mouse_any_flag` format is true if the program has turned the mouse on. So this
+binding makes button 2 paste, unless used over a pane which is in a mode or
+where the program has enabled the mouse for itself:
+
+~~~~
+bind -Troot MouseDown2Pane selectp -t= \; if -F "#{||:#{pane_in_mode},#{mouse_any_flag}}" "send -M" "paste -p"
+~~~~
 
 #### The environment
 
@@ -412,6 +464,10 @@ XXX
 XXX
 
 #### User options
+
+XXX
+
+#### Custom key tables
 
 XXX
 
