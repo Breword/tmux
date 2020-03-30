@@ -445,6 +445,10 @@ XXX
 
 XXX
 
+#### Sending keys
+
+XXX
+
 #### Capturing pane content
 
 XXX
@@ -454,6 +458,10 @@ XXX
 XXX
 
 ### Advanced configuration
+
+#### Copy mode key bindings
+
+XXX
 
 #### Conditionals and {}
 
