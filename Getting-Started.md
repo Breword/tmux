@@ -334,6 +334,10 @@ At the prompt, commands can be entered similarly to how they are at the shell.
 Output will either be shown for a short period in the status line, or switch
 the active pane into view mode.
 
+By default, the command prompt uses keys similar to *emacs(1)*; however, if the
+`VISUAL` or `EDITOR` environment variables are set to something containing `vi`
+(such as `vi` or `vim` or `nvi`), then *vi(1)*-style keys are used instead.
+
 #### Attaching and detaching
 
 Detaching from tmux means that the client exits and detaches from the outside
@@ -715,8 +719,12 @@ removed when another is added. If a buffer is given a name, it is called a
 named buffer; named buffers are not deleted no matter how many there are.
 
 Copy mode freezes any output in a pane and allows text to be copied. View mode
-(described earlier) is a read-only form of copy mode. The following keys are
-some of those available in copy mode:
+(described earlier) is a read-only form of copy mode.
+
+Like the command prompt, copy mode uses keys similar to *emacs(1)*; however, if
+the `VISUAL` or `EDITOR` environment variables are set to something containing
+`vi`, then *vi(1)*-style keys are used instead. The following keys are some of
+those available in copy mode:
 
 Key|Action
 ---|---
@@ -1162,6 +1170,22 @@ example to show the pane title in bold:
 set -g pane-border-status top
 set -g pane-border-format '#[bold]#{pane_title}#[default]'
 ~~~~
+
+#### *vi(1)* key bindings
+
+tmux supports key bindings based on *vi(1)* for copy mode and the command
+prompt. This document assumes that the default *emacs(1)* bindings are in use.
+There are two options that set the key bindings:
+
+1) `mode-keys` sets the key bindings for copy mode. If this is set to `vi`,
+then the `copy-mode-vi` key table is used in copy mode; otherwise the
+`copy-mode` key table is used.
+
+2) `status-keys` sets the key bindings for the command prompt.
+
+If either of the `VISUAL` or `EDITOR` environment variables are set to
+something containing `vi` (such as `vi`, `vim`, `nvi`) when the tmux server is
+first started, both of these options are set to `vi`.
 
 #### Mouse copying behaviour
 
