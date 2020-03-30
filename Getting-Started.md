@@ -1187,6 +1187,13 @@ If either of the `VISUAL` or `EDITOR` environment variables are set to
 something containing `vi` (such as `vi`, `vim`, `nvi`) when the tmux server is
 first started, both of these options are set to `vi`.
 
+To set both to use *vi(1)* keys:
+
+~~~~
+set -g mode-keys vi
+set -g status-keys vi
+~~~~
+
 #### Mouse copying behaviour
 
 When dragging the mouse to copy text, tmux copies and exits copy mode when the
