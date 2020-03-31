@@ -97,7 +97,18 @@ items, to avoid any duplication of effort.
   better if the pane outside is modified. The best idea so far is to copy the
   state when copy mode is entered, allowing the pane's old grid to continue to
   update, and provide a command and key binding to refresh from the latest grid
-  manually.
+  manually. This would also allow entering copy mode for a pane in a different
+  pane, meaning you could copy from a pane's history while still able to paste
+  or type in the pane.
+
+- It would be nice to be able to remember the position in copy mode and go back
+  to the same place when entering it again. How would this work if the pane
+  scrolls? What about entering with the mouse?
+
+- It would be nice to have commands to build a paste buffer in copy mode by
+  doing multiple copies. It would need to display the work in progress
+  somewhere and have a command to add a chunk of text and a command to remove
+  the last chunk and a command to clear.
 
 - The lexer in cmd-parse.y should be a single state machine rather than separate
   functions for environment variables, strings and formats.
