@@ -744,6 +744,10 @@ Key|Action
 `M-f`|Move the cursor to the next word
 `M-b`|Move the cursor to the previous word
 
+A full list of keys for both *vi(1)* and *emacs(1)* is [available in the manual
+page](https://man.openbsd.org/tmux#WINDOWS_AND_PANES) and a selection listed in
+[a later section](Copy mode key bindings).
+
 <img src="images/tmux_buffer_mode.png" align="right" width=368 height=235>
 
 Once some text is copied, the most recent may be pasted with `C-b ]` or an
