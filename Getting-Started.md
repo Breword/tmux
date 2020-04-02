@@ -947,7 +947,7 @@ bind-key -T copy-mode C-a send-keys -X start-of-line
 ~~~~
 
 A full list of copy mode commands is [available in the manual
-page](https://man.openbsd.org/tmux#WINDOWS AND PANES); here is a selection:
+page](https://man.openbsd.org/tmux#WINDOWS_AND_PANES). Here is a selection:
 
 Command|*emacs(1)*|*vi(1)*|Description
 ---|---|---|---
