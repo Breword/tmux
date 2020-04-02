@@ -1016,7 +1016,7 @@ buffer-limit 50
 ...
 ~~~~
 
-* With no other flags, `-g` shows global session options:
+* `-g` with no other flags shows global session options:
 
 ~~~~
 $ tmux show -g
@@ -1025,7 +1025,7 @@ assume-paste-time 1
 ...
 ~~~~
 
-* With `-w` it shows global window options:
+* `-g` and `-w` together show global window options:
 
 ~~~~
 $ tmux show -wg
