@@ -176,7 +176,7 @@ Window layout|The size and position of the panes in a window
 
 #### Creating sessions
 
-To create the first tmux session, run tmux from the shell. A new session is
+To create the first tmux session, tmux is run from the shell. A new session is
 created using the `new-session` command - `new` for short:
 
 ~~~~
