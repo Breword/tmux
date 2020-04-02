@@ -1094,7 +1094,7 @@ syntax, this is known as the style. There are two places styles appear:
 
 * In options, such as `status-style`.
 
-* Enclosed in string options in `#[]`, this is called an embedded style.
+* Enclosed in `#[]` in an option value, this is called an embedded style.
 
 A style has a number of terms separated by spaces or commas, the most
 useful are:
