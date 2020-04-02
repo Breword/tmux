@@ -1184,7 +1184,7 @@ Option|Type|Description
 
 ### Common configuration changes
 
-This section shows examples of some common configuration requests for
+This section shows examples of some common configuration changes for
 `.tmux.conf`.
 
 #### Changing the prefix key
