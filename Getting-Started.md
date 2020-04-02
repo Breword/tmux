@@ -643,9 +643,9 @@ tmux allows panes and windows to be swapped with the `swap-pane` and
 To make swapping easy, a single pane can be marked. There is one marked pane
 across all sessions. The `C-b m` key binding toggles whether the active pane in
 the current window in the attached session is the marked pane. `C-b M` clears
-the marked pane entirely. The marked pane is shown by a green background to its
-border and the window containing the marked pane has an `M` flag in the status
-line.
+the marked pane entirely so that no pane is marked. The marked pane is shown by
+a green background to its border and the window containing the marked pane has
+an `M` flag in the status line.
 
 <img src="images/tmux_marked_pane.png" align="right" width=368 height=235>
 
