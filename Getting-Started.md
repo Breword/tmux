@@ -729,7 +729,7 @@ Copy mode freezes any output in a pane and allows text to be copied. View mode
 Like the command prompt, copy mode uses keys similar to *emacs(1)*; however, if
 the `VISUAL` or `EDITOR` environment variables are set to something containing
 `vi`, then *vi(1)*-style keys are used instead. The following keys are some of
-those available in copy mode:
+those available in copy mode with *emacs(1)* keys:
 
 Key|Action
 ---|---
@@ -945,6 +945,37 @@ command moves the cursor to the start of the line and is bound to `C-a` in the
 $ tmux lsk -Tcopy-mode C-a
 bind-key -T copy-mode C-a send-keys -X start-of-line
 ~~~~
+
+A full list of copy mode commands is [available in the manual
+page](https://man.openbsd.org/tmux#WINDOWS AND PANES); here is a selection:
+
+Command|*emacs(1)*|*vi(1)*|Description
+---|---|---|---
+begin-selection|C-Space|Space|Start selection
+cancel|q|q|Exit copy mode
+clear-selection|C-g|Escape|Clear selection
+copy-pipe|Copy and pipe to the command in the first argument
+copy-selection-and-cancel|M-w|Enter|Copy the selection and exit copy mode
+cursor-down|Down|j|Move the cursor down
+cursor-left|Left|h|Move the cursot left
+cursor-right|Right|l|Move the cursor right
+cursor-up|Up|k|Move the cursor up
+end-of-line|C-e|$|Move the cursor to the end of the line
+history-bottom|M->|G|Move to the bottom of the history
+history-top|M-<|g|Move to the top of the history
+middle-line|M-r|M|Move to middle line
+next-word-end|M-f|e|Move to the end of the next word
+page-down|PageDown|C-f|Page down
+page-up|PageUp|C-b|Page up
+previous-word|M-b|b|Move to the previous word
+rectangle-toggle|R|v|Toggle rectangle selection
+search-again|n|n|Repeat the last search
+search-backward||?|Search backwards
+search-backward-incremental|C-r||Search backwards incrementally
+search-forward||/|Search forwards
+search-forward-incremental|C-s||Search forwards incrementally
+search-reverse|N|N|Repeat the last search but reverse the direction
+start-of-line|C-a|0|Move to the start of the line
 
 #### Types of option
 
