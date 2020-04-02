@@ -342,8 +342,8 @@ By default, the command prompt uses keys similar to *emacs(1)*; however, if the
 
 Detaching from tmux means that the client exits and detaches from the outside
 terminal, returning to the shell and leaving the tmux session and any programs
-inside it running in the background. To detach tmux, use the `C-b d` key
-binding. When tmux detaches, it will print a message with the session name:
+inside it running in the background. To detach tmux, the `C-b d` key binding is
+used. When tmux detaches, it will print a message with the session name:
 
 ~~~~
 [detached (from session mysession)]
