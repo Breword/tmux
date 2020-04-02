@@ -862,7 +862,8 @@ set -g status off
 #### Key bindings
 
 tmux key bindings are changed using the `bind-key` and `unbind-key` commands.
-Key bindings in tmux appear in key tables - there are two default key tables:
+Each key binding in tmux belongs to a named key table. There are two default
+key tables:
 
 * The `root` table contains key bindings for keys pressed without the prefix key.
 
