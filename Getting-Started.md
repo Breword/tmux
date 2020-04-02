@@ -862,13 +862,19 @@ set -g status off
 #### Key bindings
 
 tmux key bindings are changed using the `bind-key` and `unbind-key` commands.
-Each key binding in tmux belongs to a named key table. There are two default
+Each key binding in tmux belongs to a named key table. There are four default
 key tables:
 
 * The `root` table contains key bindings for keys pressed without the prefix key.
 
 * The `prefix` table contains key bindings for keys pressed after the prefix
   key, like those mentioned so far in this document.
+
+* The `copy-mode` table contains key bindings for keys used in copy mode with
+  *emacs(1)*-style keys.
+
+* The `copy-mode-vi` table contains key bindings for keys used in copy mode
+  with *vi(1)*-style keys.
 
 All the key bindings or those for a single table can be listed with the
 `list-keys` command. By default, this shows the keys as a series of `bind-key`
@@ -925,6 +931,19 @@ before binding it again, `bind-key` will replace any existing key binding.
 
 ~~~~
 unbind M-0
+~~~~
+
+#### Copy mode key bindings
+
+Copy mode key bindings are set in the `copy-mode` and `copy-mode-vi` key
+bindings. Copy mode has its own set of commands which are passed using the `-X`
+flag to the `send-keys` command, for example the copy mode `start-of-line`
+command moves the cursor to the start of the line and is bound to `C-a` in the
+`copy-mode` key table:
+
+~~~~
+$ tmux lsk -Tcopy-mode C-a
+bind-key -T copy-mode C-a send-keys -X start-of-line
 ~~~~
 
 #### Types of option
