@@ -745,8 +745,7 @@ Key|Action
 `M-b`|Move the cursor to the previous word
 
 A full list of keys for both *vi(1)* and *emacs(1)* is [available in the manual
-page](https://man.openbsd.org/tmux#WINDOWS_AND_PANES) and a selection listed in
-[a later section](Copy mode key bindings).
+page](https://man.openbsd.org/tmux#WINDOWS_AND_PANES).
 
 <img src="images/tmux_buffer_mode.png" align="right" width=368 height=235>
 
