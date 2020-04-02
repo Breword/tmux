@@ -364,7 +364,7 @@ $ tmux attach -tmysession
 ~~~~
 
 By default, attaching to a session does not detach any other clients attached
-to the same session. To do this, add the `-d` flag:
+to the same session. The `-d` flag does this:
 
 ~~~~
 $ tmux attach -dtmysession
