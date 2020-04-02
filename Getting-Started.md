@@ -939,8 +939,8 @@ unbind M-0
 #### Copy mode key bindings
 
 Copy mode key bindings are set in the `copy-mode` and `copy-mode-vi` key
-bindings. Copy mode has its own set of commands which are passed using the `-X`
-flag to the `send-keys` command, for example the copy mode `start-of-line`
+tables. Copy mode has a separate set of commands which are passed using the
+`-X` flag to the `send-keys` command, for example the copy mode `start-of-line`
 command moves the cursor to the start of the line and is bound to `C-a` in the
 `copy-mode` key table:
 
