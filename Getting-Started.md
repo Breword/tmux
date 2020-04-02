@@ -1233,8 +1233,7 @@ set -g pane-border-format '#[bold]#{pane_title}#[default]'
 #### *vi(1)* key bindings
 
 tmux supports key bindings based on *vi(1)* for copy mode and the command
-prompt. This document assumes that the default *emacs(1)* bindings are in use.
-There are two options that set the key bindings:
+prompt. There are two options that set the key bindings:
 
 1) `mode-keys` sets the key bindings for copy mode. If this is set to `vi`,
 then the `copy-mode-vi` key table is used in copy mode; otherwise the
