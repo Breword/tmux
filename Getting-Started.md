@@ -1296,7 +1296,7 @@ further reading:
 
 * Saved layout strings with `select-layout`.
 
-* Command sequences: `select-window; kill-window`.
+* Command sequences (separated by `;`): `select-window; kill-window`.
 
 * Configuration file syntax: `{}`, `%if` and so on.
 
