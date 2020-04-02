@@ -954,7 +954,7 @@ Command|*emacs(1)*|*vi(1)*|Description
 begin-selection|C-Space|Space|Start selection
 cancel|q|q|Exit copy mode
 clear-selection|C-g|Escape|Clear selection
-copy-pipe|Copy and pipe to the command in the first argument
+copy-pipe|||Copy and pipe to the command in the first argument
 copy-selection-and-cancel|M-w|Enter|Copy the selection and exit copy mode
 cursor-down|Down|j|Move the cursor down
 cursor-left|Left|h|Move the cursot left
@@ -970,9 +970,9 @@ page-up|PageUp|C-b|Page up
 previous-word|M-b|b|Move to the previous word
 rectangle-toggle|R|v|Toggle rectangle selection
 search-again|n|n|Repeat the last search
-search-backward||?|Search backwards
-search-backward-incremental|C-r||Search backwards incrementally
-search-forward||/|Search forwards
+search-backward||?|Search backwards, the first argument is the search term
+search-backward-incremental|C-r||Search backwards incrementally, usually used with the `-i` flag to `command-prompt`
+search-forward||/|Search forwards, the first argument is the search term
 search-forward-incremental|C-s||Search forwards incrementally
 search-reverse|N|N|Repeat the last search but reverse the direction
 start-of-line|C-a|0|Move to the start of the line
