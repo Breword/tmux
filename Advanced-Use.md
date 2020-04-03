@@ -702,8 +702,25 @@ Example|Description
 
 #### Targets for new panes, windows and sessions
 
-XXX
+The `split-window`, `new-window` and `new-session` commands all have a `-P`
+flag which prints the target of the new pane, window or session to `stdout`.
+This allows scripts to reliably target it with subsequent commands.
 
+By default the output is a full or partial target, for example:
+
+~~~~
+$ tmux new -dP
+2:
+~~~~
+
+But it is more useful to use the `-F` flag to get the ID:
+
+~~~~
+$ S=$(tmux new -dPF '#{session_id}')
+$6
+$ tmux neww -dPF '#{window_id}' -t$S
+@16
+~~~~
 
 #### Getting information
 
