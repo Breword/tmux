@@ -531,10 +531,6 @@ tmux sets two environment variables in each pane, `TMUX` and `TMUX_PANE`:
   %11
   ~~~~
 
-#### Command sequences
-
-XXX
-
 #### The default target
 
 When many tmux commands are run, they have to work out which session, window or
@@ -595,7 +591,103 @@ sequence to the newly created pane.
 
 #### Command targets
 
-Because tmux has to guess
+Most commands accept a `-t` argument to give the target session, window or pane
+instead of relying on the default target. Commands typically want either a
+session, a window or a pane. The usage of a command shows which; they can be
+seen with `list-commands` or in the manual page. For example `send-prefix`
+wants a pane so it says `-t target-pane`:
+
+~~~~
+$ tmux lscm|grep ^send-prefix
+send-prefix [-2] [-t target-pane]
+~~~~
+
+A target is made up of three parts: the session, window or pane. The session
+and window are separated by a colon (`:`) and the window and pane by a period
+(`.`):
+
+~~~~
+session:window.pane
+~~~~
+
+Any of these three components may be omitted, in which case if it is needed
+tmux will work out what is most appropriate, similarly to how it works out the
+default target.
+
+If neither `:` nor `.` appears in the target, tmux interprets it differently
+depending what the command needs. If the command wants `target-pane` then `-t1`
+would be tried first as a pane and only as a window if there is no pane 1
+found; if the command wants `target-window` then `-t1` will only look for the
+window at index 1. For example:
+
+~~~~
+$ tmux display -pt1 -F '#{window_id} #{pane_id}'
+@1 %1
+$ tmux splitw -d
+$ tmux display -pt1 -F '#{window_id} #{pane_id}'
+@8 %15
+~~~~
+
+This "do what I mean" behaviour is effective when tmux is used interactively
+but for scripting care must be taken that targets are correct. This is best
+done by taking care to note whether a command wants a session, a window or a
+pane and by using IDs and the full target the command needs.
+
+In a target, each of `session`, `window` and `pane` can have several different
+forms:
+
+- `session` can be given in several ways. The most useful are:
+
+  1) A session ID, such as `$1`, which will always match one session.
+
+  2) The exact name of a session prefixed with an `=`, for example
+  `=mysession`. This will only match the session named `mysession`.
+
+  3) The start of a session name. For example, `my` will match `mysession` and
+  `myothersession`.
+
+  4) A pattern to match against the session name. This can have `*` and `?`
+  wildcards: `f*` will match `foo` but not `bar`.
+
+- The most useful forms of `window` are:
+
+  1) A window ID, such as `@42`.
+
+  2) A window index, for example `1` for window 1, `99` for window `99`.
+
+  3) `{start}` (or `^`) for the lowest window index or `{end}` (or `$`) for the
+  highest.
+
+  4) `{last}` (or `!`) for the last window, `{next}` (or `+`) for the next and
+     `{previous}` (or `-`) for the previous.
+
+- And `pane` can be given as:
+
+  1) A pane ID, such as `%0`.
+
+  2) A pane index, such as `3`.
+
+  3) One of the following special tokens:
+
+     Token|Meaning
+     ---|---
+     {last} (or `!`)|The last (previously active) pane
+     {next} (or `+`)|The next pane by number
+     {previous} (or `-`)|previous pane by number
+     {top}|The top pane
+     {bottom}|The bottom pane
+     {left}|The leftmost pane
+     {right}|The rightmost pane
+     {top-left}|The top-left pane
+     {top-right}|The top-right pane
+     {bottom-left}|The bottom-left pane
+     {bottom-right}|The bottom-right pane
+     {up-of}|The pane above the active pane
+     {down-of}|The pane below the active pane
+     {left-of}|The pane to the left of the active pane
+     {right-of}|The pane to the right of the active pane
+
+XXX
 
 #### Targets for new panes, windows and sessions
 

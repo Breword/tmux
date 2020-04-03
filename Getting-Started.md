@@ -81,9 +81,9 @@ Here are several places to find documentation and help about tmux:
 
 ### Basic concepts
 
-tmux has a set of basic concepts and terms with which it is important to be
-familiar. This section gives a description of how the terminals inside tmux are
-grouped together and the various terms tmux uses.
+tmux has a set of basic concepts and terms it is important to be familiar with.
+This section gives a description of how the terminals inside tmux are grouped
+together and the various terms tmux uses.
 
 #### The tmux server and clients
 
@@ -337,6 +337,9 @@ the active pane into view mode.
 By default, the command prompt uses keys similar to *emacs(1)*; however, if the
 `VISUAL` or `EDITOR` environment variables are set to something containing `vi`
 (such as `vi` or `vim` or `nvi`), then *vi(1)*-style keys are used instead.
+
+Multiple commands may be entered together at the command prompt by separating
+them with a colon (`;`). This is called a command sequence.
 
 #### Attaching and detaching
 
