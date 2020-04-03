@@ -648,7 +648,7 @@ forms:
   2) The exact name of a session prefixed with an `=`, for example
   `=mysession`. This will only match the session named `mysession`.
 
-  3) The start of a session name. For example, `my` will match `mysession` and
+  3) The start of a session name. For example, `my` will match `mysession` or
   `myothersession`.
 
   4) A pattern to match against the session name. This can have `*` and `?`
