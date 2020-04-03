@@ -765,7 +765,7 @@ $ tmux lsp -t@7 -F '#{pane_id} #{pane_width} #{pane_height}'
 %7 107 43
 %12 53 42
 %14 53 42
-~~~
+~~~~
 
 The `display-message` command is used to print individual formats. The `-p`
 flag sends output to `stdout`. For example:
