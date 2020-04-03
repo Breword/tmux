@@ -622,7 +622,8 @@ If neither `:` nor `.` appears in the target, tmux interprets it differently
 depending what the command needs. If the command wants `target-pane` then `-t1`
 would be tried first as a pane and only as a window if there is no pane 1
 found; if the command wants `target-window` then `-t1` will only look for the
-window at index 1. For example:
+window at index 1. For example note how the window changes from `@1` to `@8`
+after pane 1 is created:
 
 ~~~~
 $ tmux display -pt1 -F '#{window_id} #{pane_id}'
