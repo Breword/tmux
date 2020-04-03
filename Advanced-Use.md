@@ -354,8 +354,12 @@ set -g set-titles on
 
 The default title includes the names of the attached session and current window
 as well as the pane title for the active pane and the indexes of any windows
-with alerts. This can be changed with the `set-titles-string` option which can
-contain formats.
+with alerts. This can be changed with the `set-titles-string` option. For
+example, this uses the pane title alone:
+
+~~~~
+set -g set-titles-string '#{pane_title}'
+~~~~
 
 #### Mouse key bindings
 
