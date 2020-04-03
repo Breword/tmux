@@ -283,7 +283,7 @@ Or return to working out the size from attached clients:
 
 XXX
 
-#### Piping pane content
+#### Piping pane changes
 
 tmux allows any new changes to a pane to be piped to a command. This may be
 used to, for example, make a log of a pane. The `pipe-pane` command does this:
