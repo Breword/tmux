@@ -176,7 +176,7 @@ index.
 
 The `respawn-pane` command respawns a pane and `respawn-window` a window. By
 default, they run the same program as the pane or window as initially created
-with using `split-window` or `new-window`:
+with `split-window` or `new-window`:
 
 ~~~~
 :respawn-pane
@@ -189,8 +189,8 @@ A different command may be given as arguments:
 ~~~~
 
 If a program is still running in the pane or window, the commands will refuse
-to work. The `-k` flag forces this and kills the program in the window before
-starting the new one:
+to work. The `-k` flag kills the program in the window before starting the new
+one:
 
 ~~~~
 :respawn-pane -k top
@@ -221,7 +221,7 @@ Value|Meaning
 `latest`|The window has the size of the client which has been most recently used, for example by typing into it
 `manual`|The window size is fixed; new windows use the `default-size` option and may be resized with the `resize-window` command
 
-A window's size is not changed when it is only linked to sessions that are not
+A window's size is not changed when it not linked to sessions that are
 attached.
 
 If a window has never been linked to an attached session - for example when
@@ -255,9 +255,9 @@ Key|Function
 `C-b S-Right`|Move the visible area right
 `C-b DC` (`C-b Delete`)|Return to tracking the cursor position
 
-These are a property of the client, so detaching the client or changing the
-current window will reset to the cursor position. These keys are bound to the
-`refresh-client` command.
+The visible area is a property of the client, so detaching the client or
+changing the current window will reset to the cursor position. These keys are
+bound to the `refresh-client` command.
 
 A window size for an existing window may be set using the `resize-window`
 commmand. This sets the size and automatically sets the `window-size` option to
@@ -286,8 +286,7 @@ XXX
 #### Piping pane content
 
 tmux allows any new changes to a pane to be piped to a command. This may be
-used to, for example, make a log of what happens in a pane. The `pipe-pane`
-command does this:
+used to, for example, make a log of a pane. The `pipe-pane` command does this:
 
 ~~~~
 :pipe-pane 'cat >~/mypanelog'
@@ -299,9 +298,8 @@ No arguments stops piping:
 :pipe-pane
 ~~~~
 
-`pipe-pane` can also be used to send the output of a command to a pane. The
-`-I` flag does this. For example this will send `foo` to the pane as if it had
-been typed:
+The `-I` flag to `pipe-pane` sends the output of a command to a pane. For
+example this will send `foo` to the pane as if it had been typed:
 
 ~~~~
 :pipe-pane -I 'echo foo'
@@ -374,7 +372,7 @@ number if any, then the area where the mouse event took place. For example:
 
 - `WheelUpStatusLeft` for mouse wheel up on the left of the status line
 
-Terminals only support three buttons.
+Terminals only support three buttons and the mouse wheel.
 
 The possible mouse events are:
 
@@ -400,10 +398,10 @@ StatusLeft|The left part of the status line
 StatusRight|The right part of the status line
 StatusDefault|Any other part of the status line
 
-Commands bound to a mouse key binding can use `-t` with the mouse target to
-tell tmux they want to use the pane or window where the mouse event took place.
-For example this binds a double-click on the status line window list to zoom
-the active pane of a window:
+Commands bound to a mouse key binding can use `-t` with the mouse target (`=`
+or `{mouse}`) to tell tmux they want to use the pane or window where the mouse
+event took place. For example this binds a double-click on the status line
+window list to zoom the active pane of a window:
 
 ~~~~
 bind -Troot DoubleClick1Status resizep -Zt=
@@ -411,9 +409,9 @@ bind -Troot DoubleClick1Status resizep -Zt=
 
 When the program running in a pane can itself handle the mouse, `send-keys` can
 be used with the `-M` flag to pass the mouse event through to that program. The
-`mouse_any_flag` format is true if the program has turned the mouse on. So this
-binding makes button 2 paste, unless used over a pane which is in a mode or
-where the program has enabled the mouse for itself:
+`mouse_any_flag` format is true if the program has turned the mouse on. For
+example, this binding makes button 2 paste, unless used over a pane which is in
+a mode or where the program has enabled the mouse for itself:
 
 ~~~~
 bind -Troot MouseDown2Pane selectp -t= \; if -F "#{||:#{pane_in_mode},#{mouse_any_flag}}" "send -M" "paste -p"
@@ -425,7 +423,47 @@ XXX
 
 #### Command aliases
 
-XXX
+tmux allows custom commands by defining command aliases. Note this is different
+from the short alias of each command (such as `lsw` for `list-windows`).
+Command aliases are defined with the `command-alias` server option. This is an
+array option where each entry has a number.
+
+The default has a few settings for convenience and a few for backwards
+compatibility:
+
+~~~~
+$ tmux show -s command-alias
+command-alias[0] split-pane=split-window
+command-alias[1] splitp=split-window
+command-alias[2] "server-info=show-messages -JT"
+command-alias[3] "info=show-messages -JT"
+command-alias[4] "choose-window=choose-tree -w"
+command-alias[5] "choose-session=choose-tree -s"
+~~~~
+
+Taking `command-alias[4]` as an example, this means that the `choose-window`
+command is expanded to `choose-tree -w`.
+
+A custom command alias is added by adding a new index to the array. Because the
+defaults start at index 0, it is best to use higher numbers for additional
+command aliases:
+
+~~~~
+:set -s command-alias[100] 'sv=splitw -v'
+~~~~
+
+This option makes `sv` the same as `splitw -v`:
+
+~~~~
+:sv
+~~~~
+
+Any subsequent flags or arguments of the entered commands are appended to the
+replaced command. This is the same as `splitw -v -d`:
+
+~~~~
+:sv -d
+~~~~
 
 ### Scripting tmux
 
