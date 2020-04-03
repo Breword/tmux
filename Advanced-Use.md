@@ -692,7 +692,7 @@ Some examples of targets are:
 Example|Description
 ---|---
 `-t%1`|The pane with ID `%1`; the session and window will be chosen by tmux if needed
-`-t:6.%1'|The pane with ID `%1` if it exists in window 6; the session will be chosen by tmux if needed
+`-t:6.%1`|The pane with ID `%1` if it exists in window 6; the session will be chosen by tmux if needed
 `-t:.3`|Pane 3; the session and window will be chosen by tmux if needed
 `-tmysession:5`|Window 5 in session `mysession`; the active pane will be used if a pane is needed
 `-tmysession:5.2`|Pane 2 in window 5 in session `mysession`
