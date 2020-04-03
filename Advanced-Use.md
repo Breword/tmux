@@ -630,8 +630,8 @@ $ tmux display -pt1 -F '#{window_id} #{pane_id}'
 
 This "do what I mean" behaviour is effective when tmux is used interactively
 but for scripting care must be taken that targets are correct. This is best
-done by taking care to note whether a command wants a session, a window or a
-pane and by using IDs and the full target the command needs.
+done by noting whether a command wants a session, a window or a pane and by
+using IDs and the full target the command needs.
 
 In a target, each of `session`, `window` and `pane` can have several different
 forms:
