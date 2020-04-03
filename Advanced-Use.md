@@ -469,9 +469,155 @@ the replaced command. This is the same as `splitw -v -d`:
 
 #### Basics of scripting
 
-XXX
+tmux is designed to be easy to script. Almost all commands work the same way
+when run using the `tmux` binary as when run from a key binding or the command
+prompt inside tmux.
+
+tmux is normally scripted using shell script but of course other languages can
+be used. All examples in this document are intended for a shell based on the
+Bourne shell.
+
+Formats are an important part of scripting tmux and it is useful to be familiar
+with them, see [this document](https://github.com/tmux/tmux/wiki/Formats) and
+[the manual page section](https://man.openbsd.org/tmux#FORMATS).
 
 #### Unique identifiers
+
+Every pane, window and session in tmux has a unique identifier (ID) set by the
+server. Different tmux servers can use the same IDs but within a running server
+each is never changed or reused.
+
+Pane IDs are prefixed with `%` (for example `%0` or `%123`), window by `@` (for
+example `@1` or `@99`) and session by `$` (for example `$3` or `$42`).
+
+IDs allow scripts to target a pane, window or session and be guaranteed they
+are always the same even if they are killed, moved or renamed.
+
+The IDs are available with the `pane_id`, `window_id` and `session_id` format
+variables:
+
+~~~~
+$ tmux lsp -F '#{session_id} #{window_id} #{pane_id}'
+$0 @8 %8
+$0 @8 %11
+~~~~
+
+#### Special environment variables
+
+tmux sets two environment variables in each pane, `TMUX` and `TMUX_PANE`:
+
+- `TMUX` is used by tmux to work out the server socket path for commands run
+  inside a pane. This is commonly used to see if a script is running inside
+  tmux at all:
+
+  ~~~~
+  $ [ -n "$TMUX" ] && echo inside tmux
+  ~~~~
+  
+  The contents up to the first comma (`,`) is the socket path, the remainder is
+  for internal use. One way to get the socket path:
+
+  ~~~~
+  $ echo $TMUX|awk -F, '{ print $1 }'
+  ~~~~
+
+  Note that is not necessary to do this to give the socket path to tmux with
+  `-S` - tmux can work it out itself.
+
+- `TMUX_PANE` is the pane ID:
+
+  ~~~~
+  $ echo $TMUX_PANE
+  %11
+  ~~~~
+
+#### The default target
+
+When many tmux commands are run, they have to work out which session, window or
+pane they should affect. This is known as the target. For example,
+`split-window` needs to decide which window to split. The target can be
+specified to most commands using the `-t` flag - this is described in the next
+section. If `-t` is not given, the default target is used.
+
+How tmux works out the default target depends on where the command is run from.
+There are three typical cases:
+
+1) Commands run interatively from tmux itself, such as from a key binding or
+the command prompt.
+
+2) Commands run from a program running inside tmux, for example typed at a
+shell prompt in a pane.
+
+3) Commands run from a program running outside tmux, like a shell prompt in a
+different *xterm(1)* that isn't running tmux.
+
+XXX
+
+#### Command targets
+
+XXX
+
+#### Getting information
+
+There are two main ways to get information from the tmux server: list commands
+and `display-message`.
+
+The list commands are `list-panes`, `list-windows` and `list-sessions`.
+
+`list-sessions` lists all sessions in the server.
+
+`list-windows` can be used in these ways:
+
+- Without arguments, lists all windows in a single session.
+
+- With `-a` lists all windows in the server.
+
+And `list-panes` can in these ways:
+
+- Without arguments, lists all panes in a single window.
+
+- With `-s` lists all panes in all windows in a single session.
+
+- With `-a` lists all panes in the entire server.
+
+Each of these commands has a `-F` flag which gives the format each line of
+output. For example, to list each window in the server and its name:
+
+~~~~
+$ tmux lsw -aF '#{window_id} #{window_name}'
+@0 top
+@1 emacs
+@2 mywindow
+@3 ksh
+@4 abc🤔def
+@5 ksh
+~~~~
+
+Or each pane in a single window and its size:
+
+~~~~
+$ tmux lsp -t@7 -F '#{pane_id} #{pane_width} #{pane_height}'
+%7 107 43
+%12 53 42
+%14 53 42
+~~~
+
+The `display-message` command is used to print individual formats. The `-p`
+flag sends output to `stdout`. For example:
+
+~~~~
+$ tmux display -p '#{pane_id}'
+%8
+~~~~
+
+Or:
+
+~~~~
+$ tmux display -pt@0 '#{window_name}'
+top
+~~~~
+
+#### Creating sessions, windows and panes
 
 XXX
 
@@ -479,7 +625,7 @@ XXX
 
 XXX
 
-#### Command targets
+#### Avoiding race conditions
 
 XXX
 
@@ -496,6 +642,10 @@ XXX
 XXX
 
 ### Advanced configuration
+
+#### Configuration file logging
+
+XXX
 
 #### Copy mode key bindings
 
@@ -530,5 +680,9 @@ XXX
 XXX
 
 #### XXX exit-empty
+
+XXX
+
+### Hooks
 
 XXX
