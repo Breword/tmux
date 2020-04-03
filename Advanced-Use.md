@@ -531,13 +531,21 @@ tmux sets two environment variables in each pane, `TMUX` and `TMUX_PANE`:
   %11
   ~~~~
 
+#### Command sequences
+
+XXX
+
 #### The default target
 
 When many tmux commands are run, they have to work out which session, window or
-pane they should affect. This is known as the target. For example,
-`split-window` needs to decide which window to split. The target can be
-specified to most commands using the `-t` flag - this is described in the next
-section. If `-t` is not given, the default target is used.
+pane they should affect. This is known as the target and is made up a session,
+a window (including its index in the session) and a pane. Not all of these
+components are used by every command, for example `split-window` needs to know
+which window to target, but doesn't care about the session or pane.
+
+The target can be specified to most commands using the `-t` flag - this is
+described in the next section. If `-t` is not given, the default target is
+used.
 
 How tmux works out the default target depends on where the command is run from.
 There are three typical cases:
@@ -545,17 +553,54 @@ There are three typical cases:
 1) Commands run interatively from tmux itself, such as from a key binding or
 the command prompt.
 
+    This is the simplest: tmux knows the client where the command was run because
+the user had to trigger a key binding or press `Enter` at the command prompt.
+From the client, it knows the attached session and from that it knows the
+current window and active pane. That is the default target.
+
 2) Commands run from a program running inside tmux, for example typed at a
 shell prompt in a pane.
+
+   In this case, tmux doesn't know which client the command was typed into,
+because it could have been run from a script, or delayed by *sleep(1)*, or
+several other things.
+
+   However, tmux may know the name of the *tty(4)* or *pty(4)* where the command
+was run. If it does, it can use that to work out the pane, because each
+*tty(4)* or *pty(4)* belongs to exactly one pane. Even if the *tty(4)* or
+*pty(4)* isn't available, the pane ID may be in the `TMUX_PANE` environment
+variable.
+
+   If tmux can find the pane, then it has the window as well, because each pane
+belongs to one window. If that window belongs to only one session, that gives
+the session, window and pane for the default target.
+
+   If the window belongs to multiple sessions, then tmux picks the most recently
+used session. If the window is linked into the session multiple times (so it
+has multiple window indexes), then the current window is used if the window is
+the current window in the session, otherwise the lowest window index is used.
 
 3) Commands run from a program running outside tmux, like a shell prompt in a
 different *xterm(1)* that isn't running tmux.
 
-XXX
+   For this case, tmux has no information about the target from the environment at
+all. So it picks the most recently used session and uses its current window and
+active pane.
+
+If a command sequence is used, the default target is worked out for the first
+command in the sequence and the same target used for following commands, unless
+those commands explicitly change the target - for example `split-window`
+without `-d` changes the target for subsequent commands in the same command
+sequence to the newly created pane.
 
 #### Command targets
 
+Because tmux has to guess
+
+#### Targets for new panes, windows and sessions
+
 XXX
+
 
 #### Getting information
 
@@ -617,17 +662,6 @@ $ tmux display -pt@0 '#{window_name}'
 top
 ~~~~
 
-#### Creating sessions, windows and panes
-
-XXX
-
-#### Command sequences
-
-XXX
-
-#### Avoiding race conditions
-
-XXX
 
 #### Sending keys
 
