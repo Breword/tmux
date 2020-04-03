@@ -413,9 +413,9 @@ bind -Troot DoubleClick1Status resizep -Zt=
 
 When the program running in a pane can itself handle the mouse, `send-keys` can
 be used with the `-M` flag to pass the mouse event through to that program. The
-`mouse_any_flag` format is true if the program has turned the mouse on. For
-example, this binding makes button 2 paste, unless used over a pane which is in
-a mode or where the program has enabled the mouse for itself:
+`mouse_any_flag` format variable is true if the program has turned the mouse
+on. For example, this binding makes button 2 paste, unless used over a pane
+which is in a mode or where the program has enabled the mouse for itself:
 
 ~~~~
 bind -Troot MouseDown2Pane selectp -t= \; if -F "#{||:#{pane_in_mode},#{mouse_any_flag}}" "send -M" "paste -p"
