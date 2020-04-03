@@ -18,7 +18,7 @@ scripting.
 
 #### Socket and multiple servers
 
-tmux creates a directory for the user in `/tmp` the server then creates a
+tmux creates a directory for the user in `/tmp` and the server then creates a
 socket in that directory. The default socket is called `default`, for example:
 
 ~~~~
