@@ -538,10 +538,10 @@ tmux sets two environment variables in each pane, `TMUX` and `TMUX_PANE`:
 #### The default target
 
 When many tmux commands are run, they have to work out which session, window or
-pane they should affect. This is known as the target and is made up a session,
-a window (including its index in the session) and a pane. Not all of these
-components are used by every command, for example `split-window` needs to know
-which window to target, but doesn't care about the session or pane.
+pane they should affect. This is known as the target and is made up of a
+session, a window and a pane. Not all of these components are used by every
+command, for example `split-window` needs to know which window to target, but
+doesn't care about the session or pane.
 
 The target can be specified to most commands using the `-t` flag - this is
 described in the next section. If `-t` is not given, the default target is
