@@ -606,7 +606,7 @@ $ tmux lscm|grep ^send-prefix
 send-prefix [-2] [-t target-pane]
 ~~~~
 
-A target is made up of three parts: the session, window or pane. The session
+A target is made up of three parts: the session, window and pane. The session
 and window are separated by a colon (`:`) and the window and pane by a period
 (`.`):
 
