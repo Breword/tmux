@@ -671,23 +671,33 @@ forms:
 
      Token|Meaning
      ---|---
-     {last} (or `!`)|The last (previously active) pane
-     {next} (or `+`)|The next pane by number
-     {previous} (or `-`)|previous pane by number
-     {top}|The top pane
-     {bottom}|The bottom pane
-     {left}|The leftmost pane
-     {right}|The rightmost pane
-     {top-left}|The top-left pane
-     {top-right}|The top-right pane
-     {bottom-left}|The bottom-left pane
-     {bottom-right}|The bottom-right pane
-     {up-of}|The pane above the active pane
-     {down-of}|The pane below the active pane
-     {left-of}|The pane to the left of the active pane
-     {right-of}|The pane to the right of the active pane
+     `{last}` (or `!`)|The last (previously active) pane
+     `{next}` (or `+`)|The next pane by number
+     `{previous}` (or `-`)|previous pane by number
+     `{top}`|The top pane
+     `{bottom}`|The bottom pane
+     `{left}`|The leftmost pane
+     `{right}`|The rightmost pane
+     `{top-left}`|The top-left pane
+     `{top-right}`|The top-right pane
+     `{bottom-left}`|The bottom-left pane
+     `{bottom-right}`|The bottom-right pane
+     `{up-of}`|The pane above the active pane
+     `{down-of}`|The pane below the active pane
+     `{left-of}`|The pane to the left of the active pane
+     `{right-of}`|The pane to the right of the active pane
+     
+Some examples of targets are:
 
-XXX
+Example|Description
+---|---
+`-t%1`|The pane with ID `%1`; the session and window will be chosen by tmux if needed
+`-t:6.%1'|The pane with ID `%1` if it exists in window 6; the session will be chosen by tmux if needed
+`-t:.3`|Pane 3; the session and window will be chosen by tmux if needed
+`-tmysession:5`|Window 5 in session `mysession`; the active pane will be used if a pane is needed
+`-tmysession:5.2`|Pane 2 in window 5 in session `mysession`
+`-t{last}`|The last window or last pane, depending if the command wants a window or pane
+`-t:{last}`|The last window; the session and pane will be chosen by tmux if needed
 
 #### Targets for new panes, windows and sessions
 
