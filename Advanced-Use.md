@@ -458,8 +458,8 @@ This option makes `sv` the same as `splitw -v`:
 :sv
 ~~~~
 
-Any subsequent flags or arguments of the entered commands are appended to the
-replaced command. This is the same as `splitw -v -d`:
+Any subsequent flags or arguments given to the entered command are appended to
+the replaced command. This is the same as `splitw -v -d`:
 
 ~~~~
 :sv -d
