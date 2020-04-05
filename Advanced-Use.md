@@ -485,6 +485,12 @@ Formats are an important part of scripting tmux and it is useful to be familiar
 with them, see [this document](https://github.com/tmux/tmux/wiki/Formats) and
 [the manual page section](https://man.openbsd.org/tmux#FORMATS).
 
+Scripts can vary widely in intended use and that can affect how they are
+written. A script that is only run interactively from a key binding may be able
+to assume the current window or active pane won't change while the script is
+running, so have no need to worry about targets. A script designed to set up a
+new session, or run from another program, may have to be more careful.
+
 #### Unique identifiers
 
 Every pane, window and session in tmux has a unique identifier (ID) set by the
@@ -602,7 +608,7 @@ seen with `list-commands` or in the manual page. For example `send-prefix`
 wants a pane so it says `-t target-pane`:
 
 ~~~~
-$ tmux lscm|grep ^send-prefix
+$ tmux lscm send-prefix
 send-prefix [-2] [-t target-pane]
 ~~~~
 
@@ -787,7 +793,30 @@ top
 
 #### Sending keys
 
-XXX
+The `send-keys` command can be used to send key presses to a pane as if they
+had been pressed. It takes multiple arguments. tmux checks if each argument is
+the name of a key and if so the appropriate escape sequence is sent for that
+key; if the argument does not match a key, it is sent as it is. For example:
+
+~~~~
+send hello Enter
+~~~~
+
+Sends the five characters in `hello`, followed by an Enter key press (a
+newline character). Or this:
+
+~~~~
+send F1 C-F2
+~~~~
+
+Sends the escape sequences for the `F1` and `C-F2` keys.
+
+The `-l` flag tells tmux not to look for arguments as keys but instead send
+every one literally, so this will send the literal text `Enter`:
+
+~~~~
+send -l Enter
+~~~~
 
 #### Capturing pane content
 
