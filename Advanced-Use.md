@@ -798,6 +798,8 @@ had been pressed. It takes multiple arguments. tmux checks if each argument is
 the name of a key and if so the appropriate escape sequence is sent for that
 key; if the argument does not match a key, it is sent as it is. For example:
 
+<img src="images/tmux_send_keys.png" align="right" width=368 height=235>
+
 ~~~~
 send hello Enter
 ~~~~
