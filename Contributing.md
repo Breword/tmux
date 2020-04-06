@@ -27,8 +27,8 @@ the branch removed.
 
 ## Code contributions
 
-Here is a list of outstanding feature requests or notes for future
-development. They are sorted into three sections approximately by difficulty of
+Here is a list of outstanding feature requests or notes for future development.
+They are sorted into three sections approximately by difficulty of
 implementation. If there is a GitHub issue then its number is shown in
 brackets.
 
@@ -40,6 +40,12 @@ items, to avoid any duplication of effort.
 - It is annoying that -t= is still needed for select-window on the status line
   when it is not needed for panes.
 
+- "After" hooks are missing for many commands that do not use CMD_AFTERHOOK.
+
+- A command in copy mode to toggle the selection.
+
+### Medium things
+
 - list-keys should be able to show long commands with {} and newlines more
   nicely. Either any string containing newlines or starting with a newline, or
   have some knowledge of command arguments - eg know that if-shell argument 2
@@ -49,10 +55,6 @@ items, to avoid any duplication of effort.
   select-layout without an argument should include it, so C-Space could cycle
   through it with the preset layouts. Also a separate flag or layout name to
   restore it directly.
-
-- "After" hooks are missing for many commands that do not use CMD_AFTERHOOK.
-
-- A command in copy mode to toggle the selection.
 
 - wait-for could do more, for example being able to wait for a pane to exit or
   close (could use the existing notify code in some way). Also a flag for a
@@ -67,8 +69,6 @@ items, to avoid any duplication of effort.
   for example "bind 2 command-prompt -I2 -T50 select-window -t':%%'" and the
   user has 50 milliseconds to enter window 23 or it will go to window 2.
 
-### Medium things
-
 - Moving, joining and otherwise reorganizing panes, windows and session should
   be easier in tree mode. For example, either a new key to swap tagged panes if
   two are tagged, or tagged pane and current if one is tagged, and so on. Or
@@ -82,9 +82,6 @@ items, to avoid any duplication of effort.
   sequences as iTerm2. Could be listed by capture-pane and also a menu to jump
   to marks in copy mode. ([#1042](https://github.com/tmux/tmux/issues/1042)) is
   related and also has some code to display a marker line.
-
-- ([#1545](https://github.com/tmux/tmux/issues/1545)) Copy mode searching is
-  very slow when there is a big history, need a good solution.
 
 - Make the commmand prompt able to take up multiple lines.
 
