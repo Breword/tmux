@@ -879,8 +879,8 @@ P=$(tmux splitw -dPF '#{pane_id}' '')
 echo hello again|tmux display -It$P
 ~~~~
 
-Empty panes accept escape sequences the same as if a program running in the
-pane was sending them:
+They accept escape sequences the same as if a program running in the pane was
+sending them:
 
 ~~~~
 printf '\033[H\033[2J\033[31mred'|tmux display -It$P
