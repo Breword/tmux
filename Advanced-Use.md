@@ -168,7 +168,7 @@ bind '"' splitw -c '#{pane_current_path}'
 
 XXX
 
-#### Respawing panes and windows
+#### Respawning panes and windows
 
 Respawning a pane or window is a way to start a different (or restart the same)
 program without need to recreate the window, maintaining its size, position and
@@ -924,11 +924,11 @@ XXX
 
 XXX
 
-#### XXX set-clipboard
+#### The system clipboard
 
 XXX
 
-#### XXX exit-empty
+#### Running with no sessions
 
 XXX
 
