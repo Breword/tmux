@@ -851,6 +851,41 @@ A few additional flags control the format of the output:
 
 * `-J` both preserves trailing spaces and joins any wrapped lines.
 
+#### Empty panes
+
+tmux allows panes to be created without a running command. There are two ways
+to create an empty pane using the `split-window` command:
+
+1) Passing an empty command:
+
+    ~~~~
+    $ tmux splitw ''
+    ~~~~
+
+   A pane created like this is completely empty with nothing displayed.
+
+2) By using the `-I` flag and providing text to display on `stdin`:
+
+    ~~~~
+    $ echo hello|tmux splitw -I
+    ~~~~
+
+<img src="images/tmux_empty_pane.png" align="right" width=376 height=243>
+
+An empty pane may be written to with the `-I` flag to `display-message`:
+
+~~~~
+P=$(tmux splitw -dPF '#{pane_id}' '')
+echo hello again|tmux display -It$P
+~~~~
+
+Empty panes accept escape sequences the same as if a program running in the
+pane was sending them:
+
+~~~~
+printf '\033[H\033[2J\033[31mred'|tmux display -It$P
+~~~~
+
 #### Waiting, signals and locks
 
 XXX
