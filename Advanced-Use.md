@@ -862,17 +862,18 @@ to create an empty pane using the `split-window` command:
     $ tmux splitw ''
     ~~~~
 
-   A pane created like this is completely empty with nothing displayed.
+   A pane created like this starts completely empty.
 
 <img src="images/tmux_empty_pane.png" align="right" width=376 height=243>
 
-2) By using the `-I` flag and providing text to display on `stdin`:
+2) By using the `-I` flag and providing input on `stdin`:
 
     ~~~~
     $ echo hello|tmux splitw -I
     ~~~~
 
-An empty pane may be written to with the `-I` flag to `display-message`:
+An existing empty pane may be written to with the `-I` flag to
+`display-message`:
 
 ~~~~
 P=$(tmux splitw -dPF '#{pane_id}' '')
@@ -931,7 +932,7 @@ XXX
 
 XXX
 
-#### terminfo(5) and terminal-overrides
+#### *terminfo(5)* and `terminal-overrides`
 
 XXX
 
