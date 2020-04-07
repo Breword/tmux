@@ -75,7 +75,7 @@ items, to avoid any duplication of effort.
   be easier in tree mode. For example, either a new key to swap tagged panes if
   two are tagged, or tagged pane and current if one is tagged, and so on. Or
   make :swap-pane use tagged panes but that might be much harder. Likewise for
-  move, join, etc.
+  move, join, etc. Also dragging would be nice.
 
 - ([#1605](https://github.com/tmux/tmux/issues/1605)) Support for ZERO WIDTH
   JOINER U+200D.
@@ -92,22 +92,14 @@ items, to avoid any duplication of effort.
 
 - Allow multiple targets either with multiple -t or by giving a pattern or both.
 
-- ([#1718](https://github.com/tmux/tmux/issues/1718)) Copy mode should behave
-  better if the pane outside is modified. The best idea so far is to copy the
-  state when copy mode is entered, allowing the pane's old grid to continue to
-  update, and provide a command and key binding to refresh from the latest grid
-  manually. This would also allow entering copy mode for a pane in a different
-  pane, meaning you could copy from a pane's history while still able to paste
-  or type in the pane.
-
 - It would be nice to be able to remember the position in copy mode and go back
   to the same place when entering it again. How would this work if the pane
   scrolls? What about entering with the mouse?
 
 - It would be nice to have commands to build a paste buffer in copy mode by
   doing multiple copies. It would need to display the work in progress
-  somewhere and have a command to add a chunk of text and a command to remove
-  the last chunk and a command to clear.
+  somewhere (bottom left?) and have a command to add a chunk of text and a
+  command to remove the last chunk and a command to clear.
 
 - The lexer in cmd-parse.y should be a single state machine rather than separate
   functions for environment variables, strings and formats.
