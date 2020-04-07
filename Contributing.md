@@ -47,9 +47,11 @@ items, to avoid any duplication of effort.
 ### Medium things
 
 - list-keys should be able to show long commands with {} and newlines more
-  nicely. Either any string containing newlines or starting with a newline, or
-  have some knowledge of command arguments - eg know that if-shell argument 2
-  is a command.
+  nicely. Could store knowledge of command arguments in cmd_entry like a string
+  with a character per argument - so if-shell might be "sTT" for shell-command
+  and two tmux command. Would need syntax to express the different forms -
+  new-window, bind-key, run-shell, if-shell, display-menu. Also what about
+  stuff like popup -R and detach -E?
 
 - Should remember the last layout before select-layout was used and
   select-layout without an argument should include it, so C-Space could cycle
