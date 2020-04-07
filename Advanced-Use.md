@@ -892,7 +892,7 @@ XXX
 
 ### Advanced configuration
 
-#### Verbose source file
+#### Checking configuration files
 
 The `source-file` command has two flags to help working with configuration
 files:
