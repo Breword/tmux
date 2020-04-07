@@ -66,11 +66,6 @@ items, to avoid any duplication of effort.
   wrap but preserve any trimmed content (so it can be viewed if the pane is
   made bigger).
 
-- Timeout to command-prompt, if the timeout expires the command is run with
-  whatever is in the prompt at the time. This would allow numbers to be bound
-  for example "bind 2 command-prompt -I2 -T50 select-window -t':%%'" and the
-  user has 50 milliseconds to enter window 23 or it will go to window 2.
-
 - Moving, joining and otherwise reorganizing panes, windows and session should
   be easier in tree mode. For example, either a new key to swap tagged panes if
   two are tagged, or tagged pane and current if one is tagged, and so on. Or
