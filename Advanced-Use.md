@@ -905,7 +905,7 @@ These can be useful to locate problems in a configuration file, for example by
 starting tmux without `.tmux.conf` and then loading it manually:
 
 ~~~~
-$ tmux -f/dev/null new
+$ tmux -f/dev/null new -d
 $ tmux source -v ~/.tmux.conf
 /home/nicholas/.tmux.conf:1: set-option -g mouse on
 /home/nicholas/.tmux.conf:8: unknown command: foobar
