@@ -776,6 +776,12 @@ $ tmux lsp -t@7 -F '#{pane_id} #{pane_width} #{pane_height}'
 %14 53 42
 ~~~~
 
+These can be combined with *sh(1)* to loop over panes:
+
+~~~~
+$ tmux lsp -F'#{pane_id}'|while read i; do echo pane $i; done
+~~~~
+
 The `display-message` command is used to print individual formats. The `-p`
 flag sends output to `stdout`. For example:
 
