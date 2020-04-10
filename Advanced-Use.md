@@ -797,9 +797,9 @@ $ tmux display -pt@0 '#{window_name}'
 top
 ~~~~
 
-Options are shown using the `show-options` command. This is explained
-[here](https://github.com/tmux/tmux/wiki/Getting-Started#showing-options). In
-addition, the `-v` option only shows the value:
+Options are shown using the `show-options` command. The basics are covered [in
+this section](https://github.com/tmux/tmux/wiki/Getting-Started#showing-options).
+In addition, the `-v` option only shows the value:
 
 ~~~~
 $ tmux show -g history-limit
