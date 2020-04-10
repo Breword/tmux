@@ -733,8 +733,8 @@ $ tmux neww -dPF '#{window_id}' -t$S
 
 #### Getting information
 
-There are two main ways to get information from the tmux server: list commands
-and `display-message`.
+There are three main ways to get information from the tmux server: list
+commands, `display-message` and `show-options`.
 
 The list commands are `list-panes`, `list-windows` and `list-sessions`.
 
@@ -789,6 +789,26 @@ Or:
 ~~~~
 $ tmux display -pt@0 '#{window_name}'
 top
+~~~~
+
+Options are shown using the `show-options` command. This is explained
+[here](https://github.com/tmux/tmux/wiki/Getting-Started#showing-options). In
+addition, the `-v` option only shows the value:
+
+~~~~
+$ tmux show -g history-limit
+history-limit 2000
+$ tmux show -vg history-limit
+2000
+~~~~
+
+`-q` does not show an error for unknown options:
+
+~~~~
+$ tmux show -g no-such-option
+invalid option: no-such-option
+$ tmux show -gq no-such-option
+$
 ~~~~
 
 #### Sending keys
