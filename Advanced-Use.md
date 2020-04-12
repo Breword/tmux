@@ -953,20 +953,21 @@ parsing and execution. The parsing process is:
    ~~~~
    It is first split up into a list of four: `new`, `-A`, `-sfoo` and `top`.
 
-3) These arguments are processed again so that tmux recognises the command as
-   `new-session` with arguments `-A`, `-s foo` and `top`. This is done with the
-   *getopt(3)* C library function.
+3) This list is processed again and tmux looks up the command, so it knows it
+   is `new-session` with arguments `-A`, `-s foo` and `top`.
 
-4) The command is now parsed and is placed at the end of a command queue.
+4) The command is placed at the end of a command queue.
 
 Once all of the configuration file is parsed, execution takes place: the
 commands are executed from the command queue in order.
 
 A similar process takes place for commands read from the command prompt or as
-an argument to another command (such as `if-shell`). For commands run from the
-shell, steps 1 and 2 are skipped - configuration file directives are not
-supported, and the shell splits the command into arguments before giving it to
-tmux.
+an argument to another command (such as `if-shell`). These are pretty much the
+same as a configuration file with only one line.
+
+For commands run from the shell, steps 1 and 2 are skipped - configuration file
+directives are not supported, and the shell splits the command into arguments
+before giving it to tmux.
 
 This split into parsing and execution does not often have any visible effect
 but occasionally it matters. The most obvious effect is on environment variable
@@ -994,8 +995,8 @@ setenv -g FOO bar
 display '#{FOO}'
 ~~~~
 
-Because although the `set-environment` happens during execution, `FOO` is not
-used until `display-message` is executed and expands its argument as a format.
+Although the `set-environment` happens during execution, `FOO` is not used
+until `display-message` is executed and expands its argument as a format.
 
 Care must be taken with commands that take another command as an argument,
 because there may be multiple parsing stages.
