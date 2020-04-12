@@ -1165,7 +1165,7 @@ Option|Type|Description
 ---|---|---
 `display-panes-active-colour`|session|The style of the active pane number for `C-b q`
 `display-panes-colour`|session|The style of the pane numbers, apart from the active pane for`C-b q`
-`message-style`|session|The style of messages shown on the status line
+`message-style`|session|The style of messages shown on the status line and of the command prompt
 `mode-style`|window|The style of the selection in copy mode
 `pane-active-border-style`|window|The style of the active pane border
 `pane-border-format`|window|The format of text that appears in the pane border status line if `pane-border-status` is set
