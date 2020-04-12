@@ -865,6 +865,39 @@ Commands in a configuration file appear one per line. Any lines starting with
 set -g status off
 ~~~~
 
+Lines in the configuration file are processed similar to the shell, for example:
+
+- Arguments may be enclosed in `'` or `"` to include spaces, or spaces may be
+  escaped. These four lines do the same thing:
+  ~~~~
+  set -g status-left "hello word"
+  set -g status-left "hello\ word"
+  set -g status-left 'hello word'
+  set -g status-left hello\ word
+  ~~~~
+
+- But escaping doesn't happen inside `'`s. The string here is `hello\ world`
+  not `hello world`:
+  ~~~~
+  set -g status-left 'hello\ word'
+  ~~~~
+
+- `~` is expanded to the home directory (except inside `'`s):
+  ~~~~
+  source ~/myfile
+  ~~~~
+
+- Environment variables can be set and are also expanded (but not inside `'`s):
+  ~~~~
+  MYFILE=myfile
+  source "~/$MYFILE"
+  ~~~~
+  Any variables set in the configuration file will be passed on to new panes
+  created inside tmux.
+
+- A few special characters like `\n` (newline) and `\t` (tab) are replaced. A
+  literal `\` must be given as `\\`.
+
 #### Key bindings
 
 tmux key bindings are changed using the `bind-key` and `unbind-key` commands.
