@@ -898,6 +898,9 @@ Lines in the configuration file are processed similar to the shell, for example:
 - A few special characters like `\n` (newline) and `\t` (tab) are replaced. A
   literal `\` must be given as `\\`.
 
+Although tmux configuration files have some features similar to the shell, they
+are not shell scripts and cannot use shell constructs like `$()`.
+
 #### Key bindings
 
 tmux key bindings are changed using the `bind-key` and `unbind-key` commands.
