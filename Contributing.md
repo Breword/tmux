@@ -44,6 +44,9 @@ items, to avoid any duplication of effort.
 
 - A command in copy mode to toggle the selection.
 
+- new-window, respawn-window, split-window and so on have -e to add environment
+  variables - new-session should have this too.
+
 ### Medium things
 
 - list-keys should be able to show long commands with {} and newlines more

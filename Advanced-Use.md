@@ -1001,14 +1001,14 @@ until `display-message` is executed and expands its argument as a format.
 Care must be taken with commands that take another command as an argument,
 because there may be multiple parsing stages.
 
-#### Conditionals
+#### Conditional directives
 
 tmux supports some special syntax in the configuration file to allow more
 flexible configuration. This is all processed when the configuration file is
 parsed.
 
-Conditionals allow parts of the configuration file to be processed only if a
-condition is true. A conditional looks like this:
+Conditional directives allow parts of the configuration file to be processed
+only if a condition is true. A conditional directive looks like this:
 
 ~~~~
 %if #{format}
@@ -1030,8 +1030,8 @@ yet more commands
 %endif
 ~~~~
 
-Because conditionals are processed when the configuration file is parsed, they
-can't use the results of commands - the commands (whether outside the
+Because these directives are processed when the configuration file is parsed,
+they can't use the results of commands - the commands (whether outside the
 conditional or in the true or false branch) are not executed until later when
 the configuration file has been completely parsed.
 
@@ -1045,9 +1045,93 @@ source ~/.tmux.conf.secondhost
 %endif
 ~~~~
 
+#### Running shell commands
+
+The `run-shell` command runs a shell command:
+
+~~~~
+:run 'ls'
+~~~~
+
+If there is any output, the active pane is switched into view mode. Formats are
+expanded in the `run-shell` argument:
+
+~~~~
+:run 'echo window name is #{window_name}'
+~~~~
+
+`run-shell` blocks execution of subsequent commands until the command is
+finished. The `-b` flag disables this and runs the command in the background.
+
+`run-shell` is most useful to invoke shell commands or shell scripts from a
+configuration file or a key binding:
+
+~~~~
+bind O run '/path/to/my/script'
+~~~~
+
+#### Conditions with `if-shell`
+
+`if-shell` is a versatile command that allows a choice between two tmux
+commands to be made based on a shell command or (with `-F`) a format. The first
+argument is a condition, the second the command to run when it is true and the
+third the command to run when it is false. The third command may be left out.
+
+If `-F` is given, the first condition argument is a format. A format is true if
+it expands to a string that is not empty and not 0. Without `-F`, the first
+argument is a shell command.
+
+For example, a key binding to scroll to the top if a pane is in copy mode and
+do nothing if it is not:
+
+~~~~
+bind T if -F '#{==:#{pane_mode},copy-mode}' 'send -X history-top'
+~~~~
+
+Or to rename a window based on the time:
+
+~~~~
+bind A if 'test `date +%H` -lt 12' 'renamew morning' 'renamew afternoon'
+~~~~
+
+Note that `if-shell` is different from the `%if` directive. `%if` is
+interpreted when a configuration file is parsed; `if-shell` is a command that
+is run with other commands and can be used in key bindings.
+
 #### Quoting with `{}`
 
-XXX
+tmux allows sections of a configuration file to be quoted using `{` and `}`.
+This is designed to allow complex commands and command sequences to be
+expressed more clearly, particularly where a command takes another command as
+an argument. Text between `{` and `}` is treated as a string without any
+modification.
+
+So for a simple example, the `bind-key` command can take a command as its
+argument:
+
+~~~~
+bind K {
+	lsk
+}
+~~~~
+
+Or `if-shell` may be bound to a key:
+
+~~~~
+bind K {
+	if -F '#{==:#{window_name},ksh}' {
+		kill-window
+	} {
+		display 'not killing window'
+	}
+}
+~~~~
+
+This is equivalent to:
+
+~~~~
+bind K if -F '#{==:#{window_name},ksh}' 'kill-window' "display 'not killing window'"
+~~~~
 
 #### Array options
 
