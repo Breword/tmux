@@ -38,6 +38,37 @@ file for information on what to include.
 
 Please send feature requests by email to *tmux-users@googlegroups.com* or open a GitHub issue.
 
+### How often is tmux released? What is the version number scheme?
+
+tmux releases are now made approximately every six months, around the same time
+as OpenBSD releases (tmux is part of OpenBSD) but not necessarily on the same
+day.
+
+tmux version numbers (as reported by `tmux -V` and `tmux display -p
+'#{version}') match one of the following:
+
+- Main releases have a version with one digit after the period, such as 2.9 or
+  3.0. The number increases with each release, so 2.8, 2.9, 3.0, 3.1 and so on.
+
+- Patch releases have a letter following the last digit, such as 2.9a or 3.0a.
+  These contain a small number of changes to fix any bugs found shortly after
+  release.
+
+- The development source tree (master in Git) has a version prefixed by
+  "next-", for example next-3.1 is the code that will eventually become the 3.1
+  release.
+
+- Release candidates have an "-rc" suffix, optionally with a number. So the
+  first 3.1 release candidate is 3.1-rc, the second 3.1-rc2 and so on.
+
+- tmux in OpenBSD does not have a version number. Until OpenBSD 6.6, it did not
+  support the `-V` flag; in 6.6 and later it does and reports the OpenBSD
+  version number prefixed by "openbsd-", for example openbsd-6.6.
+
+Aside from the patch releases and release candidates mentioned above, tmux
+version numbers have no special significance. tmux 3.0 is the release after
+tmux 2.9, nothing more.
+
 ### Why do you use the screen terminal description inside tmux?
 
 It is already widely available. `tmux` and `tmux-256color` entries are provided
