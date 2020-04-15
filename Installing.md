@@ -45,9 +45,9 @@ installed. It is more common to need to build libevent than ncurses.
 
 Full instructions can be found on the project sites but this is a summary of
 how to install libevent and ncurses into `~/local` for a single user. To
-install system-wide into `/opt` or `/usr/local`, substitute for `$HOME/local`
-and run `make install` as root (for example with sudo: `make && sudo make
-install`).
+install system-wide into directories under `/opt` or into `/usr/local`,
+substitute the required path for for `$HOME/local` in each case and run `make
+install` as root (for example with sudo: `make && sudo make install`).
 
 For libevent:
 
@@ -75,6 +75,14 @@ tar -zxf tmux-*.tar.gz
 cd tmux-*/
 PKG_CONFIG_PATH=$HOME/local/lib/pkgconfig ./configure --prefix=$HOME/local
 make && make install
+~~~~
+
+If ncurses and libevent were installed in different directories rather than all
+together in `~/local`, both their `lib/pkgconfig` directories will need to be
+in `PKG_CONFIG_PATH`, for example:
+
+~~~~
+PKG_CONFIG_PATH=/opt/libevent/lib/pkgconfig:/opt/ncurses/lib/pkgconfig ./configure --prefix=$HOME/local
 ~~~~
 
 The newly built tmux can be found in `~/local/bin/tmux`.
