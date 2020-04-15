@@ -44,8 +44,8 @@ tmux releases are now made approximately every six months, around the same time
 as OpenBSD releases (tmux is part of OpenBSD) but not necessarily on the same
 day.
 
-tmux version numbers (as reported by `tmux -V` and `tmux display -p
-'#{version}'`) match one of the following:
+tmux version numbers (as reported by `tmux -V` and `display -p '#{version}'`)
+match one of the following:
 
 - Main releases have a version with one digit after the period, such as 2.9 or
   3.0. The number increases with each release, so 2.8, 2.9, 3.0, 3.1 and so on.
