@@ -49,11 +49,21 @@ items, to avoid any duplication of effort.
 
 ### Medium things
 
-- At the moment, the optimization in screen-write.c is purely on lines, if
-  there are multiple changes within a line they will both be written even if
-  they are on top of each other; likewise, ECH, DCH and friends cause a flush
-  when then could just remove the characters from the write buffer. Is it worth
-  the cost? Would it make any difference to anything?
+- At the moment, the optimization in screen-write.c is purely on lines
+  scrolled:
+  
+  - If there are multiple changes within a line they will both be written even
+    if they are on top of each other
+  
+  - ECH, DCH and friends cause a flush when then could just remove the
+    characters from the write buffer.
+
+  - Clearing lines will clear old data on the line, but there could be more, or
+    the line could be cleared again. Maybe we need a cleared count?
+
+  - There are probably other things.
+
+  But is it worth the cost? Would it make any difference to any applications?
 
 - Support DECSLRM margins within tmux itself.
 
