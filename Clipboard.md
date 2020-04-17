@@ -40,7 +40,7 @@ later sections cover support in different terminals.
 #### Changing `set-clipboard`
 
 The tmux `set-clipboard` option was added in tmux 1.5 with a default of `on`;
-the default was changed to `external` when it was added in tmux 2.6.
+the default was changed to `external` when `external` was added in tmux 2.6.
 
 The difference is that `on` both makes tmux set the clipboard for the outside
 terminal, and allows applications inside tmux to set tmux's clipboard (adding a
