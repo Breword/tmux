@@ -147,7 +147,7 @@ copied, so text may be truncated.
 iTerm2 supports OSC 52 but it has be enabled from the preferences with this
 option:
 
-<img src="images/item2_clipboard.png" align="center" width=378 height=201>
+<img src="images/iterm2_clipboard.png" align="center" width=378 height=201>
 
 ### External tools
 
