@@ -149,6 +149,54 @@ option:
 
 <img src="images/iterm2_clipboard.png" align="center" width=378 height=201>
 
+#### Quick summary
+
+In summary to configure `set-clipboard`, follow these steps:
+
+1. Make sure `set-clipboard` is set in tmux:
+
+    ~~~~
+    $ tmux show -g set-clipboard
+    ~~~~
+
+    If it is not `on` or `external`, add this to .tmux.conf and restart tmux
+    (use `on` rather than `external` before tmux 2.6):
+
+    ~~~~
+    set -g set-clipboard external
+    ~~~~
+
+2. Make sure `Ms` is set. Start tmux and run:
+
+   ~~~~
+   $ tmux info|grep Ms
+   180: Ms: [missing]
+   ~~~~
+
+   If it is `[missing]`, get the value of `TERM` outside tmux:
+
+   ~~~~
+   $ echo $TERM
+   rxvt-unicode-256color
+   ~~~~
+
+   Then add an appropriate `terminal-overrides` line to `.tmux.conf` and
+   restart tmux:
+   
+   ~~~~
+   set -as terminal-overrides ',rxvt-unicode-256color:Ms=\E]52;%p1%s;%p2%s\007'
+   ~~~~
+
+   Then start tmux and check it has worked by running this inside tmux:
+
+   ~~~~
+   $ tmux info|grep Ms:
+   180: Ms: (string) \033]52;%p1%s;%p2%s\a
+   ~~~~
+
+3. Enable support in the terminal options if necessary, or use a terminal where
+   it is enabled by default.
+
 ### External tools
 
 XXX
