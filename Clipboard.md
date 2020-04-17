@@ -17,7 +17,7 @@ to the outside terminal in a similar way to how tmux draws the text and colours
 and attributes. The outside terminal recognises the clipboard escape sequence
 and sets the system clipboard.
 
-The big advantage of `set-clipboard` is that it works over and *ssh(1)*
+The big advantage of `set-clipboard` is that it works over an *ssh(1)*
 connection even if X11 forwarding is not configured. The disadvantages are that
 it is patchily supported and can be tricky to configure.
 
