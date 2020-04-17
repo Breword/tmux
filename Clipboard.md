@@ -86,7 +86,7 @@ $ tmux info|grep Ms:
  180: Ms: (string) \033]52;%p1%s;%p2%s\a
 ~~~~
 
-If `Ms` is missing, it can be added with `terminal-overrides`. First check what
+If `Ms` is missing, it can be added with `terminal-overrides`. Check what
 `TERM` is outside tmux:
 
 ~~~~
