@@ -252,9 +252,9 @@ bind -Tcopy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -bi'
 
 #### How to configure - tmux 3.2 and later
 
-tmux 3.2 introduced an option, `copy-command` to set a command to pipe to for
-all key bindings. This is used when `copy-pipe` used with no arguments, this is
-now the default. If the option is empty, the copied text is not piped.
+tmux 3.2 introduced an option called `copy-command` to set a command to pipe to
+for all key bindings. This is used when `copy-pipe` is called with no arguments
+which is now the default. If the option is empty, the copied text is not piped.
 
 To pipe to *xsel(1)*:
 
