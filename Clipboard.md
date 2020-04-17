@@ -326,4 +326,4 @@ xclip >/dev/null
 
 * The `-p`, `-s` and `-b` flags for *xsel(1)*
 
-* The `-selection` flag for xclip(1)*.
+* The `-selection` flag for *xclip(1)*.
