@@ -5,15 +5,21 @@ mouse in tmux synchronized with the system clipboard. The tools offered to tmux
 by terminals to do this are quite blunt and not consistently supported. This
 document gives an overview of how things work and some configuration examples.
 
-For step-by-step instructions on configuring `set-clipboard`, skip to [this
-section](#Quick summary).
+There are two posible methods:
+
+* OSC 52 and the `set-clipboard` option.
+
+* Piping to an external tool like `xsel`.
 
 ### The `set-clipboard` option
 
 #### How it works
 
 Some terminals offer an escape sequence to set the clipboard. This is one of
-the operating system control sequences so it is known as OSC 52
+the operating system control sequences so it is known as OSC 52.
+
+To skip the details and read quick step-by-step instructions on configuring
+`set-clipboard`, skip to [this section](Clipboard.md#Quick summary).
 
 The way it works is that when text is copied in tmux it is packaged up and sent
 to the outside terminal in a similar way to how tmux draws the text and colours
