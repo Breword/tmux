@@ -110,10 +110,11 @@ using `rxvt-unicode*` would apply to both `rxvt-unicode` and
 
 If `set-clipboard` is set to `external`, only tmux can set the clipboard. If
 set to `on` and tmux is version 2.6 or newer, any application running inside
-tmux can set the system clipboard - no matter what user they are run as: if
-they can write text, they can set the clipboard.
+tmux can create a tmux paste buffer and set the system clipboard. This is no
+matter what user they are run as: if a command can write text, it can set the
+clipboard.
 
-This means that with `set-clipboard` set to `on`, great care must be taken that
+This means that with `set-clipboard` set to `on`, great care must be taken with
 untrusted commands run inside tmux.
 
 The same applies if OSC 52 is enabled in the outside terminal and commands are
