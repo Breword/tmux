@@ -257,8 +257,8 @@ To pipe to *xsel(1)*:
 set -s copy-command 'xsel -i'
 ~~~~
 
-The configuration in the next section for older versions works with tmux 3.2
-and later as well, although `copy-command` is simpler.
+The more complex configuration in the next section also works tmux 3.2 and
+later versions.
 
 #### How to configure - tmux versions between 2.4 and 3.1
 
