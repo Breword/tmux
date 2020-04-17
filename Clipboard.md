@@ -41,7 +41,7 @@ things must be in place:
 
 2. The `Ms` capability must be available to tmux when it looks at the
    *terminfo(5)* entry specified by `TERM`. This is present by default for some
-   terminals and if not is added with `terminal-overrides` (shown below).
+   terminals and if not is added with `terminal-overrides` (see the next section).
 
 3. The feature must be enabled in the terminal itself. How this is done varies
    from terminal to terminal. Some have it enabled by default and some do not.
