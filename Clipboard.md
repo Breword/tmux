@@ -246,9 +246,24 @@ The available tools are:
 These tools talk to the *X(7)* server (or equivalent) directly so without
 additional configuration they only work on the local computer.
 
-#### How to configure - tmux versions before 3.2
+#### How to configure - tmux 3.2 and later
 
-To use these tools with tmux (before tmux 3.2), the copy key bindings must be
+tmux 3.2 introduced an option called `copy-command` to set a command to pipe to
+for all key bindings. This is used when `copy-pipe` is called with no arguments
+which is now the default. If the option is empty, the copied text is not piped.
+
+To pipe to *xsel(1)*:
+
+~~~~
+set -s copy-command 'xsel -i'
+~~~~
+
+The configuration in the next section for older versions works with tmux 3.2
+and later as well, although `copy-command` is simpler.
+
+#### How to configure - tmux versions between 2.4 and 3.1
+
+To use these tools with tmux before tmux 3.2, the copy key bindings must be
 changed. The equivalent command to the default `copy-selection-and-cancel` is
 `copy-pipe-and-cancel`; if using `copy-selection` instead use `copy-pipe`, or
 for `copy-selection-no-clear`, `copy-pipe-no-clear`.
@@ -265,8 +280,8 @@ These must be changed for the key table in use. For *emacs(1)* keys:
 
 ~~~~
 bind -Tcopy-mode C-w               send -X copy-pipe-and-cancel 'xsel -i'
-bind -Tcopy-mode MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -i'
 bind -Tcopy-mode M-w               send -X copy-pipe-and-cancel 'xsel -i'
+bind -Tcopy-mode MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -i'
 ~~~~
 
 Or for *vi(1)* keys:
@@ -277,16 +292,25 @@ bind -Tcopy-mode-vi Enter             send -X copy-pipe-and-cancel 'xsel -i'
 bind -Tcopy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -i'
 ~~~~
 
-#### How to configure - tmux 3.2 and later
+#### How to configure - tmux 2.3 and earlier
 
-tmux 3.2 introduced an option called `copy-command` to set a command to pipe to
-for all key bindings. This is used when `copy-pipe` is called with no arguments
-which is now the default. If the option is empty, the copied text is not piped.
-
-To pipe to *xsel(1)*:
+In tmux 2.4, copy mode key bindings were completely changed so that tmux
+commands could be bound in copy mode instead of a limited set of copy-mode-only
+commands. The configuration for older versions for *emacs(1)* keys looks like
+this:
 
 ~~~~
-set -s copy-command 'xsel -i'
+bind -temacs-copy C-w               copy-pipe 'xsel -i'
+bind -temacs-copy M-w               copy-pipe 'xsel -i'
+bind -temacs-copy MouseDragEnd1Pane copy-pipe 'xsel -i'
+~~~~
+
+Or for *vi(1)* keys:
+
+~~~~
+bind -Tvi-copy C-j               copy-pipe 'xsel -i'
+bind -Tvi-copy Enter             copy-pipe 'xsel -i'
+bind -Tvi-copy MouseDragEnd1Pane copy-pipe 'xsel -i'
 ~~~~
 
 #### `set-clipboard` and `copy-pipe`
