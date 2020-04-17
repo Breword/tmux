@@ -117,8 +117,8 @@ clipboard.
 This means that with `set-clipboard` set to `on`, great care must be taken with
 untrusted commands run inside tmux.
 
-The same applies if OSC 52 is enabled in the outside terminal and commands are
-run without tmux.
+The same applies to any commands run without tmux if OSC 52 is enabled in the
+terminal.
 
 #### Terminal support - tmux inside tmux
 
