@@ -219,7 +219,7 @@ The available tools are:
 These tools talk to the *X(7)* server (or equivalent) directly so without
 additional configuration they only work on the local computer.
 
-# How to configure - tmux versions before 3.2
+#### How to configure - tmux versions before 3.2
 
 To use these tools with tmux (before tmux 3.2), the copy key bindings must be
 changed. The equivalent command to the default `copy-selection-and-cancel` is
@@ -250,7 +250,7 @@ bind -Tcopy-mode-vi Enter             send -X copy-pipe-and-cancel 'xsel -bi'
 bind -Tcopy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -bi'
 ~~~~
 
-### How to configure - tmux 3.2 and later
+#### How to configure - tmux 3.2 and later
 
 tmux 3.2 introduced an option, `copy-command` to set a command to pipe to for
 all key bindings. This is used when `copy-pipe` used with no arguments, this is
