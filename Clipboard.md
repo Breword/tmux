@@ -5,6 +5,9 @@ mouse in tmux synchronized with the system clipboard. The tools offered to tmux
 by terminals to do this are quite blunt and not consistently supported. This
 document gives an overview of how things work and some configuration examples.
 
+For step-by-step instructions on configuring `set-clipboard`, skip to [this
+section](Quick summary).
+
 ### The `set-clipboard` option
 
 #### How it works
@@ -51,9 +54,9 @@ Any of these commands in `.tmux.conf` or at the command prompt will set the
 three states:
 
 ~~~~
-set -g set-clipboard on
-set -g set-clipboard external
-set -g set-clipboard off
+set -s set-clipboard on
+set -s set-clipboard external
+set -s set-clipboard off
 ~~~~
 
 #### Setting the `Ms` capability
@@ -123,7 +126,7 @@ the terminal - this appears as a large set of letters and numbers covering any
 existing text. To fix this problem, turn `set-clipboard` off:
 
 ~~~~
-set -g set-clipboard off
+set -s set-clipboard off
 ~~~~
 
 #### Terminal support - kitty
@@ -155,7 +158,7 @@ In summary, to configure `set-clipboard`, follow these steps:
 1. Make sure `set-clipboard` is set in tmux:
 
     ~~~~
-    $ tmux show -g set-clipboard
+    $ tmux show -s set-clipboard
     external
     ~~~~
 
@@ -163,7 +166,7 @@ In summary, to configure `set-clipboard`, follow these steps:
     (use `on` rather than `external` before tmux 2.6):
 
     ~~~~
-    set -g set-clipboard external
+    set -s set-clipboard external
     ~~~~
 
 2. Make sure `Ms` is set. Start tmux and run:
@@ -199,7 +202,75 @@ In summary, to configure `set-clipboard`, follow these steps:
 
 ### External tools
 
-XXX
+#### Available tools
+
+An alternative to using `set-clipboard` is to use an external tool to set the
+clipboard. tmux has a method to pipe copied text to a command rather than only
+creating a paste buffer. The copy key bindings can be changed to do this
+instead of the default.
+
+The available tools are:
+
+- On Linux and *BSD, there are the *xsel(1)* and *xclip(1)* tools, usually
+  available as packages.
+
+- OS X has a builtin tool called *pbcopy(1)*.
+
+These tools talk to the *X(7)* server (or equivalent) directly so without
+additional configuration they only work on the local computer.
+
+# How to configure - tmux versions before 3.2
+
+To use these tools with tmux (before tmux 3.2), the copy key bindings must be
+changed. The equivalent command to the default `copy-selection-and-cancel` is
+`copy-pipe-and-cancel`; if using `copy-selection` instead use `copy-pipe`, or
+for `copy-selection-no-clear`, `copy-pipe-no-clear`.
+
+The copy key bindings are:
+
+* `C-w` and `M-w` with *emacs(1)* keys (`mode-keys` set to `emacs`).
+
+* `C-j` and `Enter` with *vi(1)* keys (`mode-keys` set to `vi`).
+
+* `MouseDragEnd1Pane` for copying with the mouse.
+
+These must be changed for the key table in use. For *emacs(1)* keys:
+
+~~~~
+bind -Tcopy-mode C-w               send -X copy-pipe-and-cancel 'xsel -bi'
+bind -Tcopy-mode MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -bi'
+bind -Tcopy-mode M-w               send -X copy-pipe-and-cancel 'xsel -bi'
+~~~~
+
+Or for *vi(1)* keys:
+
+~~~~
+bind -Tcopy-mode-vi C-j               send -X copy-pipe-and-cancel 'xsel -bi'
+bind -Tcopy-mode-vi Enter             send -X copy-pipe-and-cancel 'xsel -bi'
+bind -Tcopy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -bi'
+~~~~
+
+### How to configure - tmux 3.2 and later
+
+tmux 3.2 introduced an option, `copy-command` to set a command to pipe to for
+all key bindings. This is used when `copy-pipe` used with no arguments, this is
+now the default. If the option is empty, the copied text is not piped.
+
+To pipe to *xsel(1)*:
+
+~~~~
+set -s copy-command 'xsel -bi'
+~~~~
+
+### `set-clipboard` and `copy-pipe`
+
+If the `copy-pipe` method is used with a terminal that also supports
+`set-clipboard`, the two can conflict. It is best to disable `set-clipboard` in
+that case:
+
+~~~~
+set -s set-clipboard off
+~~~~
 
 #### Common issues - `DISPLAY`
 
