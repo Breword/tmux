@@ -260,7 +260,7 @@ set -s copy-command 'xsel -i'
 The more complex configuration in the next section also works tmux 3.2 and
 later versions.
 
-#### How to configure - tmux versions between 2.4 and 3.1
+#### How to configure - tmux 2.4 to 3.1
 
 To use these tools with tmux before tmux 3.2, the copy key bindings must be
 changed. The equivalent command to the default `copy-selection-and-cancel` is
