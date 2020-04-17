@@ -13,9 +13,9 @@ Some terminals offer an escape sequence to set the clipboard. This is one of
 the operating system control sequences so it is known as OSC 52
 
 The way it works is that when text is copied in tmux it is packaged up and sent
-to the outside terminal in a similar way to how tmux sends text. The outside
-terminal recognises the clipboard escape sequence and sets the system
-clipboard.
+to the outside terminal in a similar way to how tmux draws the text and colours
+and attributes. The outside terminal recognises the clipboard escape sequence
+and sets the system clipboard.
 
 The big advantage of `set-clipboard` is that it works over and *ssh(1)*
 connection even if X11 forwarding is not configured. The disadvantages are that
