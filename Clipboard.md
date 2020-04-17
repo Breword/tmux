@@ -132,6 +132,8 @@ If tmux is run inside tmux, the inner tmux's outside terminal is tmux:
   and it must be configured with `Ms` for its outside terminal, whatever that
   is.
 
+- The outside terminal must have OSC 52 enabled.
+
 #### Terminal support - xterm
 
 xterm supports OSC 52 but it is disabled by default. It can be enabled by
