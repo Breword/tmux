@@ -262,7 +262,7 @@ To pipe to *xsel(1)*:
 set -s copy-command 'xsel -bi'
 ~~~~
 
-### `set-clipboard` and `copy-pipe`
+#### `set-clipboard` and `copy-pipe`
 
 If the `copy-pipe` method is used with a terminal that also supports
 `set-clipboard`, the two can conflict. It is best to disable `set-clipboard` in
