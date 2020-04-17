@@ -201,6 +201,14 @@ In summary, to configure `set-clipboard`, follow these steps:
 
 XXX
 
-#### Known issues - xclip
+#### Common issues - `DISPLAY`
+
+XXX
+
+#### Common issues - X11 forwarding
+
+XXX
+
+#### Common issues - xclip
 
 XXX
