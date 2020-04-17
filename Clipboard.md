@@ -74,7 +74,7 @@ By default, tmux adds the `Ms` capability for terminals where `TERM` matches
 `xterm*`. `TERM` can be checked with this command run outside tmux:
 
 ~~~~
-echo $TERM
+$ echo $TERM
 ~~~~
 
 To see if `Ms` is already set, run this from *inside* tmux. If `Ms` is shown
