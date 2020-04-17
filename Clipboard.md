@@ -121,7 +121,15 @@ run without tmux.
 
 #### Terminal support - tmux inside tmux
 
-XXX
+If tmux is run inside tmux, the inner tmux's outside terminal is tmux:
+
+- `set-clipboard` and `Ms` must be configured for the inner tmux as for any
+  other terminal. `TERM` will be `screen` or `screen-256color` or `tmux` or
+  `tmux-256color`.
+
+- The outer tmux must have `set-clipboard` set to `on` rather than `external`
+  and it must be configured with `Ms` for its outside terminal, whatever that
+  is.
 
 #### Terminal support - xterm
 
