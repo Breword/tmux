@@ -727,7 +727,7 @@ removed when another is added. If a buffer is given a name, it is called a
 named buffer; named buffers are not deleted no matter how many there are.
 
 It is possible to configure tmux to send any copied text to the system
-clipboard: [this document](Copying.md) explains the different ways to configure
+clipboard: [this document](Clipboard.md) explains the different ways to configure
 this.
 
 Copy mode freezes any output in a pane and allows text to be copied. View mode
