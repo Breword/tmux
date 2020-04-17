@@ -233,8 +233,7 @@ In summary, to configure `set-clipboard`, follow these steps:
 
 An alternative to using `set-clipboard` is to use an external tool to set the
 clipboard. tmux has a method to pipe copied text to a command rather than only
-creating a paste buffer. The copy key bindings can be changed to do this
-instead of the default.
+creating a paste buffer. The copy key bindings can be changed to do this.
 
 The available tools are:
 
