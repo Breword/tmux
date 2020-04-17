@@ -56,7 +56,7 @@ release. Only the latest tmux release is supported. Releases are made
 approximately every six months.
 
 tmux may be installed from package management systems on most major platforms.
-See [this document](Installing.md) for instructions on how to install tmux or
+See [this document](Installing) for instructions on how to install tmux or
 how to build it from source.
 
 ### Other documentation and help
@@ -72,7 +72,7 @@ Here are several places to find documentation and help about tmux:
   $ man 1 tmux
   ~~~~
 
-- [The FAQ](FAQ.md) has solutions to commonly asked questions, mostly about
+- [The FAQ](FAQ) has solutions to commonly asked questions, mostly about
   specific configuration issues.
 
 - The [#tmux IRC channel on freenode](irc://irc.freenode.net/tmux).
@@ -727,7 +727,7 @@ removed when another is added. If a buffer is given a name, it is called a
 named buffer; named buffers are not deleted no matter how many there are.
 
 It is possible to configure tmux to send any copied text to the system
-clipboard: [this document](Clipboard.md) explains the different ways to configure
+clipboard: [this document](Clipboard) explains the different ways to configure
 this.
 
 Copy mode freezes any output in a pane and allows text to be copied. View mode
