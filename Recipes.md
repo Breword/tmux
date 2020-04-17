@@ -3,9 +3,9 @@
 This file lists some useful configuration file snippets to control tmux
 behaviour.
 
-### Prevent cursor movement wrapping
+### Prevent pane movement wrapping
 
-This stops the pane change keys wrapping around at the top, bottom, left and
+This stops the pane movement keys wrapping around at the top, bottom, left and
 right.
 
 Requires tmux 2.6 or later.
@@ -17,15 +17,16 @@ bind -r Left if -F '#{pane_at_left}' '' 'selectp -L'
 bind -r Right if -F '#{pane_at_right}' '' 'selectp -R'
 ~~~~
 
-### Make `C-b w` binding only show the attached session
+### Make `C-b w` binding only show the one session
 
-This makes the `C-b w` tree mode binding only show one session.
+This makes the `C-b w` tree mode binding only show windows in the attached
+session.
 
 ~~~~
 bind w run 'tmux choose-tree -Nwf"##{==:##{session_name},#{session_name}}"'
 ~~~~
 
-### Copy from the active pane in a new pane
+### Create a new pane to copy
 
 This opens a new pane with the history of the active pane - useful to copy
 multiple items from the history to the shell prompt.
