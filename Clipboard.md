@@ -303,11 +303,11 @@ set -s set-clipboard off
 
 Because the *xsel(1)* and *xclip(1)* tools need to talk to the *X(7)* server,
 they need the `DISPLAY` environment variable to be set. This is not normally a
-problem, but if it is missing (for example if tmux is stared outside *X(7)*),
+problem, but if it is missing (for example if tmux is started outside *X(7)*),
 it can be set with something like:
 
 ~~~~
-tmux setenv -g DISPLAY :0
+$ tmux setenv -g DISPLAY :0
 ~~~~
 
 #### Common issues - *xclip(1)*
