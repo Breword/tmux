@@ -156,6 +156,7 @@ In summary, to configure `set-clipboard`, follow these steps:
 
     ~~~~
     $ tmux show -g set-clipboard
+    external
     ~~~~
 
     If it is not `on` or `external`, add this to `.tmux.conf` and restart tmux
