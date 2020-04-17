@@ -133,7 +133,7 @@ each time text is copied rather than replacing it.
 
 #### Terminal support - rxvt-unicode
 
-rxvt-unicode does not support OSC52 natively. There is an unofficial Perl
+rxvt-unicode does not support OSC 52 natively. There is an unofficial Perl
 extension [here](http://anti.teamidiot.de/static/nei/*/Code/urxvt/).
 
 #### Terminal support - st
