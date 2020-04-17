@@ -6,7 +6,7 @@ by terminals to do this are quite blunt and not consistently supported. This
 document gives an overview of how things work and some configuration examples.
 
 For step-by-step instructions on configuring `set-clipboard`, skip to [this
-section](Quick summary).
+section](#Quick summary).
 
 ### The `set-clipboard` option
 
