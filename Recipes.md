@@ -40,3 +40,21 @@ bind C {
 	copy-mode -s'{last}'
 }
 ~~~~
+
+### C-DoubleClick to open *emacs(1)*
+
+C-DoubleClick on a word to open *emacs(1)* in a popup (handles `file:line`).
+
+Requires tmux 3.2 or later.
+
+~~~~
+bind -n C-DoubleClick1Pane if -F '#{m/r:^[^:]*:[0-9]+:,#{mouse_word}}' {
+        popup -w90% -h90% -KE -d '#{pane_current_path}' -R {
+                emacs `echo #{mouse_word}|awk -F: '{print "+" $2,$1}'`
+        }
+} {
+	popup -w90% -h90% -KE -d '#{pane_current_path}' -R {
+		emacs "#{mouse_word}"
+	}
+}
+~~~~
