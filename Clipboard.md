@@ -11,6 +11,9 @@ There are two posible methods:
 
 * Piping to an external tool like `xsel`.
 
+Note that tmux should be restarted entirely (run `tmux kill-server`) after
+making changes to `.tmux.conf`.
+
 ### The `set-clipboard` option
 
 #### How it works
