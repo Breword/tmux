@@ -119,7 +119,7 @@ VTE terminals (GNOME terminal, XFCE terminal, Terminator) do not support the
 OSC 52 escape sequence.
 
 Most will ignore it, but some versions will not and will instead print it to
-the terminal - this appears a large set of letters and numbers covering any
+the terminal - this appears as a large set of letters and numbers covering any
 existing text. To fix this problem, turn `set-clipboard` off:
 
 ~~~~
