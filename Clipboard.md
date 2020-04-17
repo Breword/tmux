@@ -24,15 +24,15 @@ it is patchily supported and can be tricky to configure.
 tmux supports this through the `set-clipboard` option. For it to work, three
 things must be in place:
 
-- The `set-clipboard` option must be set to `on` or `external`. The default is
-  `external`.
+1. The `set-clipboard` option must be set to `on` or `external`. The default is
+   `external`.
 
-- The feature must be enabled in the terminal itself. How this is done varies
-  from terminal to terminal. Some have it enabled by default and some do not.
+2. The `Ms` capability must be available to tmux when it looks at the
+   *terminfo(5)* entry specified by `TERM`. This is present by default for some
+   terminals and if not is added with `terminal-overrides` (shown below).
 
-- The `Ms` capability must be available to tmux when it looks at the
-  *terminfo(5)* entry specified by `TERM`. This is present by default for some
-  terminals and if not is added with `terminal-overrides` (shown below).
+3. The feature must be enabled in the terminal itself. How this is done varies
+   from terminal to terminal. Some have it enabled by default and some do not.
 
 The following two sections show how to configure `set-clipboard` and `Ms`;
 later sections cover support in different terminals.
