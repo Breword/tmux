@@ -322,8 +322,7 @@ xclip >/dev/null
 
 #### Common issues - wrong clipboard
 
-*X(7)* has several clipboard (PRIMARY, SECONDARY, CLIPBOARD). If copied text
-isn't available, look at:
+*X(7)* has several clipboards. If copied text isn't available, look at:
 
 * The `-p`, `-s` and `-b` flags for *xsel(1)*
 
