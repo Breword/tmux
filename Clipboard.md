@@ -77,17 +77,16 @@ By default, tmux adds the `Ms` capability for terminals where `TERM` matches
 $ echo $TERM
 ~~~~
 
-To see if `Ms` is already set, run this from *inside* tmux. If `Ms` is shown
-like this, it does not need to be set with `terminal-overrides`. If it shows
-`[missing]`, then it must be configured with `terminal-overrides`.
+To see if `Ms` is already set, run this from *inside* tmux:
 
 ~~~~
 $ tmux info|grep Ms:
  180: Ms: (string) \033]52;%p1%s;%p2%s\a
 ~~~~
 
-If `Ms` is missing, it can be added with `terminal-overrides`. Check what
-`TERM` is outside tmux:
+If `Ms` is shown like this, it does not need to be set with
+`terminal-overrides`. If it shows `[missing]`, then it must be added with
+`terminal-overrides`. Check what `TERM` is outside tmux:
 
 ~~~~
 $ echo TERM
@@ -110,9 +109,9 @@ using `rxvt-unicode*` would apply to both `rxvt-unicode` and
 
 If `set-clipboard` is set to `external`, only tmux can set the clipboard. If
 set to `on` and tmux is version 2.6 or newer, any application running inside
-tmux can create a tmux paste buffer and set the system clipboard. This is no
-matter what user they are run as: if a command can write text, it can set the
-clipboard.
+tmux can create a tmux paste buffer and set the system clipboard. It doesn't
+matter if the command is run with *su(1)* or *sudo(1)* - if a command can write
+text to a tmux pane, it can set the clipboard.
 
 This means that with `set-clipboard` set to `on`, great care must be taken with
 untrusted commands run inside tmux.
