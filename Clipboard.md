@@ -243,17 +243,17 @@ The copy key bindings are:
 These must be changed for the key table in use. For *emacs(1)* keys:
 
 ~~~~
-bind -Tcopy-mode C-w               send -X copy-pipe-and-cancel 'xsel -bi'
-bind -Tcopy-mode MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -bi'
-bind -Tcopy-mode M-w               send -X copy-pipe-and-cancel 'xsel -bi'
+bind -Tcopy-mode C-w               send -X copy-pipe-and-cancel 'xsel -i'
+bind -Tcopy-mode MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -i'
+bind -Tcopy-mode M-w               send -X copy-pipe-and-cancel 'xsel -i'
 ~~~~
 
 Or for *vi(1)* keys:
 
 ~~~~
-bind -Tcopy-mode-vi C-j               send -X copy-pipe-and-cancel 'xsel -bi'
-bind -Tcopy-mode-vi Enter             send -X copy-pipe-and-cancel 'xsel -bi'
-bind -Tcopy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -bi'
+bind -Tcopy-mode-vi C-j               send -X copy-pipe-and-cancel 'xsel -i'
+bind -Tcopy-mode-vi Enter             send -X copy-pipe-and-cancel 'xsel -i'
+bind -Tcopy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel 'xsel -i'
 ~~~~
 
 #### How to configure - tmux 3.2 and later
@@ -265,7 +265,7 @@ which is now the default. If the option is empty, the copied text is not piped.
 To pipe to *xsel(1)*:
 
 ~~~~
-set -s copy-command 'xsel -bi'
+set -s copy-command 'xsel -i'
 ~~~~
 
 #### `set-clipboard` and `copy-pipe`
@@ -280,12 +280,30 @@ set -s set-clipboard off
 
 #### Common issues - `DISPLAY`
 
-XXX
+Because the *xsel(1)* and *xclip(1)* tools need to talk to the *X(7)* server,
+they need the `DISPLAY` environment variable to be set. This is not normally a
+problem, but if it is missing (for example if tmux is stared outside *X(7)*),
+it can be set with something like:
 
-#### Common issues - X11 forwarding
+~~~~
+tmux setenv -g DISPLAY :0
+~~~~
 
-XXX
+#### Common issues - *xclip(1)*
 
-#### Common issues - xclip
+*xclip(1)* has a bug where it does not correctly close `stdout` so tmux doesn't
+know it has finished and won't respond to any further key presses. The easiest
+fix is to redirect `stdout` to `/dev/null`:
 
-XXX
+~~~~
+xclip >/dev/null
+~~~~
+
+#### Common issues - wrong clipboard
+
+*X(7)* has several clipboard (PRIMARY, SECONDARY, CLIPBOARD). If copied text
+isn't available, look at:
+
+* The `-p`, `-s` and `-b` flags for *xsel(1)*
+
+* The `-selection` flag for xclip(1)*.
