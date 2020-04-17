@@ -94,8 +94,8 @@ $ echo TERM
 rxvt-unicode-256color
 ~~~~
 
-Then add an appropriate `terminal-overrides` line to `.tmux.conf`. Change
-`rxvt-unicode-256color` to the appropriate `TERM`:
+Then add an appropriate `terminal-overrides` line to `.tmux.conf`, something
+like this but change `rxvt-unicode-256color` to the appropriate `TERM`:
 
 ~~~~
 set -as terminal-overrides ',rxvt-unicode-256color:Ms=\E]52;%p1%s;%p2%s\007'
