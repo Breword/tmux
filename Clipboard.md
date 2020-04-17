@@ -151,7 +151,7 @@ option:
 
 #### Quick summary
 
-In summary to configure `set-clipboard`, follow these steps:
+In summary, to configure `set-clipboard`, follow these steps:
 
 1. Make sure `set-clipboard` is set in tmux:
 
