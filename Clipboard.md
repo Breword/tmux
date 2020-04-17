@@ -156,7 +156,7 @@ existing text. To fix this problem, turn `set-clipboard` off:
 set -s set-clipboard off
 ~~~~
 
-#### Terminal support - kitty
+#### Terminal support - Kitty
 
 Kitty does support OSC 52, but it has a bug where it appends to the clipboard
 each time text is copied rather than replacing it.
