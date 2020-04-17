@@ -308,9 +308,9 @@ bind -temacs-copy MouseDragEnd1Pane copy-pipe 'xsel -i'
 Or for *vi(1)* keys:
 
 ~~~~
-bind -Tvi-copy C-j               copy-pipe 'xsel -i'
-bind -Tvi-copy Enter             copy-pipe 'xsel -i'
-bind -Tvi-copy MouseDragEnd1Pane copy-pipe 'xsel -i'
+bind -tvi-copy C-j               copy-pipe 'xsel -i'
+bind -tvi-copy Enter             copy-pipe 'xsel -i'
+bind -tvi-copy MouseDragEnd1Pane copy-pipe 'xsel -i'
 ~~~~
 
 #### `set-clipboard` and `copy-pipe`
