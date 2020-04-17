@@ -1,4 +1,0 @@
-## The clipboard
-
-It is common to want to have text copied from tmux synchronized with the system
-clipboard.
