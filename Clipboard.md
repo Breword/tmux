@@ -22,7 +22,7 @@ Some terminals offer an escape sequence to set the clipboard. This is one of
 the operating system control sequences so it is known as OSC 52.
 
 To skip the details and read quick step-by-step instructions on configuring
-`set-clipboard`, skip to [this section](Clipboard.md#quick-summary).
+`set-clipboard`, skip to [this section](Clipboard#quick-summary).
 
 The way it works is that when text is copied in tmux it is packaged up and sent
 to the outside terminal in a similar way to how tmux draws the text and colours
