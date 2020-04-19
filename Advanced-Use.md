@@ -84,7 +84,6 @@ the current window. While this flag is set:
   `window-status-bell-style` (for bell) or `window-status-activity-style` (for
   activity and silence) options. The default is to use the reverse attribute.
 
-
 * The window name is followed by a `!` for bell, a `#` for activity and a `~`
   for silence.
 

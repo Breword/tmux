@@ -29,12 +29,12 @@ to the outside terminal in a similar way to how tmux draws the text and colours
 and attributes. The outside terminal recognises the clipboard escape sequence
 and sets the system clipboard.
 
-The big advantage of `set-clipboard` is that it works over an *ssh(1)*
-connection even if X11 forwarding is not configured. The disadvantages are that
-it is patchily supported and can be tricky to configure.
+tmux supports this through the `set-clipboard` option. The big advantage of
+this is that it works over an *ssh(1)* connection even if X11 forwarding is not
+configured. The disadvantages are that it is patchily supported and can be
+tricky to configure.
 
-tmux supports this through the `set-clipboard` option. For it to work, three
-things must be in place:
+For `set-clipboard` to work, three things must be in place:
 
 1. The `set-clipboard` option must be set to `on` or `external`. The default is
    `external`.
