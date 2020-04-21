@@ -177,12 +177,18 @@ And make sure that `TERM` outside tmux also shows 256 colours, or use the tmux
 
 tmux must be told that the terminal outside supports RGB colour. This is done
 by specifying the `RGB` or `Tc` *terminfo(5)* flags. `RGB` is the official
-flag, `Tc` is a tmux extension. The easiest method is with the
-`terminal-overrides` option, for example (change `gnome*` to something that
-matches `TERM` outside tmux):
+flag, `Tc` is a tmux extension.
+
+With tmux 3.2 and later this can be added with the `terminal-features` option:
 
 ~~~~
-set -as terminal-overrides ",gnome*:RGB"
+set -as terminal-features ',gnome*:RGB'
+~~~~
+
+Or for any tmux version the `terminal-overrides` option:
+
+~~~~
+set -as terminal-overrides ",gnome*:Tc"
 ~~~~
 
 For tmux itself, colours may be specified in hexadecimal, for example

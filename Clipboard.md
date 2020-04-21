@@ -41,7 +41,8 @@ For `set-clipboard` to work, three things must be in place:
 
 2. The `Ms` capability must be available to tmux when it looks at the
    *terminfo(5)* entry specified by `TERM`. This is present by default for some
-   terminals and if not is added with `terminal-overrides` (see the next section).
+   terminals and if not is added with `terminal-overrides` or
+   `terminal-features` (see the next section).
 
 3. The feature must be enabled in the terminal itself. How this is done varies
    from terminal to terminal. Some have it enabled by default and some do not.
@@ -84,17 +85,23 @@ $ tmux info|grep Ms:
  180: Ms: (string) \033]52;%p1%s;%p2%s\a
 ~~~~
 
-If `Ms` is shown like this, it does not need to be set with
-`terminal-overrides`. If it shows `[missing]`, then it must be added with
-`terminal-overrides`. Check what `TERM` is outside tmux:
+If `Ms` is shown like this, it does not need to be added. If it shows
+`[missing]`, then it must be added with `terminal-overrides` or
+`terminal-features`. Check what `TERM` is outside tmux:
 
 ~~~~
 $ echo TERM
 rxvt-unicode-256color
 ~~~~
 
-Then add an appropriate `terminal-overrides` line to `.tmux.conf`, something
-like this but change `rxvt-unicode-256color` to the appropriate `TERM`:
+Then add an appropriate `.tmux.conf` line. For tmux 3.2 or later, this looks
+like this (change `rxvt-unicode-256color` to the appopriate name from `TERM`):
+
+~~~~
+set -as terminal-features ',rxvt-unicode-256color:clipboard'
+~~~~
+
+Or for older tmux versions:
 
 ~~~~
 set -as terminal-overrides ',rxvt-unicode-256color:Ms=\E]52;%p1%s;%p2%s\007'
@@ -209,8 +216,14 @@ In summary, to configure `set-clipboard`, follow these steps:
    rxvt-unicode-256color
    ~~~~
 
-   Then add an appropriate `terminal-overrides` line to `.tmux.conf` and
-   restart tmux:
+   Then add an appropriate `terminal-features` or `terminal-overrides` line to
+   `.tmux.conf` and restart tmux. For tmux 3.2 or later:
+
+   ~~~~
+   set -as terminal-features ',rxvt-unicode-256color:clipboard'
+   ~~~~
+
+   Or for older tmux versions:
    
    ~~~~
    set -as terminal-overrides ',rxvt-unicode-256color:Ms=\E]52;%p1%s;%p2%s\007'
