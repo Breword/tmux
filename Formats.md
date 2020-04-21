@@ -288,6 +288,34 @@ $ tmux display -p '#{s|foo|xxx|;s|bar|yyy|:@v}'
 xxxyyy
 ~~~~
 
+### Expressions
+
+In tmux 3.2 and later versions, some mathematical operations are available as
+format modifiers. These are given using the `e` modifier. The first argument is
+one of:
+
+Argument|Operation
+---|---
+`+`|Add
+`-`|Subtract
+`*`|Multiply
+`/`|Divide
+`m`|Modulus
+
+The second argument can be the flag `f` to use floating point numbers otherwise
+integers are used. The third argument is the number of decimal places to show
+in the result - the default is zero for integers and two for floating point
+numbers.
+
+For example:
+
+~~~~
+$ tmux display -p '#{e|+|:1,1}'
+2
+$ tmux display -p '#{e|/|f|4:10,3}'
+3.3333
+~~~~
+
 ### Matching and searching
 
 The matching modifier `m` is similar to the comparison modifiers and compares
