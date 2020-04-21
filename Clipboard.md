@@ -95,7 +95,7 @@ rxvt-unicode-256color
 ~~~~
 
 Then add an appropriate `.tmux.conf` line. For tmux 3.2 or later, this looks
-like this (change `rxvt-unicode-256color` to the appopriate name from `TERM`):
+like this (change `rxvt-unicode-256color` to the appropriate name from `TERM`):
 
 ~~~~
 set -as terminal-features ',rxvt-unicode-256color:clipboard'
