@@ -182,7 +182,7 @@ flag, `Tc` is a tmux extension.
 With tmux 3.2 and later this can be added with the `terminal-features` option:
 
 ~~~~
-set -as terminal-features ',gnome*:RGB'
+set -as terminal-features ",gnome*:RGB"
 ~~~~
 
 Or for any tmux version the `terminal-overrides` option:
