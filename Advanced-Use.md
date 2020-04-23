@@ -2,8 +2,8 @@
 
 ### About this document
 
-This document gives a description of some of tmux's more advanced features and
-some examples. It is split into three sections covering:
+This document gives a brief description of some of tmux's more advanced
+features and some examples. It is split into three sections covering:
 
 * features most useful when using tmux interactively;
 
@@ -1222,7 +1222,7 @@ Or a global session option:
 ~~~~
 $ tmux set -g @myoption 'foo bar'
 $ tmux show -g @myoption
-foo barx
+foo bar
 ~~~~
 
 User options are useful for scripting, see [this section as
