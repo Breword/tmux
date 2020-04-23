@@ -424,50 +424,6 @@ bind -Troot MouseDown2Pane selectp -t= \; if -F "#{||:#{pane_in_mode},#{mouse_an
 
 XXX
 
-#### Command aliases
-
-tmux allows custom commands by defining command aliases. Note this is different
-from the short alias of each command (such as `lsw` for `list-windows`).
-Command aliases are defined with the `command-alias` server option. This is an
-array option where each entry has a number.
-
-The default has a few settings for convenience and a few for backwards
-compatibility:
-
-~~~~
-$ tmux show -s command-alias
-command-alias[0] split-pane=split-window
-command-alias[1] splitp=split-window
-command-alias[2] "server-info=show-messages -JT"
-command-alias[3] "info=show-messages -JT"
-command-alias[4] "choose-window=choose-tree -w"
-command-alias[5] "choose-session=choose-tree -s"
-~~~~
-
-Taking `command-alias[4]` as an example, this means that the `choose-window`
-command is expanded to `choose-tree -w`.
-
-A custom command alias is added by adding a new index to the array. Because the
-defaults start at index 0, it is best to use higher numbers for additional
-command aliases:
-
-~~~~
-:set -s command-alias[100] 'sv=splitw -v'
-~~~~
-
-This option makes `sv` the same as `splitw -v`:
-
-~~~~
-:sv
-~~~~
-
-Any subsequent flags or arguments given to the entered command are appended to
-the replaced command. This is the same as `splitw -v -d`:
-
-~~~~
-:sv -d
-~~~~
-
 ### Scripting tmux
 
 #### Basics of scripting
@@ -1134,9 +1090,121 @@ bind K if -F '#{==:#{window_name},ksh}' 'kill-window' "display 'not killing wind
 
 #### Array options
 
-XXX
+Some tmux options may be set to multiple values, these are called array
+options. Each value has an index which is shown in `[` and `]` after the option
+name. Array indexes can have gaps, so an array with just index 0 and 999 is
+fine. The array options are `command-alias`, `terminal-features`,
+`terminal-overrides`, `status-format`, `update-environment` and `user-keys`.
+Every hook is also an array option.
+
+An individual array index may be set or shown:
+
+~~~~
+$ tmux set -g update-environment[999] FOO
+$ tmux show -g update-environment[999]
+update-environment[999] FOO
+$ tmux set -gu update-environment[999]
+~~~~
+
+Or all together by omitting the index. `-u` restores the entire array option to
+the default:
+
+~~~~
+$ tmux show -g update-environment
+update-environment[0] DISPLAY
+update-environment[1] KRB5CCNAME
+update-environment[2] SSH_ASKPASS
+update-environment[3] SSH_AUTH_SOCK
+update-environment[4] SSH_AGENT_PID
+update-environment[5] SSH_CONNECTION
+update-environment[6] WINDOWID
+update-environment[7] XAUTHORITY
+update-environment[999] FOO
+$ tmux set -gu update-environment
+$ tmux show -g update-environment
+update-environment[0] DISPLAY
+update-environment[1] KRB5CCNAME
+update-environment[2] SSH_ASKPASS
+update-environment[3] SSH_AUTH_SOCK
+update-environment[4] SSH_AGENT_PID
+update-environment[5] SSH_CONNECTION
+update-environment[6] WINDOWID
+update-environment[7] XAUTHORITY
+~~~~
+
+The `-a` flag to `set-option` appends to an array option using the next free index:
+
+~~~~
+$ tmux set -ag update-environment 'FOO'
+$ tmux show -g update-environment
+update-environment[0] DISPLAY
+update-environment[1] KRB5CCNAME
+update-environment[2] SSH_ASKPASS
+update-environment[3] SSH_AUTH_SOCK
+update-environment[4] SSH_AGENT_PID
+update-environment[5] SSH_CONNECTION
+update-environment[6] WINDOWID
+update-environment[7] XAUTHORITY
+update-environment[8] FOO
+~~~~
+
+`-a` can accept multiple values separated by commas. For backwards
+compatibility with old tmux versions where arrays where kept as strings, a
+leading comma can be given:
+
+~~~~
+$ tmux set -ag update-environment ',FOO,BAR'
+~~~~
+
+#### Command aliases
+
+tmux allows custom commands by defining command aliases. Note this is different
+from the short alias of each command (such as `lsw` for `list-windows`).
+Command aliases are defined with the `command-alias` server option. This is an
+array option where each entry has a number.
+
+The default has a few settings for convenience and a few for backwards
+compatibility:
+
+~~~~
+$ tmux show -s command-alias
+command-alias[0] split-pane=split-window
+command-alias[1] splitp=split-window
+command-alias[2] "server-info=show-messages -JT"
+command-alias[3] "info=show-messages -JT"
+command-alias[4] "choose-window=choose-tree -w"
+command-alias[5] "choose-session=choose-tree -s"
+~~~~
+
+Taking `command-alias[4]` as an example, this means that the `choose-window`
+command is expanded to `choose-tree -w`.
+
+A custom command alias is added by adding a new index to the array. Because the
+defaults start at index 0, it is best to use higher numbers for additional
+command aliases:
+
+~~~~
+:set -s command-alias[100] 'sv=splitw -v'
+~~~~
+
+This option makes `sv` the same as `splitw -v`:
+
+~~~~
+:sv
+~~~~
+
+Any subsequent flags or arguments given to the entered command are appended to
+the replaced command. This is the same as `splitw -v -d`:
+
+~~~~
+:sv -d
+~~~~
 
 #### User options
+
+XXX
+
+#### User keys
 
 XXX
 
