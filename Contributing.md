@@ -47,6 +47,8 @@ items, to avoid any duplication of effort.
 - new-window, respawn-window, split-window and so on have -e to add environment
   variables - new-session should have this too.
 
+- It would be nice to have some more preset layouts.
+
 ### Medium things
 
 - At the moment, the optimization in screen-write.c is purely on lines
@@ -58,9 +60,14 @@ items, to avoid any duplication of effort.
   - ECH, DCH and friends cause a flush when they could just remove the
     characters from the write buffer?
 
+  - We could check the existing screen and drop characters that are unchanged.
+
   But is it worth the cost? Would it make any difference to any applications?
 
 - Support DECSLRM margins within tmux itself.
+
+- Could the history be a ring buffer? Would it be better? It doesn't help us
+  with a scroll region or in the alternate screen.
 
 - list-keys should be able to show long commands with {} and newlines more
   nicely. Could store knowledge of command arguments in cmd_entry like a string
