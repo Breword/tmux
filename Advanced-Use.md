@@ -1149,7 +1149,7 @@ update-environment[8] FOO
 ~~~~
 
 `-a` can accept multiple values separated by commas. For backwards
-compatibility with old tmux versions where arrays where kept as strings, a
+compatibility with old tmux versions where arrays were kept as strings, a
 leading comma can be given:
 
 ~~~~
