@@ -1142,7 +1142,9 @@ syntax, this is known as the style. There are two places styles appear:
 A style has a number of terms separated by spaces or commas, the most
 useful are:
 
-* `default` uses the default colour; this must appear on its own.
+* `default` uses the default colour; this must appear on its own. The default
+  colour is often set by another option, for example for embedded styles in the
+  `status-left` option, it is `status-style`.
 
 * `bg` sets the background colour. The colour is also given, for example
   `bg=red`.
@@ -1165,6 +1167,19 @@ For example, to set the status line background to blue using the `status-style` 
 
 ~~~~
 set -g status-style 'bg=blue'
+~~~~
+
+Or to put some text in red in `status-left`:
+
+~~~~
+set -g status-left 'default #[fg=red] red #[fg=blue] blue'
+~~~~
+
+Because this is long it is also necessary to also increase `status-left-length`
+option:
+
+~~~~
+set -g status-left-length 100
 ~~~~
 
 #### List of useful options
