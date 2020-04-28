@@ -1175,8 +1175,8 @@ Or to put some text in red in `status-left`:
 set -g status-left 'default #[fg=red] red #[fg=blue] blue'
 ~~~~
 
-Because this is long it is also necessary to also increase `status-left-length`
-option:
+Because this is long it is also necessary to also increase the
+`status-left-length` option:
 
 ~~~~
 set -g status-left-length 100
