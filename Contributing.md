@@ -52,6 +52,9 @@ items, to avoid any duplication of effort.
 
 - It would be nice to have some more preset layouts.
 
+- In emacs cursor movement cancels incremental search, tmux should work the
+  same way.
+
 ### Medium things
 
 - Show the current match differently in copy mode when searching, may be better
@@ -113,6 +116,9 @@ items, to avoid any duplication of effort.
   sequences as iTerm2. Could be listed by capture-pane and also a menu to jump
   to marks in copy mode. ([#1042](https://github.com/tmux/tmux/issues/1042)) is
   related and also has some code to display a marker line.
+
+- A way to set a mark in copy mode and commands to jump back to it - "set-mark"
+  and "jump-to-mark" commands.
 
 - Make the commmand prompt able to take up multiple lines.
 
