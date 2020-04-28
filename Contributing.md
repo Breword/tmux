@@ -57,11 +57,12 @@ items, to avoid any duplication of effort.
 
 ### Medium things
 
-- Show the current match differently in copy mode when searching, may be better
-  with [#2097](https://github.com/tmux/tmux/pull/2097).
-
-- Some styles like `mode-style` are too overloaded. But what is the
-  alternative - just more options?
+- Show the current match differently in copy mode when searching. Related: some
+  styles like `mode-style` are too overloaded, but what is the alternative -
+  just more options? That might be best and reorganize them a bit, so break
+  `mode-style` up into `copy-mode-indicator-style`, `copy-mode-match-style`,
+  `tree-mode-selection-style` and so on. `mode-style` can stay as the base
+  style.
 
 - ([#2097](https://github.com/tmux/tmux/pull/2097)) Expand formats in styles?
 
