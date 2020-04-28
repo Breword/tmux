@@ -57,6 +57,11 @@ items, to avoid any duplication of effort.
 - Show the current match differently in copy mode when searching, may be better
   with [#2097](https://github.com/tmux/tmux/pull/2097).
 
+- Some styles like `mode-style` are too overloaded. But what is the
+  alternative - just more options?
+
+- ([#2097](https://github.com/tmux/tmux/pull/2097)) Expand formats in styles?
+
 - At the moment, the optimization in screen-write.c is purely on lines
   scrolled:
   
