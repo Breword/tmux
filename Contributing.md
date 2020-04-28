@@ -44,12 +44,18 @@ items, to avoid any duplication of effort.
 
 - A command in copy mode to toggle the selection.
 
+- If there is no selection but search marks are present and the cursor is on a
+  search result, then copy commands should copy the search result.
+
 - new-window, respawn-window, split-window and so on have -e to add environment
   variables - new-session should have this too.
 
 - It would be nice to have some more preset layouts.
 
 ### Medium things
+
+- Show the current match differently in copy mode when searching, may be better
+  with [#2097](https://github.com/tmux/tmux/pull/2097).
 
 - At the moment, the optimization in screen-write.c is purely on lines
   scrolled:
