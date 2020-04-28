@@ -29,7 +29,9 @@ delete and kill still work.
 Two `-C` (so `-CC`) disables canonical mode and most other terminal features
 and is intended for applications (that, for example, don't need echo). In
 addition, the `-CC` form sends a `\033P1000p` DSC sequence (similar to ReGIS)
-that a listening terminal can use to detect control mode has been entered.
+that a listening terminal can use to detect control mode has been entered and
+sends a `%exit` line and a corresponding `ST` (`\033\`) sequence when the
+client exits.
 
 With either form, entering an empty line (just pressing `Enter`) will detach
 the client.
