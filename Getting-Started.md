@@ -1169,7 +1169,7 @@ For example, to set the status line background to blue using the `status-style` 
 set -g status-style 'bg=blue'
 ~~~~
 
-Or to put some text in red in `status-left`:
+Or to put some text in red and blue in `status-left`:
 
 ~~~~
 set -g status-left 'default #[fg=red] red #[fg=blue] blue'
