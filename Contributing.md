@@ -57,6 +57,13 @@ items, to avoid any duplication of effort.
 
 ### Medium things
 
+- Completion at the command prompt could be more clever: it could recognise
+  commands and have some way to describe their arguments so for example only
+  complete options for set-option and layouts for select-layout; it could
+  complete -t with a space after it as well as without; it could complete
+  special targets like {left}; it could complete panes as well as windows.
+  Probably lots more things.
+
 - Show the current match differently in copy mode when searching. Related: some
   styles like `mode-style` are too overloaded, but what is the alternative -
   just more options? That might be best and reorganize them a bit, so break
