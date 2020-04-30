@@ -1264,7 +1264,8 @@ XXX
 
 #### The system clipboard
 
-XXX
+tmux can update the system clipboard when text is copied, for information see
+[this document](https://github.com/tmux/tmux/wiki/Clipboard).
 
 #### Running with no sessions
 
