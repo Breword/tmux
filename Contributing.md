@@ -89,7 +89,9 @@ items, to avoid any duplication of effort.
 - Should remember the last layout before select-layout was used and
   select-layout without an argument should include it, so C-Space could cycle
   through it with the preset layouts. Also a separate flag or layout name to
-  restore it directly.
+  restore it directly. Or how about a layout history and a way to move back? A menu?
+
+- Should last pane be a stack like windows?
 
 - wait-for could do more, for example being able to wait for a pane to exit or
   close (could use the existing notify code in some way). Also a flag for a
@@ -100,10 +102,9 @@ items, to avoid any duplication of effort.
   made bigger).
 
 - Moving, joining and otherwise reorganizing panes, windows and session should
-  be easier in tree mode. For example, either a new key to swap tagged panes if
-  two are tagged, or tagged pane and current if one is tagged, and so on. Or
-  make :swap-pane use tagged panes but that might be much harder. Likewise for
-  move, join, etc. Also dragging would be nice.
+  be easier in tree mode. This should use the marked pane rather than mixing it
+  up with tagging. Maybe keys to break/join/move without leaving tree mode?
+  Also dragging would be nice.
 
 - ([#1605](https://github.com/tmux/tmux/issues/1605)) Support for ZERO WIDTH
   JOINER U+200D.
@@ -132,18 +133,11 @@ items, to avoid any duplication of effort.
   somewhere (bottom left?) and have a command to add a chunk of text and a
   command to remove the last chunk and a command to clear.
 
-- The lexer in cmd-parse.y should be a single state machine rather than separate
-  functions for environment variables, strings and formats.
-
 - ([#1868](https://github.com/tmux/tmux/issues/1868)) Vertical-only zoom.
 
 - ([#1774](https://github.com/tmux/tmux/issues/1774)) Resizing panes should
   move to the parent cell and resize it if this would allow the pane to
   become closer to what is requested.
-
-- ([#2028](https://github.com/tmux/tmux/issues/2028)) Style strings should be
-  saved and parsed when they are used if they contain #{, so that formats can
-  be emdedded in styles.
 
 ### Large things
 
