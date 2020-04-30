@@ -1271,6 +1271,6 @@ tmux can update the system clipboard when text is copied, for information see
 
 XXX
 
-### Hooks
+#### Hooks
 
 XXX
