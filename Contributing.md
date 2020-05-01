@@ -51,11 +51,6 @@ items, to avoid any duplication of effort.
 
 ### Medium things
 
-- Popups are very slow to draw. They should use the pane drawing tty.c code
-  instead of doing a full redraw for every change. This will mean breaking its
-  dependency on window_pane and instead extending tty_ctx or adding a new
-  struct.
-
 - Completion at the command prompt could be more clever: it could recognise
   commands and have some way to describe their arguments so for example only
   complete options for set-option and layouts for select-layout; it could
