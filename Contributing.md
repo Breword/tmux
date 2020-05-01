@@ -44,9 +44,6 @@ items, to avoid any duplication of effort.
 
 - A command in copy mode to toggle the selection.
 
-- new-window, respawn-window, split-window and so on have -e to add environment
-  variables - new-session should have this too.
-
 - It would be nice to have some more preset layouts.
 
 - In emacs cursor movement cancels incremental search, tmux should work the
