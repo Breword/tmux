@@ -20,7 +20,7 @@ bind -r Right if -F '#{pane_at_right}' '' 'selectp -R'
 ### Send `Up` and `Down` keys for the mouse wheel
 
 Some terminals do this by default when an application has not enabled the mouse
-itself. This does the same in tmux:
+itself. This does the same in tmux (the `mouse` option must also be `on`):
 
 ~~~~
 bind -n WheelUpPane if -Ft= "#{mouse_any_flag}" "send -M" "send Up"
