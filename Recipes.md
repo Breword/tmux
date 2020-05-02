@@ -17,6 +17,16 @@ bind -r Left if -F '#{pane_at_left}' '' 'selectp -L'
 bind -r Right if -F '#{pane_at_right}' '' 'selectp -R'
 ~~~~
 
+### Send `Up` and `Down` keys for the mouse wheel
+
+Some terminals do this by default when an application has not enabled the mouse
+itself. This does the same in tmux:
+
+~~~~
+bind -n WheelUpPane if -Ft= "#{mouse_any_flag}" "send -M" "send Up"
+bind -n WheelDownPane if -Ft= "#{mouse_any_flag}" "send -M" "send Down"
+~~~~
+
 ### Make `C-b w` binding only show the one session
 
 This makes the `C-b w` tree mode binding only show windows in the attached
