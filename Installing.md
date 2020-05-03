@@ -63,7 +63,7 @@ For ncurses:
 ~~~~
 tar -zxf ncurses-*.tar.gz
 cd ncurses-*/
-./configure --prefix=$HOME/local --with-shared --enable-pc-files --with-pkg-config-libdir=$HOME/local/lib/pkgconfig
+./configure --prefix=$HOME/local --with-shared --with-termlib --enable-pc-files --with-pkg-config-libdir=$HOME/local/lib/pkgconfig
 make && make install
 ~~~~
 
