@@ -174,8 +174,8 @@ extension [here](http://anti.teamidiot.de/static/nei/*/Code/urxvt/).
 
 #### Terminal support - st
 
-st supports OSC 52 but has a length limit on the amount of text that can be
-copied, so text may be truncated.
+st supports OSC 52 but versions before 0.8.3 have a length limit on the amount
+of text that can be copied, so text may be truncated.
 
 #### Terminal support - iTerm2
 
