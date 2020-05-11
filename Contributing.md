@@ -49,7 +49,15 @@ items, to avoid any duplication of effort.
 - In emacs cursor movement cancels incremental search, tmux should work the
   same way.
 
+- ([#2205](https://github.com/tmux/tmux/issues/2205))In copy mode, should add
+  incremental search with regex (new commands).
+
 ### Medium things
+
+- In copy mode - should the bottom be the last used line? It can be annoying to
+  have to move the cursor through a load of empty space. It might be better to
+  draw a line at the bottom (already have code for this) and prevent the cursor
+  moving below it.
 
 - Completion at the command prompt could be more clever: it could recognise
   commands and have some way to describe their arguments so for example only
