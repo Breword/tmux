@@ -52,12 +52,12 @@ items, to avoid any duplication of effort.
 - ([#2205](https://github.com/tmux/tmux/issues/2205))In copy mode, should add
   incremental search with regex (new commands).
 
+### Medium things
+
 - Customize mode: 1) way to export option or tagged options to a file 2) `e`
   key like in buffer mode to edit option file in an editor popup 3) way to add
   new user options 4) way to add new key bindings 5) a key to restore an
   option, a key, or an entire key table to its default.
-
-### Medium things
 
 - In copy mode - should the bottom be the last used line? It can be annoying to
   have to move the cursor through a load of empty space. It might be better to
