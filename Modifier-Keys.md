@@ -258,44 +258,43 @@ These are the best steps to follow to work out a problem with a key.
 
 - Below is a list of what tmux will send for particular keys if it is working
   correctly. Keys used with a modifier are listed with `_` instead of one of
-  the numbers listed above (where 2 is `Shift`, 5 `Ctrl` and so on).
+  the numbers listed above (where 2 is `Shift`, 5 `Ctrl` and so on). If the
+  output from *cat(1)* inside tmux does not match this table, open an issue
+  [here](https://github.com/tmux/tmux/issues).
 
-Key|Sequence
----|---
-`F1`|`^[OP`
-`F2`|`^[OQ`
-`F3`|`^[OR`
-`F4`|`^[OS`
-`F5` to `F12`|`^[[15~` to `^[[24~`
-`Up`|`^[[A` or `^[OA`
-`Down`|`^[[B` or `^[OB`
-`Right`|`^[[C` or `^[OC`
-`Left`|`^[[D` or `^[OD`
-`Home`|`^[[1~`
-`End`|`^[[4~`
-`Insert`|`^[[2~`
-`Delete`|`^[[3~`
-`NPage` (`PageDown`)|`^[[6~`
-`PPage` (`PageUp`)|`^[[5~`
-`BTab`|`^[[Z`
-Modifier + `F1`|`^[[1;_P`
-Modifier + `F2`|`^[[1;_Q`
-Modifier + `F3`|`^[[1;_R`
-Modifier + `F4`|`^[[1;_S`
-Modifier + `F5` to `F12`|`^[[15;_~` to `^[[24;_~`
-Modifier + `Up`|`^[[1;_A`
-Modifier + `Down`|`^[[1;_B`
-Modifier + `Right`|`^[[1;_C`
-Modifier + `Left`|`^[[1;_D`
-Modifier + `Home`|`^[[1;_H`
-Modifier + `End`|`^[[1;_F`
-Modifier + `PPage`|`^[[5;_~`
-Modifier + `NPage`|`^[[6;_~`
-Modifier + `Insert`|`^[[2;_~`
-Modifier + `Delete`|`^[[3;_~`
-
-   If tmux shows anything else, then open an issue
-   [here](https://github.com/tmux/tmux/issues).
+  Key|Sequence
+  ---|---
+  `F1`|`^[OP`
+  `F2`|`^[OQ`
+  `F3`|`^[OR`
+  `F4`|`^[OS`
+  `F5` to `F12`|`^[[15~` to `^[[24~`
+  `Up`|`^[[A` or `^[OA`
+  `Down`|`^[[B` or `^[OB`
+  `Right`|`^[[C` or `^[OC`
+  `Left`|`^[[D` or `^[OD`
+  `Home`|`^[[1~`
+  `End`|`^[[4~`
+  `Insert`|`^[[2~`
+  `Delete`|`^[[3~`
+  `NPage` (`PageDown`)|`^[[6~`
+  `PPage` (`PageUp`)|`^[[5~`
+  `BTab`|`^[[Z`
+  Modifier + `F1`|`^[[1;_P`
+  Modifier + `F2`|`^[[1;_Q`
+  Modifier + `F3`|`^[[1;_R`
+  Modifier + `F4`|`^[[1;_S`
+  Modifier + `F5` to `F12`|`^[[15;_~` to `^[[24;_~`
+  Modifier + `Up`|`^[[1;_A`
+  Modifier + `Down`|`^[[1;_B`
+  Modifier + `Right`|`^[[1;_C`
+  Modifier + `Left`|`^[[1;_D`
+  Modifier + `Home`|`^[[1;_H`
+  Modifier + `End`|`^[[1;_F`
+  Modifier + `PPage`|`^[[5;_~`
+  Modifier + `NPage`|`^[[6;_~`
+  Modifier + `Insert`|`^[[2;_~`
+  Modifier + `Delete`|`^[[3;_~`
 
 #### Check the application itself
 
