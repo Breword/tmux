@@ -5,6 +5,16 @@ keyboards) and `Shift`, but which keys support which modifiers and how they are
 represented to tmux varies between terminals. This document gives an overview
 of how these keys work and some help on how to troubleshoot them.
 
+It is important to note:
+
+- The keys available to terminal applications like tmux are not necessarily the
+  same as those available to the terminal itself, for example *X(7)* programs
+  have a much larger range of keys available than can be passed to terminal
+  applications.
+
+- Terminal key sequences are not related to *X(7)* key sequences (used by
+  *xmodmap(1)* or *xev(1)*) or those used by the Linux console.
+
 ### What terminal keys look like
 
 Keys are sent to tmux by terminals in three forms:
