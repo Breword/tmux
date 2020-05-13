@@ -2,8 +2,8 @@
 
 Terminals support three modifier keys: `Ctrl`, `Meta` (usually `Alt` on modern
 keyboards) and `Shift`, but which keys support which modifiers and how they are
-passed to given varies between terminals. This document gives an overview of
-how these keys work and some help on how to configure them.
+represented to tmux varies between terminals. This document gives an overview
+of how these keys work and some help on how to troubleshoot them.
 
 ### What terminal keys look like
 
@@ -28,14 +28,14 @@ tmux describes keys with modifiers with one of three prefixes:
 
 - `M-` for `Meta` keys;
 
-- `S-` for `Shift keys.
+- `S-` for `Shift` keys.
 
-These may be chained, so `Ctrl` and `Meta` and `Left` is `C-M-Left`.
+These may be combined, so `Ctrl` and `Meta` and `Left` is `C-M-Left`.
 
-Many keys with `Shift` have an alternative name, tmux prefers this instead if
-it exists. So there is no `S-a` - it is just in uppercase: `A`. Similarly,
-`S-Tab` is `BTab`. The `S-` prefix is used for some function keys which have
-only one form, for example `S-Left` and `S-Right`.
+Many keys with `Shift` have an alternative name, tmux uses this if it exists.
+So there is no `S-a` - it is just in uppercase: `A`. Similarly, `S-Tab` is
+`BTab`. The `S-` prefix is used for some function keys which have only one
+form, for example `S-Left` and `S-Right`.
 
 ### Limitations of `Ctrl` keys
 
@@ -71,8 +71,8 @@ keys like `C-!` at all.
 Most ASCII keys have a `Shift` form marked on the keyboard which is sent when
 the key is pressed with `Shift`. For example on a UK QWERTY keyboard, pressing
 `S-1` will send `!`. tmux doesn't know the keyboard layout, so it treats `!` as
-`!` not `S-!`. So there is rarely a way, or a need, to express the key `S-1` -
-`!` is used instead.
+`!` not `S-1`. There is not a way, and rarely a need, to express the key `S-1`
+- `!` is used instead.
 
 `Shift` modifiers and the `S-` prefix is mostly reserved for function keys such
 as `S-F1` or `S-Left`.
@@ -91,8 +91,8 @@ key or part of a longer sequence. It does this using a timer:
 
 - When the `^[` byte is seen, tmux starts the timer;
 
-- If more data comes in before the timer expires, tmux can work out whether the
-  `^[` is part of a longer sequence;
+- If more data comes in before the timer runs out, tmux can work out whether
+  the `^[` is part of a longer sequence;
 
 - Or if the timer expires, the key is `Escape`.
 
@@ -122,12 +122,12 @@ key. In addition, tmux has builtin support for a few common sequences.
 
 ### Modifiers and function keys
 
-Support for modifiers and function keys, such as `C-F1` or `C-S-Left` is not as
-common and these are often the keys that cause most trouble.
+Support for modifiers and function keys, such as `C-F1` or `C-S-Left`, is not
+always present and these are often the keys that cause most trouble.
 
 *xterm(1)* offers a descriptive sequence for these keys which many other
-terminals also use, this includes a number in the key sequence for the modifer,
-so `C-Left` is `^[[1;5D` where 5 means `Ctrl` and:
+terminals also use, this includes a number in the key sequence for the
+modifier, so `C-Left` is `^[[1;5D` where 5 means `Ctrl` and:
 
 - 2 is `Shift`;
 - 3 is `Meta`;
@@ -159,7 +159,7 @@ In order for a key to work, two things must be true:
    the key.
 
 The sequence the terminal sends to tmux and the sequence tmux sends to the
-application inside do not have to be the same - it is tmux's job to translate.
+application inside don't have to be the same - it is tmux's job to translate.
 But if either tmux and the terminal or tmux and the application do not agree,
 the key will not be recognized.
 
@@ -186,79 +186,79 @@ These are the best steps to follow to work out a problem with a key.
 
 #### Check what is being sent to tmux
 
-Check what is being sent to tmux. Run *cat(1)* outside tmux and press the key,
-for example for `C-Left`:
+- Check what is being sent to tmux. Run *cat(1)* outside tmux and press the
+  key, for example for `C-Left`:
 
-~~~~
-$ cat
-^[[1;5D
-~~~~
+  ~~~~
+  $ cat
+  ^[[1;5D
+  ~~~~
 
-If this shows nothing, make sure the terminal or window manager is not using
-the key for its own purposes (for example, some terminals use `M-1` and `M-2`
-to switch tab).
+- If this shows nothing, make sure the terminal or window manager is not using
+  the key for its own purposes (for example, some terminals use `M-1` and `M-2`
+  to switch tab).
 
-It does show something, make sure the output is different from other modifiers
-with the same key - is `C-Left` different from `S-Left` and `Left`? If not, the
-terminal does not support this combination of modifier and key and tmux will
-not be able to recognize it.
+- It does show something, make sure the output is different from other
+  modifiers with the same key - is `C-Left` different from `S-Left` and `Left`?
+  If not, the terminal does not support this combination of modifier and key
+  and tmux will not be able to recognize it.
 
 #### Try a tmux key binding
 
-Run tmux and create a binding for the key, for example:
+- Run tmux and create a binding for the key, for example:
 
-~~~~
-$ tmux bind -n C-Left list-keys
-~~~~
+  ~~~~
+  $ tmux bind -n C-Left list-keys
+  ~~~~
 
-Then press the key (`C-Left` in this case) and see if tmux shows the key list.
+- Then press the key (`C-Left` in this case) and see if tmux shows the key
+  list.
 
-If this doesn't work, then tmux doesn't understand the key sequence. Make sure
-that `TERM` is correct for the terminal tmux is running in:
+- If this doesn't work, then tmux doesn't understand the key sequence. Make
+  sure that `TERM` is correct for the terminal tmux is running in:
 
-~~~~
-$ echo $TERM
-~~~~
+  ~~~~
+  $ echo $TERM
+  ~~~~
 
-What this should show will depend on the terminal and should be in the terminal
-documentation.
+  What this should show will depend on the terminal and should be in the
+  terminal documentation.
 
-If `TERM` is correct and tmux does not recognize the key, it could be that the
-terminal is sending something unexpected, or it could be that *terminfo(5)* is
-missing the key. The best thing to do is to open an issue
-[here](https://github.com/tmux/tmux/issues) - make sure to mention both what
-*cat(1)* shows for the key outside tmux and what is in `TERM` outside tmux.
+- If `TERM` is correct and tmux does not recognize the key, it could be that
+  the terminal is sending something unexpected, or it could be that
+  *terminfo(5)* is missing the key. The best thing to do is to open an issue
+  [here](https://github.com/tmux/tmux/issues) - make sure to mention both what
+  *cat(1)* shows for the key outside tmux and what is in `TERM` outside tmux.
 
 #### Check what tmux is sending to the application
 
-If tmux is recognizing a key for its own key bindings but the application
-inside is not, then check inside tmux using *cat(1)*. For example, tmux sends
-(like *xterm(1)*) send `^[[1;5D` for `C-Left`:
+- If tmux is recognizing a key for its own key bindings but the application
+  inside is not, then check inside tmux using *cat(1)*. For example, tmux sends
+  (like *xterm(1)*) send `^[[1;5D` for `C-Left`:
 
-~~~~
-$ cat
-^[[1;5D
-~~~~
+  ~~~~
+  $ cat
+  ^[[1;5D
+  ~~~~
 
-If tmux shows nothing, make sure there are no bindings in the root table for
-that key:
+- If tmux shows nothing, make sure there are no bindings in the root table for
+  that key:
 
-~~~~
-$ tmux lsk -Troot
-...
-~~~~
+  ~~~~
+  $ tmux lsk -Troot|grep 'C-Left'
+  ~~~~
 
-With tmux version 2.3 or older, if tmux shows `^[[D` or `^[OD` instead, turn
-the `xterm-keys` option on (don't forget to restart tmux entirely with `tmux
-kill-server` after changing `.tmux.conf`):
+- With tmux version 2.3 or older, if tmux shows `^[[D` or `^[OD` instead, turn
+  the `xterm-keys` option on (don't forget to restart tmux entirely with `tmux
+  kill-server` after changing `.tmux.conf`):
 
-~~~~
-set -g xterm-keys on
-~~~~
+  ~~~~
+  set -g xterm-keys on
+  ~~~~
 
-Here is a list of what tmux will send for particular keys if it is working
-correctly. Keys used with a modifier are listed with `_` instead of one of the
-numbers listed above (where 2 is `Shift`, 5 `Ctrl` and so on).
+- Below is a list of what tmux will send for particular keys if it is working
+  correctly. Keys used with a modifier are listed with `_` instead of one of
+  the numbers listed above (where 2 is `Shift`, 5 `Ctrl` and so on).
 
 Key|Sequence
 ---|---
@@ -294,25 +294,25 @@ Modifier + `NPage`|`^[[6;_~`
 Modifier + `Insert`|`^[[2;_~`
 Modifier + `Delete`|`^[[3;_~`
 
-If tmux shows anything else, then open an issue
-[here](https://github.com/tmux/tmux/issues).
+   If tmux shows anything else, then open an issue
+   [here](https://github.com/tmux/tmux/issues).
 
 #### Check the application itself
 
-If *cat(1)* inside tmux is showing what is expected, the problem must be the
+- If *cat(1)* inside tmux is showing what is expected, the problem must be the
 application itself.
 
-If `TERM` is set to `screen` or `screen-256color` inside tmux, try using `tmux`
-or `tmux-256color` instead. Do this by changing the `default-terminal` option
-(don't forget to restart tmux entirely with `tmux kill-server` after changing
-`.tmux.conf`)
+- If `TERM` is set to `screen` or `screen-256color` inside tmux, try using `tmux`
+  or `tmux-256color` instead. Do this by changing the `default-terminal` option
+  (don't forget to restart tmux entirely with `tmux kill-server` after changing
+  `.tmux.conf`)
 
-~~~~
-set -g default-terminal 'tmux-256color'
-~~~~
+  ~~~~
+  set -g default-terminal 'tmux-256color'
+  ~~~~
 
-If this doesn't help, the application may need extra configuration to recognize
-the keys. This may be covered by the application documentation.
+- If this doesn't help, the application may need extra configuration to
+  recognize the keys. This may be covered by the application documentation.
 
 ### The number keypad
 
