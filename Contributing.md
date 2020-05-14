@@ -54,6 +54,10 @@ items, to avoid any duplication of effort.
 
 ### Medium things
 
+- Extend the active-pane flag to windows so a client can have an independent
+  current window. This can be similar to how it works for panes but is probably
+  more complicated. The idea would be to get rid of session groups.
+
 - Customize mode: 1) way to export option or tagged options to a file 2) `e`
   key like in buffer mode to edit option file in an editor popup 3) way to add
   new user options 4) way to add new key bindings 5) a key to restore an
@@ -161,8 +165,6 @@ items, to avoid any duplication of effort.
   pane?
 
 - Link panes into multiple windows.
-
-- Separate active panes for different clients.
 
 - ([#44](https://github.com/tmux/tmux/issues/44)) &
   ([#1613](https://github.com/tmux/tmux/issues/1613)) Support for SIXEL.
