@@ -182,6 +182,7 @@ For this to work, three things must be in place:
    ~~~~
 
 3) iTerm2 requires this option to be set in the profile:
+
    <img src="images/iterm2_csi_u.png" align="center" width=292 height=132>
 
 Once this feature is enabled, tmux will both recognise extended keys for its
