@@ -218,145 +218,69 @@ $ cat
 ^[[1;5D
 ~~~~
 
-What exactly is shown is usually not that important - the important things are:
-
-- It must be unique - `C-Left` and `Left` must generate something different.
-
-- It must be agreed by the application receiving it, so what is shown for
-  `C-Left` by *cat(1)* outside tmux must match what tmux expects for `C-Left`.
-
 ### Troubleshooting steps
 
-These are the best steps to follow to work out a problem with a key.
+If a key is not working, the first thing to do is work out if tmux itself is
+recognizing the key. The easiest way to do this is to try to bind it, for
+example by running tmux then:
 
-#### Check what is being sent to tmux
+~~~~
+$ tmux bind -n TheKey lsk
+~~~~
 
-- Check what is being sent to tmux. Run *cat(1)* outside tmux and press the
-  key, for example for `C-Left`:
+Then if pressing the key shows the `list-keys` output, tmux is recognizing the
+key. Steps if it does not recognize it are in the next section; and if it does
+are in the following.
 
-  ~~~~
-  $ cat
-  ^[[1;5D
-  ~~~~
+#### tmux is not recognizing the key
 
-- If this shows nothing, make sure the terminal or window manager is not using
-  the key for its own purposes (for example, some terminals use `M-1` and `M-2`
-  to switch tab).
+If a tmux key binding doesn't work then:
 
-- It does show something, make sure the output is different from other
-  modifiers with the same key - is `C-Left` different from `S-Left` and `Left`?
-  If not, the terminal does not support this combination of modifier and key
-  and tmux will not be able to recognize it.
+1) Check something is being sent for the key outside tmux. If nothing appears
+   in *cat(1)* when the key is pressed, the terminal is not sending the key.
+   Perhaps the terminal is using it itself or a window manager is using it
+   instead.
 
-#### Try a tmux key binding
+2) For keys with modifiers, make sure the sequence sent for a key outside tmux
+   is different with and without the modifier. If `C-TheKey` and `TheKey` show
+   the same thing with *cat(1)*, tmux can't tell the difference - either the
+   terminal doesn't support the key, or needs additional configuration.
 
-- Run tmux and create a binding for the key, for example:
+3) Make sure `TERM` is correct. tmux gets some information on keys from `TERM`.
+   Check the terminal documentation to see what `TERM` should be set to outside
+   tmux.
 
-  ~~~~
-  $ tmux bind -n C-Left list-keys
-  ~~~~
+4) If none of these work, open an issue
+[here](https://github.com/tmux/tmux/issues)
 
-- Then press the key (`C-Left` in this case) and see if tmux shows the key
-  list.
+#### tmux is recognizing the key
 
-- If this doesn't work, then tmux doesn't understand the key sequence. Make
-  sure that `TERM` is correct for the terminal tmux is running in:
+If a tmux key binding works, but applications inside tmux are not recognizing
+the key:
 
-  ~~~~
-  $ echo $TERM
-  ~~~~
+1) Check something is shown for the key inside tmux with *cat(1)*. If nothing
+   is shown, make sure there are no bindings for the key in the root table.
 
-  What this should show will depend on the terminal and should be in the
-  terminal documentation.
+2) If *cat(1)* shows some output, make sure `TERM` is correct inside tmux. If
+   it is `screen` or `screen-256color`, try changing to `tmux` or
+   `tmux-256color` if available. Check if they are available with *infocmp(1)*:
 
-- If `TERM` is correct and tmux does not recognize the key, it could be that
-  the terminal is sending something unexpected, or it could be that
-  *terminfo(5)* is missing the key. The best thing to do is to open an issue
-  [here](https://github.com/tmux/tmux/issues) - make sure to mention both what
-  *cat(1)* shows for the key outside tmux and what is in `TERM` outside tmux.
+   ~~~~
+   $ infocmp tmux-256color
+   #       Reconstructed via infocmp from file: /usr/share/terminfo/t/tmux-256color
+   tmux-256color|tmux with 256 colors,
+   ...
+   ~~~~
 
-#### Check what tmux is sending to the application
+   And if so, set `default-terminal` in `.tmux.conf`:
 
-- If tmux is recognizing a key for its own key bindings but the application
-  inside is not, then check inside tmux using *cat(1)*. For example, tmux (like
-  *xterm(1)*) sends `^[[1;5D` for `C-Left`:
+   ~~~~
+   set -g default-terminal tmux-256color
+   ~~~~
 
-  ~~~~
-  $ cat
-  ^[[1;5D
-  ~~~~
-
-- If tmux shows nothing, make sure there are no bindings in the root table for
-  that key:
-
-  ~~~~
-  $ tmux lsk -Troot|grep 'C-Left'
-  ~~~~
-
-- With tmux version 2.3 or older, if tmux shows `^[[D` or `^[OD` instead, turn
-  the `xterm-keys` option on (don't forget to restart tmux entirely with `tmux
-  kill-server` after changing `.tmux.conf`):
-
-  ~~~~
-  set -g xterm-keys on
-  ~~~~
-
-- Below is a list of what tmux will send for particular keys if it is working
-  correctly. Keys used with a modifier are listed with `_` instead of one of
-  the numbers listed above (where 2 is `Shift`, 5 `Ctrl` and so on). If the
-  output from *cat(1)* inside tmux does not match this table, open an issue
-  [here](https://github.com/tmux/tmux/issues).
-
-  Key|Sequence
-  ---|---
-  `F1`|`^[OP`
-  `F2`|`^[OQ`
-  `F3`|`^[OR`
-  `F4`|`^[OS`
-  `F5` to `F12`|`^[[15~` to `^[[24~`
-  `Up`|`^[[A` or `^[OA`
-  `Down`|`^[[B` or `^[OB`
-  `Right`|`^[[C` or `^[OC`
-  `Left`|`^[[D` or `^[OD`
-  `Home`|`^[[1~`
-  `End`|`^[[4~`
-  `Insert`|`^[[2~`
-  `Delete`|`^[[3~`
-  `NPage` (`PageDown`)|`^[[6~`
-  `PPage` (`PageUp`)|`^[[5~`
-  `BTab`|`^[[Z`
-  Modifier + `F1`|`^[[1;_P`
-  Modifier + `F2`|`^[[1;_Q`
-  Modifier + `F3`|`^[[1;_R`
-  Modifier + `F4`|`^[[1;_S`
-  Modifier + `F5` to `F12`|`^[[15;_~` to `^[[24;_~`
-  Modifier + `Up`|`^[[1;_A`
-  Modifier + `Down`|`^[[1;_B`
-  Modifier + `Right`|`^[[1;_C`
-  Modifier + `Left`|`^[[1;_D`
-  Modifier + `Home`|`^[[1;_H`
-  Modifier + `End`|`^[[1;_F`
-  Modifier + `PPage`|`^[[5;_~`
-  Modifier + `NPage`|`^[[6;_~`
-  Modifier + `Insert`|`^[[2;_~`
-  Modifier + `Delete`|`^[[3;_~`
-
-#### Check the application itself
-
-- If *cat(1)* inside tmux is showing what is expected, the problem must be the
-application itself.
-
-- If `TERM` is set to `screen` or `screen-256color` inside tmux, try using `tmux`
-  or `tmux-256color` instead. Do this by changing the `default-terminal` option
-  (don't forget to restart tmux entirely with `tmux kill-server` after changing
-  `.tmux.conf`)
-
-  ~~~~
-  set -g default-terminal 'tmux-256color'
-  ~~~~
-
-- If this doesn't help, the application may need extra configuration to
-  recognize the keys. This may be covered by the application documentation.
+3) If `TERM` is correct and *cat(1)* is showing output when the key is pressed,
+   the problem is probably with the application. Check if its documentation has
+   any information on how to configure key bindings.
 
 ### The number keypad
 
