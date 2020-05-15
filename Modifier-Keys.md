@@ -5,16 +5,6 @@ keyboards) and `Shift`, but which keys support which modifiers and how they are
 represented to tmux varies between terminals. This document gives an overview
 of how these keys work and some help on how to troubleshoot them.
 
-It is important to note:
-
-- The keys available to terminal applications like tmux are not necessarily the
-  same as those available to the terminal itself, for example *X(7)* programs
-  have a much larger range of keys available than can be passed to terminal
-  applications.
-
-- Terminal key sequences are not related to *X(7)* key sequences (used by
-  *xmodmap(1)* or *xev(1)*) or those used by the Linux console.
-
 ### What terminal keys look like
 
 Keys are sent to tmux by terminals in three forms:
@@ -28,7 +18,17 @@ Keys are sent to tmux by terminals in three forms:
   sometimes written `^[`, `\033`, `\e` or `\E`). So `M-a` is `^[a`.
 
 - Function keys are sent as a special sequence prefixed by ASCII `ESC`. The
-  exact sequences for different keys can vary between terminals.
+  exact sequences for different keys varies.
+
+It is important to note:
+
+- The keys available to terminal applications like tmux are not necessarily the
+  same as those available to the terminal itself, for example *X(7)* programs
+  have a much larger range of keys available than can be passed to terminal
+  applications.
+
+- Terminal key sequences are not related to *X(7)* key symbols (used by
+  *xmodmap(1)* or *xev(1)*) or those used by the Linux console.
 
 ### How tmux describes keys with modifiers
 
@@ -49,8 +49,8 @@ form, for example `S-Left` and `S-Right`.
 
 ### Limitations of `Ctrl` keys
 
-There are only 32 ASCII control characters, so for ASCII keys there are only 32
-control keys:
+There are only 32 ASCII control characters, so in most terminals there are only
+32 control keys:
 
 - `C-@` is ASCII 0;
 
@@ -73,19 +73,21 @@ Some of these are used for multiple keys, including:
 - `C-^` is also `C-/`.
 
 This means that it is not possible to bind `C-@` and `C-Space` to different
-things in a terminal application like tmux, and it is not possible to bind some
-keys like `C-!` at all.
+things and on most terminals it is not possible to bind some keys like `C-!` or
+`C-1` at all.
+
+A few terminals have a feature that allows these keys to be used, see [this
+section](Modifier-Keys#extended-keys).
 
 ### Limitations of `Shift` keys
 
 Most ASCII keys have a `Shift` form marked on the keyboard which is sent when
 the key is pressed with `Shift`. For example on a UK QWERTY keyboard, pressing
 `S-1` will send `!`. tmux doesn't know the keyboard layout, so it treats `!` as
-`!` not `S-1`. There is not a way, and rarely a need, to express the key `S-1`
-- `!` is used instead.
+`!` not `S-1`. There is no to express the key `S-1` - `!` is used instead.
 
-`Shift` modifiers and the `S-` prefix is mostly reserved for function keys such
-as `S-F1` or `S-Left`.
+`Shift` modifiers and the `S-` prefix are mostly reserved for function keys
+such as `S-F1` or `S-Left`.
 
 ### Limitations of UTF-8 keys
 
@@ -150,12 +152,46 @@ These forms are only used for function keys supported by modern terminals -
 keys which were offered on traditional hardware terminals typically still use
 their original sequences.
 
-All tmux versions recognize this *xterm(1)* form of key, and tmux has sent it
-to application running inside by default since tmux 2.4. In older versions, the
+All tmux versions recognize this form of key, and tmux has sent it to
+application running inside by default since tmux 2.4. In older versions, the
 `xterm-keys` option must be enabled:
 
 ~~~~
 set -g xterm-keys on
+~~~~
+
+### Extended keys
+
+A few terminals have support for extended key sequences, this allows tmux to
+recognise some keys that are not previously available, such as `C-1`.
+
+tmux has support for this beginning with tmux 3.2.
+
+For this to work, three things must be in place:
+
+1) The terminal must support it: *xterm(1)*,
+   [mintty](https://mintty.github.io/) and [iTerm2](https://www.iterm2.com/)
+   currently support this.
+
+2) tmux must recognise that the terminal supports it. tmux will automatically
+   detect newer versions of these three terminals, but the `terminal-features`
+   option can also be modified to enable it manually:
+
+   ~~~~
+   set -as terminal-features 'xterm*:extkeys'
+   ~~~~
+
+3) iTerm2 requires this option to be set:
+
+<img src="images/iterm2_csi_u.png" align="center" width=584 height=264>
+
+Once this feature is enabled, tmux will both recognise extended keys for its
+own key bindings and forward them to applications inside. For example, running
+*cat(1)* and pressing `C-1` will show:
+
+~~~~
+$ cat
+^[[49;5u
 ~~~~
 
 ### Why a key might not work
@@ -243,8 +279,8 @@ These are the best steps to follow to work out a problem with a key.
 #### Check what tmux is sending to the application
 
 - If tmux is recognizing a key for its own key bindings but the application
-  inside is not, then check inside tmux using *cat(1)*. For example, tmux sends
-  (like *xterm(1)*) send `^[[1;5D` for `C-Left`:
+  inside is not, then check inside tmux using *cat(1)*. For example, tmux (like
+  *xterm(1)*) sends `^[[1;5D` for `C-Left`:
 
   ~~~~
   $ cat
@@ -344,4 +380,3 @@ $ cat
 If this shows `^[Oq` then this mode is supported. If it shows something else,
 it is not supported or the terminal needs additional configuration to enable
 it.
-
