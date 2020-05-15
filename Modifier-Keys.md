@@ -181,9 +181,9 @@ For this to work, three things must be in place:
    set -as terminal-features 'xterm*:extkeys'
    ~~~~
 
-3) iTerm2 requires this option to be set:
+3) iTerm2 requires this option to be set in the profile:
 
-<img src="images/iterm2_csi_u.png" align="center" width=584 height=264>
+<img src="images/iterm2_csi_u.png" align="center" width=292 height=132>
 
 Once this feature is enabled, tmux will both recognise extended keys for its
 own key bindings and forward them to applications inside. For example, running
