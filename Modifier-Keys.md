@@ -171,7 +171,10 @@ For this to work, three things must be in place:
 
 1) The terminal must support it: *xterm(1)*,
    [mintty](https://mintty.github.io/) and [iTerm2](https://www.iterm2.com/)
-   currently support this.
+   currently support this. iTerm2 requires this option to be set in the
+   profile:
+
+   <img src="images/iterm2_csi_u.png" align="center" width=292 height=132>
 
 2) tmux must recognise that the terminal supports it. tmux will automatically
    detect newer versions of these three terminals, but the `terminal-features`
@@ -181,9 +184,11 @@ For this to work, three things must be in place:
    set -as terminal-features 'xterm*:extkeys'
    ~~~~
 
-3) iTerm2 requires this option to be set in the profile:
+3) tmux must be told to turn it on:
 
-   <img src="images/iterm2_csi_u.png" align="center" width=292 height=132>
+   ~~~~
+   set -s extended-keys on
+   ~~~~
 
 Once this feature is enabled, tmux will both recognise extended keys for its
 own key bindings and forward them to applications inside. For example, running
