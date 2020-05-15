@@ -176,18 +176,18 @@ For this to work, three things must be in place:
 
    <img src="images/iterm2_csi_u.png" align="center" width=292 height=132>
 
-2) tmux must recognise that the terminal supports it. tmux will automatically
-   detect newer versions of these three terminals, but the `terminal-features`
-   option can also be modified to enable it manually:
-
-   ~~~~
-   set -as terminal-features 'xterm*:extkeys'
-   ~~~~
-
-3) tmux must be told to turn it on:
+2) tmux must be told to turn it on:
 
    ~~~~
    set -s extended-keys on
+   ~~~~
+
+3) tmux must recognise that the terminal supports it. tmux will automatically
+   detect newer versions of these three terminals, but if it does not then the
+   `terminal-features` option can also be modified to enable it manually:
+
+   ~~~~
+   set -as terminal-features 'xterm*:extkeys'
    ~~~~
 
 Once this feature is enabled, tmux will both recognise extended keys for its
