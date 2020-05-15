@@ -129,7 +129,7 @@ $ tput -Txterm khom|cat -v; echo
 ^[OH
 ~~~~
 
-Because tmux can read `khom`, it can correctly recognize the sequences for this
+Because tmux can read `khom`, it can correctly recognise the sequences for this
 key. In addition, tmux has builtin support for a few common sequences.
 
 ### Modifiers and function keys
@@ -152,7 +152,7 @@ These forms are only used for function keys supported by modern terminals -
 keys which were offered on traditional hardware terminals typically still use
 their original sequences.
 
-All tmux versions recognize this form of key, and tmux has sent it to
+All tmux versions recognise this form of key, and tmux has sent it to
 application running inside by default since tmux 2.4. In older versions, the
 `xterm-keys` option must be enabled:
 
@@ -212,7 +212,7 @@ In order for a key to work, two things must be true:
 The sequence the terminal sends to tmux and the sequence tmux sends to the
 application inside don't have to be the same - it is tmux's job to translate.
 But if either tmux and the terminal or tmux and the application do not agree,
-the key will not be recognized.
+the key will not be recognised.
 
 ### Seeing what is sent for a key
 
@@ -235,7 +235,7 @@ $ tmux bind -n TheKey lsk
 ~~~~
 
 Then if pressing the key shows the `list-keys` output, tmux is recognizing the
-key. Steps if it does not recognize it are in the next section; and if it does
+key. Steps if it does not recognise it are in the next section; and if it does
 are in the following.
 
 #### tmux is not recognizing the key
@@ -296,7 +296,7 @@ tell that the keys are any different from the normal number keys or function
 keys.
 
 Some terminals additionally allow tmux to put the keypad into "application
-mode", which allows it to recognize the keys separately so they can be used as
+mode", which allows it to recognise the keys separately so they can be used as
 key bindings. To check if a terminal supports this, send the `smkx` capability
 with *tput(1)* then look at the `1` key on the keypad with *cat(1)*:
 
