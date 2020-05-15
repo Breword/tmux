@@ -267,7 +267,7 @@ the key:
    `tmux-256color` if available. Check if they are available with *infocmp(1)*:
 
    ~~~~
-   $ infocmp tmux-256color
+   $ infocmp -x tmux-256color
    #       Reconstructed via infocmp from file: /usr/share/terminfo/t/tmux-256color
    tmux-256color|tmux with 256 colors,
    ...
