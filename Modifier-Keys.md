@@ -191,10 +191,12 @@ For this to work, three things must be in place:
    ~~~~
 
 Once this feature is enabled, tmux will both recognise extended keys for its
-own key bindings and forward them to applications inside. For example, running
-*cat(1)* and pressing `C-1` will show:
+own key bindings and forward them to applications inside. For example, sending
+the escape sequnce to turn it on then running *cat(1)* and pressing `C-1` will
+show:
 
 ~~~~
+$ printf '\033[>4;1m'
 $ cat
 ^[[49;5u
 ~~~~
