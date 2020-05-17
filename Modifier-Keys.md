@@ -50,7 +50,7 @@ form, for example `S-Left` and `S-Right`.
 ### Limitations of `Ctrl` keys
 
 There are only 32 ASCII control characters, so in most terminals there are only
-32 control keys:
+32 `Ctrl` keys:
 
 - `C-@` is ASCII 0;
 
@@ -84,7 +84,7 @@ section](Modifier-Keys#extended-keys).
 Most ASCII keys have a `Shift` form marked on the keyboard which is sent when
 the key is pressed with `Shift`. For example on a UK QWERTY keyboard, pressing
 `S-1` will send `!`. tmux doesn't know the keyboard layout, so it treats `!` as
-`!` not `S-1`. There is no to express the key `S-1` - `!` is used instead.
+`!` not `S-1`. There is no way to express the key `S-1` - `!` is used instead.
 
 `Shift` modifiers and the `S-` prefix are mostly reserved for function keys
 such as `S-F1` or `S-Left`.
