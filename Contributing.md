@@ -58,10 +58,12 @@ items, to avoid any duplication of effort.
   current window. This can be similar to how it works for panes but is probably
   more complicated. The idea would be to get rid of session groups.
 
-- Customize mode: 1) way to export option or tagged options to a file 2) `e`
-  key like in buffer mode to edit option file in an editor popup 3) way to add
-  new user options 4) way to add new key bindings 5) a key to restore an
-  option, a key, or an entire key table to its default.
+- Customize mode:
+  1) way to export option or tagged options to a file
+  2) `e` key like in buffer mode to edit option value or key command in an editor popup
+  3) way to add new user options
+  4) way to add new key bindings
+  5) a key to restore an option, a key, or an entire key table to its default, including showing keys that have a default but are currently unbound
 
 - In copy mode - should the bottom be the last used line? It can be annoying to
   have to move the cursor through a load of empty space. It might be better to
