@@ -63,7 +63,9 @@ items, to avoid any duplication of effort.
   2) `e` key like in buffer mode to edit option value or key command in an editor popup
   3) way to add new user options
   4) way to add new key bindings
-  5) a key to restore an option, a key, or an entire key table to its default, including showing keys that have a default but are currently unbound
+  5) 'd' on a header should restore entire key table to default
+
+- unbind -d flag to restore key to default, with -a to restore all
 
 - In copy mode - should the bottom be the last used line? It can be annoying to
   have to move the cursor through a load of empty space. It might be better to
