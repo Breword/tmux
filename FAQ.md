@@ -205,6 +205,33 @@ The `U8` capability forces tmux to use ACS instead of UTF-8 line drawing:
 set -as terminal-overrides ",*:U8=0"
 ~~~~
 
+### I want to use the mouse to select panes but the terminal to copy! How?
+
+Terminals do not offer fine-grained mouse support - tmux can either turn on the
+mouse and receive all mouse events (clicks, scrolling, everything) or it can
+leave the mouse off and receive no events.
+
+So it is not possible to configure tmux such that it handles some mouse
+behaviours and the terminal others, it is all or nothing (`mouse` option `on`
+or `off`).
+
+However, when an application turns on the mouse, most terminals provide a way
+to bypass it. On many Linux terminals this is holding down the `Shift` key; for
+iTerm2 it is the `option` key.
+
+Note that tmux makes no attempt to keep the terminal scrollback consistent (it
+is impossible to do this with multiple windows or panes), so it is very likely
+to be incomplete.
+
+Disabling a mouse behaviour in tmux rather than having the terminal handle it
+is done by unbinding the appropriate key bindings, for example to stop tmux
+changing the current window when the status line is clicked on, unbind
+`MouseDown1Status` in the root table:
+
+~~~~
+unbind -Troot MouseDown1Status
+~~~~
+
 ### How do I translate `-fg`, `-bg` and `-attr` options into `-style` options?
 
 Before tmux 1.9, styles (the colours and attributes of various things) were
