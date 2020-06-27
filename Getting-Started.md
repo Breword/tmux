@@ -1130,6 +1130,34 @@ Formats are described [in this
 document](https://github.com/tmux/tmux/wiki/Formats) and [in the manual
 page](https://man.openbsd.org/tmux#FORMATS).
 
+#### Embedded commands
+
+Some options may contain embedded shell commands. This is limited to the status
+line options such as `status-left`. Embedded shell commands are enclosed in
+`#()`. They can either:
+
+1) Print a line and exit, in which case the line will be shown in the status
+   line and the command run at intervals to update it. For example:
+
+   ~~~~
+   set -g status-left '#(uptime)'
+   ~~~~
+
+   The maximum interval is set by the `status-interval` option but commands may
+   also be run sooner if tmux needs. Commands will not be run more than once a
+   second.
+
+2) Stay running and print a line whenever needed, for example:
+
+   ~~~~
+   set -g status-left '#(while :; do uptime; sleep 1; done)'
+   ~~~~
+
+Note that is it not usually necessary to use an embedded command for the date
+and time since tmux will expand the date formats like `%H` and `%S` itself in
+the status line options. If a command like *date(1)* is used, any `%`s must be
+doubled as `%%`.
+
 #### Colours and styles
 
 tmux allows the colour and attribute of text to be configured with a simple
