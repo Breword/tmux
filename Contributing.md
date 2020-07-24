@@ -52,7 +52,13 @@ items, to avoid any duplication of effort.
 - ([#2205](https://github.com/tmux/tmux/issues/2205))In copy mode, should add
   incremental search with regex (new commands).
 
+- When queueing notifications for control mode, there is no need to queue
+  session notifications for sessions other than the attached one. Similarly
+  for some window notifications.
+
 ### Medium things
+
+- A way to convert a popup into a pane (and vice versa?).
 
 - Extend the active-pane flag to windows so a client can have an independent
   current window. This can be similar to how it works for panes but is probably
