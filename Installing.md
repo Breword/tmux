@@ -161,3 +161,26 @@ there is nothing stupid in `CFLAGS` or `CPPFLAGS`.
 
 Instructions and scripts on building an AppImage package for tmux are available
 [from Nelson Enzo here](https://github.com/nelsonenzo/tmux-appimage).
+
+### Red Hat Enterprise Linux / CentOS RPMs
+
+The tmux packages are available from the main repositories are often quite out
+of date, especially for long-term support distributions. RPMs for newer tmux
+versions can be obtained [from here](http://galaxy4.net/repo/).
+
+For example to set up a repository and install on RHEL8:
+
+~~~~
+sudo wget -P /etc/yum.repos.d/ http://galaxy4.net/repo/galaxy4-rhel8.repo
+sudo yum install tmux
+~~~~
+
+Or to install an RPM directly on RHEL6:
+
+~~~~
+sudo rpm -ivh http://galaxy4.net/repo/RHEL/6/x86_64/tmux-3.1b-2.el6.x86_64.rpm
+~~~~
+
+The repository method is recommended to automatically receive future package
+updates. See [this page](https://anni.galaxy4.net/?page_id=39) for more
+details.
