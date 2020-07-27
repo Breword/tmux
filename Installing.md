@@ -6,8 +6,8 @@ Many platforms provide prebuilt packages of tmux; details of how to discover
 and install these can be found in the documentation for the platform package
 management tools.
 
-Some thirdparty binary packages are available: [AppImage](AppImage package) and
-RPMs (Red Hat Enterprise Linux / CentOS RPMs).
+Some thirdparty binary packages are available: [AppImage](Installing#appimage-package) and
+[RPMs](Installing#red-hat-enterprise-linux--centos-rpms).
 
 ### From source tarball
 
