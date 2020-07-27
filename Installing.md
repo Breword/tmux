@@ -1,5 +1,14 @@
 ## Installing tmux
 
+### Binary packages
+
+Many platforms provide prebuilt packages of tmux; details of how to discover
+and install these can be found in the documentation for the platform package
+management tools.
+
+Some thirdparty binary packages are available: [AppImage](AppImage package) and
+RPMs (Red Hat Enterprise Linux / CentOS RPMs).
+
 ### From source tarball
 
 tmux requires two libraries to be available:
@@ -164,8 +173,8 @@ Instructions and scripts on building an AppImage package for tmux are available
 
 ### Red Hat Enterprise Linux / CentOS RPMs
 
-The tmux packages are available from the main repositories are often quite out
-of date, especially for long-term support distributions. RPMs for newer tmux
+The tmux packages available from the main repositories are often quite out of
+date, especially for long-term support distributions. RPMs for newer tmux
 versions can be obtained [from here](http://galaxy4.net/repo/).
 
 For example to set up a repository and install on RHEL8:
