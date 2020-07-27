@@ -169,7 +169,9 @@ there is nothing stupid in `CFLAGS` or `CPPFLAGS`.
 ### AppImage package
 
 Instructions and scripts on building an AppImage package for tmux are available
-[from Nelson Enzo here](https://github.com/nelsonenzo/tmux-appimage).
+[from Nelson Enzo here](https://github.com/nelsonenzo/tmux-appimage). Prebuilt
+AppImage packages are also available
+[here](https://github.com/nelsonenzo/tmux-appimage/releases).
 
 ### Red Hat Enterprise Linux / CentOS RPMs
 
