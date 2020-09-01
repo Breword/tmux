@@ -200,15 +200,87 @@ mode clients to perform actions not needed by normal clients. These are:
   the value of the `window-size` option. If this is used, then they are treated
   as any other client with the given size and may set the window size.
 
-- `refresh-client -F` sets flags for the control mode client. Only one flag is
-  currently supported, `no-output` which stops any `%output` notifications
-  being sent to the client.
+- `refresh-client -f` (`-F` is also accepted for backwards compatibility) sets
+  flags for the control mode client. Some of the flags are general but several
+  are only for control mode clients:
+  - `no-output` does not send any `%output` notifications;
+  - `wait-exit` waits for an empty line after `%exit` before actually exiting;
+  - `pause-after` is used for flow control.
+
+- `refresh-client -A` is used for flow control and `-B` for format
+  subscriptions.
 
 In addition, `send-keys` has a `-H` flag allowing Unicode keys to be entered in a
 hexadecimal form.
 
-A few commands like `suspend-client` have no effect when used with
-a control mode client.
+A few commands like `suspend-client` have no effect when used with a control
+mode client.
+
+### Flow control
+
+tmux provides a mechanism for flow control of control mode clients. Flow
+control works by allowing tmux to pause output from a pane to the client once
+it becomes too far behind. Once a pane is paused, the client can ask tmux to
+continue sending output once it is ready. It is up to the client to update the
+content of the pane if necessary, for example using `capture-pane`.
+
+Flow control is enabled by setting the `pause-after` flag using `refresh-client
+-f`. This takes a single argument which is the length of time in seconds before
+a pane should be paused:
+
+~~~~
+refresh-client -f pause-after=30
+~~~~
+
+When a pane is paused, the `%pause` notification will be sent with the pane ID.
+The pane can be continued with `refresh-client -A`:
+
+~~~~
+refresh-client -A '%0:continue'
+~~~~
+
+When flow control is enabled, the `%output` notification will not be sent;
+instead the `%extended-output` notification is used. This has additional
+arguments terminated by a single `:` argument. Currently there are two
+arguments: the pane ID and the number of milliseconds by which the pane is
+behind. For example:
+
+~~~~
+%extended-output %0 1234 : abcdef
+~~~~
+
+`refresh-client -A` can also be used to manually pause a pane (`-A '%0:pause'`)
+or to turn it on or off. Turning a pane off tells tmux that the client does not
+require output from the pane to be sent and allows tmux to choose to stop
+reading from the pane if possible.
+
+### Format subscriptions
+
+Control mode clients may subscribe to a format and be informed every time its
+expanded value changes. A subscription is added or removed with the
+`refresh-client -B` command. This takes a single argument which has three
+pieces separated by colons:
+
+1) A subscription name.
+
+2) The type of item to subscribe to, one of:
+
+   Type|Description
+   ----|---
+   Empty|The attached session.
+   `%n`|A single pane ID.
+   `%*`|All panes in the attached session.
+   `@n`|A single window ID.
+   `@*`|All windows in the attached session.
+
+3) The format.
+
+If the type and format are omitted and only the subscription name is given, the
+subscription is removed.
+
+tmux expands the format once for each matching item for the given type and if
+the resulting value has changed sends a `%subscription-changed` notification.
+This happens at most once a second.
 
 ### General notes
 
