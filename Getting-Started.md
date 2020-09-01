@@ -8,8 +8,8 @@ managed by tmux, which can be accessed from the single terminal where tmux is
 running - this called multiplexing and tmux is a terminal multiplexer.
 
 tmux - and any programs running inside it - may be detached from the terminal
-where it is running (the outside terminal) and and later reattached to the same
-or another terminal.
+where it is running (the outside terminal) and later reattached to the same or
+another terminal.
 
 Programs run inside tmux may be full screen interactive programs like *vi(1)*
 or *top(1)*, shells like *bash(1)* or *ksh(1)*, or any other program that can
