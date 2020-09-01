@@ -239,11 +239,13 @@ The pane can be continued with `refresh-client -A`:
 refresh-client -A '%0:continue'
 ~~~~
 
-When flow control is enabled, the `%output` notification will not be sent;
-instead the `%extended-output` notification is used. This has additional
-arguments terminated by a single `:` argument. Currently there are two
-arguments: the pane ID and the number of milliseconds by which the pane is
-behind. For example:
+Once continued, the `%continue` notification is sent.
+
+When flow control is enabled, the `%output` notification is not sent; instead
+the `%extended-output` notification is used. This has additional arguments
+terminated by a single `:` argument. Currently there are two arguments: the
+pane ID and the number of milliseconds by which the pane is behind. For
+example:
 
 ~~~~
 %extended-output %0 1234 : abcdef
