@@ -59,12 +59,12 @@ Requires tmux 3.2 or later.
 
 ~~~~
 bind -n C-DoubleClick1Pane if -F '#{m/r:^[^:]*:[0-9]+:,#{mouse_word}}' {
-        popup -w90% -h90% -KE -d '#{pane_current_path}' -R {
-                emacs `echo #{mouse_word}|awk -F: '{print "+" $2,$1}'`
-        }
+	popup -w90% -h90% -KE -d '#{pane_current_path}' -R '
+		emacs `echo #{mouse_word}|awk -F: "{print \"+\"\\$2,\\$1}"`
+	'
 } {
-	popup -w90% -h90% -KE -d '#{pane_current_path}' -R {
+	popup -w90% -h90% -KE -d '#{pane_current_path}' -R '
 		emacs "#{mouse_word}"
-	}
+	'
 }
 ~~~~
