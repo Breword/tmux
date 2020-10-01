@@ -2,9 +2,17 @@
 
 ### Binary packages
 
-Many platforms provide prebuilt packages of tmux; details of how to discover
-and install these can be found in the documentation for the platform package
-management tools.
+Many platforms provide prebuilt packages of tmux, although these are often out
+of date. Details of the commands to discover and install these can be found in
+the documentation for the platform package management tools, for example:
+
+Platform|Install Command
+---|---
+Fedora|`dnf install tmux`
+RHEL or CentOS|`yum install tmux`
+Debian or Ubuntu|`apt install tmux`
+Arch Linux|`pacman -S tmux`
+openSUSE|`zypper install tmux`
 
 Some thirdparty binary packages are available: [AppImage](Installing#appimage-package) and
 [RPMs](Installing#red-hat-enterprise-linux--centos-rpms).
