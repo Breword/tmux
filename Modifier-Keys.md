@@ -163,7 +163,11 @@ set -g xterm-keys on
 ### Extended keys
 
 A few terminals have support for extended key sequences, this allows tmux to
-recognise some keys that are not previously available, such as `C-1`.
+recognise some keys that are not previously available, such as `C-1` and the
+other control keys mentioned in [this
+section](Modifier-Keys#limitations-of-ctrl-keys)). See [this
+document](http://www.leonerd.org.uk/hacks/fixterms/) for a technical
+description of the key encoding.
 
 tmux has support for this beginning with tmux 3.2.
 
