@@ -58,6 +58,17 @@ items, to avoid any duplication of effort.
 
 ### Medium things
 
+- Copy mode commands like select-word, end-of-line all stop at the screen edge
+  for wrapped lines rather than the end of the line. It would be better if they
+  all worked like emacs and used the real end of line all the time and ignored
+  the screen edge. This means at least end-of-line, start-of-line, next-word,
+  next-word-end, copy-end-of-line, previous-word, and probably more. This is
+  particularly annoying for select-word and select-line when using the mouse
+
+  It would be better if commands were self-contained and did not depend on
+  other commands and instead each worked on the grid, probably using a set of
+  helper functions. A larger cleanup of copy mode is really in order.
+
 - A way to convert a popup into a pane (and vice versa?).
 
 - Extend the active-pane flag to windows so a client can have an independent
