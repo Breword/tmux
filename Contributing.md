@@ -189,7 +189,7 @@ items, to avoid any duplication of effort.
   history-limit works - would it be better as a global limit rather than per
   pane?
 
-- Link panes into multiple windows.
+- ([#2449](https://github.com/tmux/tmux/issues/2449))Link panes into multiple windows.
 
 - ([#44](https://github.com/tmux/tmux/issues/44)) &
   ([#1613](https://github.com/tmux/tmux/issues/1613)) Support for SIXEL.
