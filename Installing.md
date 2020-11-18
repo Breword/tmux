@@ -190,7 +190,7 @@ versions can be obtained [from here](http://galaxy4.net/repo/).
 For example to set up a repository and install on RHEL8:
 
 ~~~~
-sudo wget -P /etc/yum.repos.d/ http://galaxy4.net/repo/galaxy4-rhel8.repo
+sudo yum install http://galaxy4.net/repo/galaxy4-release-8-current.noarch.rpm
 sudo yum install tmux
 ~~~~
 
