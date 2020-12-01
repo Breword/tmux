@@ -56,6 +56,10 @@ items, to avoid any duplication of effort.
   session notifications for sessions other than the attached one. Similarly
   for some window notifications.
 
+- ([#2484](https://github.com/tmux/tmux/issues/2484))Popups should not close on
+  resize unless there is really no space for them, they should instead be moved
+  or resized to stay visible.
+
 ### Medium things
 
 - ([#2414](https://github.com/tmux/tmux/issues/2414)) Copy mode commands like
